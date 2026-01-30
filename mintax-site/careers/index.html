@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers — MinTax Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <style>
+        .careers-intro {
+            padding: var(--space-4xl) 0;
+        }
+        .careers-intro-content {
+            max-width: 800px;
+        }
+        .careers-intro h2 {
+            margin-bottom: var(--space-lg);
+        }
+        .careers-intro p {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            margin-bottom: var(--space-lg);
+        }
+        .benefits-section {
+            padding: var(--space-4xl) 0;
+            background: var(--gray-50);
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
+            margin-top: var(--space-3xl);
+        }
+        .benefit-card {
+            background: var(--white);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+        }
+        .benefit-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-md);
+        }
+        .benefit-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-sm);
+        }
+        .benefit-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin: 0;
+        }
+        .openings-section {
+            padding: var(--space-4xl) 0;
+        }
+        .job-list {
+            margin-top: var(--space-3xl);
+        }
+        .job-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-xl);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-md);
+            transition: border-color 0.2s;
+        }
+        .job-item:hover {
+            border-color: var(--blue-primary);
+        }
+        .job-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        .job-meta {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+        .job-meta span {
+            margin-right: var(--space-lg);
+        }
+        .no-openings {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: var(--gray-50);
+            border-radius: var(--radius-lg);
+        }
+        .no-openings h3 {
+            margin-bottom: var(--space-sm);
+        }
+        .no-openings p {
+            color: var(--gray-600);
+            margin-bottom: var(--space-lg);
+        }
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .job-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark"></div>
+                <span class="logo-text">MinTax</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../services/">Services</a></li>
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../clients/">Clients</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <div class="lang-switch">
+                        <a href="#" class="active">EN</a>
+                        <span>|</span>
+                        <a href="../ru/careers/">RU</a>
+                    </div>
+                    <a href="../contact/" class="btn btn-primary">Get in Touch</a>
+                </div>
+
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                Careers
+            </nav>
+            <h1>Careers at MinTax</h1>
+            <p class="lead">Build your career with one of Kazakhstan's leading professional services firms. We're always looking for talented individuals to join our team.</p>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="careers-intro">
+        <div class="container">
+            <div class="careers-intro-content">
+                <h2>Why Join MinTax?</h2>
+                <p>At MinTax Group, you'll work alongside experienced professionals on challenging engagements for Kazakhstan's leading companies. We believe in investing in our people — through training, mentorship, and opportunities for growth.</p>
+                <p>Whether you're starting your career or looking for your next challenge, we offer a supportive environment where you can develop your expertise and make a real impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2 class="text-center">What We Offer</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📚</div>
+                    <h3>Professional Development</h3>
+                    <p>Support for ACCA, DipIFR, and other professional qualifications. Regular internal training and external seminars.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Meaningful Work</h3>
+                    <p>Work on complex engagements for major companies across diverse industries. Make a real difference for clients.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📈</div>
+                    <h3>Career Growth</h3>
+                    <p>Clear progression paths from junior to senior roles. Mentorship from experienced professionals.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">👥</div>
+                    <h3>Collaborative Culture</h3>
+                    <p>Supportive team environment. Learn from colleagues across audit, tax, and legal practices.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚖️</div>
+                    <h3>Work-Life Balance</h3>
+                    <p>We respect personal time outside of peak periods. Flexible arrangements where possible.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Competitive Package</h3>
+                    <p>Competitive salary, performance bonuses, health insurance, and other benefits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRENT OPENINGS -->
+    <section class="openings-section">
+        <div class="container">
+            <h2 class="text-center">Current Openings</h2>
+
+            <div class="job-list">
+                <!-- Placeholder for when there are openings -->
+                <div class="no-openings">
+                    <h3>No Current Vacancies</h3>
+                    <p>We don't have any open positions at the moment, but we're always interested in hearing from talented professionals.</p>
+                    <p>Send your CV to <a href="mailto:hr@mintax.kz" style="color: var(--terracotta);">hr@mintax.kz</a> and we'll keep you in mind for future opportunities.</p>
+                </div>
+
+                <!-- Example job listings (uncomment when there are openings)
+                <div class="job-item">
+                    <div class="job-info">
+                        <h3>Senior Auditor</h3>
+                        <div class="job-meta">
+                            <span>📍 Almaty</span>
+                            <span>Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Apply</a>
+                </div>
+                <div class="job-item">
+                    <div class="job-info">
+                        <h3>Tax Consultant</h3>
+                        <div class="job-meta">
+                            <span>📍 Almaty</span>
+                            <span>Full-time</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-outline">Apply</a>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Questions About Working Here?</h2>
+            <p>Get in touch with our HR team to learn more about opportunities at MinTax.</p>
+            <a href="../contact/" class="btn btn-white">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark"></div>
+                        <span class="logo-text">MinTax</span>
+                    </div>
+                    <p>Professional audit, tax, and legal services for businesses in Kazakhstan since 1999.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services/audit.html">Audit & Assurance</a></li>
+                        <li><a href="../services/tax.html">Tax Consulting</a></li>
+                        <li><a href="../services/legal.html">Legal Services</a></li>
+                        <li><a href="../services/ifrs.html">IFRS Reporting</a></li>
+                        <li><a href="../services/outsourcing.html">Outsourcing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../team/">Our Team</a></li>
+                        <li><a href="../clients/">Clients</a></li>
+                        <li><a href="../careers/">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>+7 727 311 14 08</li>
+                        <li>info@mintax.kz</li>
+                        <li>62B Karmysov St., Almaty</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2025 MinTax Group. All rights reserved.</div>
+                <div class="footer-certs">
+                    <span>ISO 9001:2015</span>
+                    <span>ISO 14001:2015</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+</body>
+</html>

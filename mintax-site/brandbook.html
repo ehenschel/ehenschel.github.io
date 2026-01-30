@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinTax Group — Brand Guidelines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Brand Colors */
+            --blue-primary: #2c4a6e;
+            --blue-light: #3d5d85;
+            --blue-soft: #5a7fa3;
+            --blue-pale: #e8eef4;
+            
+            --action: #c75d48;
+            --action-hover: #b54d3a;
+            --action-light: #f4e8e5;
+            
+            --gold: #c9a962;
+            --gold-light: #d4b97a;
+            --gold-pale: #f5f0e4;
+            
+            /* Neutrals */
+            --black: #1a1a1a;
+            --gray-800: #2d2d2d;
+            --gray-700: #3d3d3d;
+            --gray-600: #525252;
+            --gray-500: #6b6b6b;
+            --gray-400: #8a8a8a;
+            --gray-300: #b3b3b3;
+            --gray-200: #e0e0e0;
+            --gray-100: #f5f5f5;
+            --gray-50: #fafafa;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--gray-800);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        
+        /* Cover */
+        .cover {
+            min-height: 100vh;
+            background: var(--blue-primary);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        
+        .cover-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .cover-logo .mark {
+            width: 4px;
+            height: 64px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .cover-logo .name {
+            font-family: 'Fraunces', serif;
+            font-size: 4rem;
+            font-weight: 400;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cover p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+        
+        .cover-footer {
+            position: absolute;
+            bottom: 2rem;
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid var(--gray-200);
+            z-index: 100;
+            padding: 0 2rem;
+        }
+        
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            height: 56px;
+            overflow-x: auto;
+        }
+        
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-shrink: 0;
+        }
+        
+        .nav-logo .mark {
+            width: 2px;
+            height: 18px;
+            background: var(--gold);
+        }
+        
+        .nav-logo .name {
+            font-family: 'Fraunces', serif;
+            font-size: 1rem;
+            color: var(--blue-primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--blue-primary);
+        }
+        
+        /* Section */
+        .section {
+            padding: 5rem 2rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-number {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--action);
+            margin-bottom: 0.75rem;
+        }
+        
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+        
+        .section-intro {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            line-height: 1.7;
+        }
+        
+        /* Subsection */
+        .subsection {
+            margin-bottom: 4rem;
+        }
+        
+        .subsection:last-child {
+            margin-bottom: 0;
+        }
+        
+        .subsection-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+        
+        .subsection-text {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+        
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        /* Logo displays */
+        .logo-display {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 4rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-display.dark {
+            background: var(--blue-primary);
+        }
+        
+        .logo-display.cream {
+            background: #f8f6f3;
+        }
+        
+        .logo-primary {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        
+        .logo-primary .mark {
+            width: 3px;
+            height: 44px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .logo-primary .text {
+            font-family: 'Fraunces', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--blue-primary);
+        }
+        
+        .logo-primary.light .text {
+            color: white;
+        }
+        
+        .logo-primary .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-400);
+            margin-top: 0.2rem;
+        }
+        
+        .logo-primary.light .tagline {
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .logo-stack {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Logo variations */
+        .logo-card {
+            background: var(--gray-50);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .logo-card-display {
+            padding: 2.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+        
+        .logo-card-display.dark {
+            background: var(--blue-primary);
+        }
+        
+        .logo-card-info {
+            padding: 1rem;
+            background: white;
+            border-top: 1px solid var(--gray-200);
+        }
+        
+        .logo-card-title {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .logo-card-desc {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+        
+        /* Clear space diagram */
+        .clearspace-demo {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 4rem;
+            position: relative;
+        }
+        
+        .clearspace-box {
+            border: 2px dashed var(--action);
+            padding: 2rem;
+            display: inline-flex;
+            position: relative;
+        }
+        
+        .clearspace-label {
+            position: absolute;
+            font-size: 0.65rem;
+            color: var(--action);
+            font-weight: 500;
+        }
+        
+        .clearspace-label.top {
+            top: -1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .clearspace-label.left {
+            left: -2.5rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        
+        /* Color swatches */
+        .color-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        
+        .color-swatch {
+            height: 120px;
+        }
+        
+        .color-info {
+            padding: 1rem;
+        }
+        
+        .color-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .color-values {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            line-height: 1.8;
+        }
+        
+        .color-values code {
+            background: var(--gray-100);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.7rem;
+        }
+        
+        /* Typography samples */
+        .type-sample {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .type-sample:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .type-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: 0.75rem;
+        }
+        
+        .type-specs {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 0.75rem;
+        }
+        
+        .type-h1 {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1.2;
+        }
+        
+        .type-h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1.3;
+        }
+        
+        .type-h3 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1.4;
+        }
+        
+        .type-body {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+        
+        .type-small {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+        
+        .type-caption {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+        
+        /* UI Components */
+        .component-demo {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .component-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.75rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--action);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--action-hover);
+        }
+        
+        .btn-secondary {
+            background: var(--blue-primary);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--blue-light);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--blue-primary);
+            color: var(--blue-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--blue-primary);
+            color: white;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            color: var(--action);
+            padding: 0.5rem 0;
+        }
+        
+        .btn-ghost:hover {
+            text-decoration: underline;
+        }
+        
+        .button-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        /* Links */
+        .link-demo a {
+            color: var(--action);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        
+        .link-demo a:hover {
+            border-bottom-color: var(--action);
+        }
+        
+        /* Service list component */
+        .service-list-demo {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid var(--gray-100);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .service-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-item:hover {
+            background: var(--gray-50);
+        }
+        
+        .service-item:hover h4 {
+            color: var(--action);
+        }
+        
+        .service-item:hover .arrow {
+            transform: translateX(4px);
+        }
+        
+        .service-item h4 {
+            font-family: 'Fraunces', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--black);
+            transition: color 0.2s;
+        }
+        
+        .service-item .arrow {
+            color: var(--action);
+            font-size: 1.25rem;
+            transition: transform 0.2s;
+        }
+        
+        /* Stationery mockups */
+        .stationery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .mockup-container {
+            background: var(--gray-100);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        
+        .mockup-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+        
+        /* Business card */
+        .business-card {
+            aspect-ratio: 1.75/1;
+            border-radius: 6px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .business-card.dark {
+            background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-light) 100%);
+            color: white;
+        }
+        
+        .business-card.light {
+            background: white;
+            color: var(--gray-800);
+        }
+        
+        .card-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .card-logo .mark {
+            width: 2px;
+            height: 20px;
+            background: var(--gold);
+        }
+        
+        .card-logo .name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.1rem;
+        }
+        
+        .card-details {
+            font-size: 0.7rem;
+            line-height: 1.7;
+        }
+        
+        .card-details .person {
+            font-weight: 500;
+            font-size: 0.8rem;
+            margin-bottom: 0.15rem;
+        }
+        
+        .card-details .title {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+        
+        .business-card.light .card-details .title {
+            color: var(--blue-soft);
+        }
+        
+        .card-details .contact {
+            opacity: 0.7;
+        }
+        
+        /* Letterhead */
+        .letterhead {
+            background: white;
+            border-radius: 6px;
+            padding: 1.5rem;
+            aspect-ratio: 0.75/1;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .letterhead-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+        
+        .letterhead-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        
+        .letterhead-logo .mark {
+            width: 2px;
+            height: 16px;
+            background: var(--gold);
+        }
+        
+        .letterhead-logo .name {
+            font-family: 'Fraunces', serif;
+            font-size: 0.9rem;
+            color: var(--blue-primary);
+        }
+        
+        .letterhead-contact {
+            font-size: 0.5rem;
+            text-align: right;
+            color: var(--gray-400);
+            line-height: 1.8;
+        }
+        
+        .letterhead-body {
+            flex: 1;
+        }
+        
+        .placeholder-line {
+            height: 6px;
+            background: var(--gray-100);
+            border-radius: 3px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .placeholder-line:nth-child(odd) { width: 100%; }
+        .placeholder-line:nth-child(even) { width: 85%; }
+        .placeholder-line:last-child { width: 40%; }
+        
+        .letterhead-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-100);
+            margin-top: auto;
+        }
+        
+        .letterhead-footer .offices {
+            font-size: 0.5rem;
+            color: var(--gray-400);
+            letter-spacing: 0.03em;
+        }
+        
+        .letterhead-footer .accent {
+            width: 32px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        /* Do/Don't examples */
+        .do-dont-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .do-dont-card {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .do-dont-display {
+            background: var(--gray-50);
+            padding: 2.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+        
+        .do-dont-label {
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .do-label {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .dont-label {
+            background: #ffebee;
+            color: #c62828;
+        }
+        
+        /* Tables */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        
+        .spec-table th,
+        .spec-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .spec-table th {
+            font-weight: 600;
+            color: var(--gray-500);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .spec-table td {
+            color: var(--gray-700);
+        }
+        
+        .spec-table code {
+            background: var(--gray-100);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 0.8rem;
+        }
+        
+        /* Photography section */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        
+        .photo-placeholder {
+            aspect-ratio: 4/3;
+            background: var(--gray-200);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.8rem;
+        }
+        
+        /* Voice & Tone */
+        .voice-example {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .voice-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+        
+        .voice-label.do {
+            color: #2e7d32;
+        }
+        
+        .voice-label.dont {
+            color: #c62828;
+        }
+        
+        .voice-text {
+            font-style: italic;
+            color: var(--gray-600);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--blue-primary);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo .mark {
+            width: 2px;
+            height: 28px;
+            background: var(--gold);
+        }
+        
+        .footer-logo .name {
+            font-family: 'Fraunces', serif;
+            font-size: 1.5rem;
+        }
+        
+        .footer p {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+        
+        @media (max-width: 800px) {
+            .grid-2, .grid-3, .grid-4,
+            .stationery-grid, .do-dont-grid, .photo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cover-logo .name {
+                font-size: 2.5rem;
+            }
+            
+            .type-h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media print {
+            .nav {
+                display: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- COVER -->
+    <div class="cover">
+        <div class="cover-logo">
+            <div class="mark"></div>
+            <span class="name">MinTax</span>
+        </div>
+        <h1>Brand Guidelines</h1>
+        <p>Version 1.0 — January 2026</p>
+        <div class="cover-footer">MinTax Group — Almaty · Astana · Atyrau</div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">
+                <div class="mark"></div>
+                <span class="name">MinTax</span>
+            </div>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#logo">Logo</a>
+                <a href="#color">Color</a>
+                <a href="#typography">Typography</a>
+                <a href="#components">Components</a>
+                <a href="#stationery">Stationery</a>
+                <a href="#photography">Photography</a>
+                <a href="#voice">Voice & Tone</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 01. BRAND OVERVIEW -->
+    <section class="section" id="overview">
+        <div class="section-inner">
+            <div class="section-number">01</div>
+            <h2 class="section-title">Brand Overview</h2>
+            <p class="section-intro">MinTax Group has been a trusted partner for Kazakhstan's leading businesses since 1999. Our brand reflects our values: expertise built on trust, precision delivered with warmth, and a forward-looking approach rooted in deep experience.</p>
+            
+            <div class="grid-3">
+                <div class="subsection">
+                    <h3 class="subsection-title">Our Mission</h3>
+                    <p class="subsection-text">To provide professional services that help businesses navigate complexity with confidence — combining technical excellence with genuine partnership.</p>
+                </div>
+                <div class="subsection">
+                    <h3 class="subsection-title">Our Values</h3>
+                    <p class="subsection-text">Integrity in everything we do. Excellence without arrogance. Clarity in complexity. Partnership over transaction.</p>
+                </div>
+                <div class="subsection">
+                    <h3 class="subsection-title">Our Position</h3>
+                    <p class="subsection-text">The trusted alternative to global firms — offering international standards with local expertise and personal attention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. LOGO -->
+    <section class="section" id="logo">
+        <div class="section-inner">
+            <div class="section-number">02</div>
+            <h2 class="section-title">Logo System</h2>
+            <p class="section-intro">The MinTax logo combines a refined serif wordmark with a distinctive gold vertical accent. The mark represents our role as a supportive foundation — a single line that adds structure without overwhelming.</p>
+            
+            <!-- Primary Logo -->
+            <div class="subsection">
+                <h3 class="subsection-title">Primary Logo</h3>
+                <p class="subsection-text">The primary logo should be used whenever possible. It consists of the gold accent mark and the MinTax wordmark in Fraunces.</p>
+                
+                <div class="grid-2" style="margin-top: 1.5rem;">
+                    <div class="logo-display">
+                        <div class="logo-primary">
+                            <div class="mark"></div>
+                            <div class="logo-stack">
+                                <span class="text">MinTax</span>
+                                <span class="tagline">Group</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-display dark">
+                        <div class="logo-primary light">
+                            <div class="mark"></div>
+                            <div class="logo-stack">
+                                <span class="text">MinTax</span>
+                                <span class="tagline">Group</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logo Variations -->
+            <div class="subsection">
+                <h3 class="subsection-title">Logo Variations</h3>
+                <p class="subsection-text">Different contexts may require different logo treatments. Use the appropriate variation based on background and space constraints.</p>
+                
+                <div class="grid-4" style="margin-top: 1.5rem;">
+                    <div class="logo-card">
+                        <div class="logo-card-display">
+                            <div class="logo-primary" style="gap: 0.6rem;">
+                                <div class="mark" style="height: 32px; width: 2px;"></div>
+                                <span class="text" style="font-size: 1.5rem;">MinTax</span>
+                            </div>
+                        </div>
+                        <div class="logo-card-info">
+                            <div class="logo-card-title">Compact</div>
+                            <div class="logo-card-desc">For tight spaces, without tagline</div>
+                        </div>
+                    </div>
+                    <div class="logo-card">
+                        <div class="logo-card-display dark">
+                            <div class="logo-primary light" style="gap: 0.6rem;">
+                                <div class="mark" style="height: 32px; width: 2px;"></div>
+                                <span class="text" style="font-size: 1.5rem;">MinTax</span>
+                            </div>
+                        </div>
+                        <div class="logo-card-info">
+                            <div class="logo-card-title">Reversed</div>
+                            <div class="logo-card-desc">On dark backgrounds</div>
+                        </div>
+                    </div>
+                    <div class="logo-card">
+                        <div class="logo-card-display">
+                            <span style="font-family: 'Fraunces', serif; font-size: 1.5rem; color: var(--blue-primary);">MinTax</span>
+                        </div>
+                        <div class="logo-card-info">
+                            <div class="logo-card-title">Wordmark Only</div>
+                            <div class="logo-card-desc">When mark isn't feasible</div>
+                        </div>
+                    </div>
+                    <div class="logo-card">
+                        <div class="logo-card-display">
+                            <div style="width: 3px; height: 44px; background: var(--gold); border-radius: 2px;"></div>
+                        </div>
+                        <div class="logo-card-info">
+                            <div class="logo-card-title">Mark Only</div>
+                            <div class="logo-card-desc">Favicon, social avatar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clear Space -->
+            <div class="subsection">
+                <h3 class="subsection-title">Clear Space</h3>
+                <p class="subsection-text">Maintain clear space around the logo equal to the height of the "M" in MinTax. This ensures the logo has room to breathe.</p>
+                
+                <div class="clearspace-demo" style="margin-top: 1.5rem;">
+                    <div class="clearspace-box">
+                        <span class="clearspace-label top">1x</span>
+                        <span class="clearspace-label left">1x</span>
+                        <div class="logo-primary" style="gap: 0.6rem;">
+                            <div class="mark" style="height: 32px; width: 2px;"></div>
+                            <span class="text" style="font-size: 1.5rem;">MinTax</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--gray-500);">Where x = the cap height of "M" in the wordmark</p>
+                </div>
+            </div>
+            
+            <!-- Minimum Size -->
+            <div class="subsection">
+                <h3 class="subsection-title">Minimum Size</h3>
+                <p class="subsection-text">To ensure legibility, do not reproduce the logo smaller than 80px wide for digital or 25mm for print.</p>
+                
+                <table class="spec-table" style="margin-top: 1.5rem; max-width: 500px;">
+                    <tr>
+                        <th>Application</th>
+                        <th>Minimum Width</th>
+                    </tr>
+                    <tr>
+                        <td>Digital (with mark)</td>
+                        <td><code>80px</code></td>
+                    </tr>
+                    <tr>
+                        <td>Digital (wordmark only)</td>
+                        <td><code>60px</code></td>
+                    </tr>
+                    <tr>
+                        <td>Print (with mark)</td>
+                        <td><code>25mm</code></td>
+                    </tr>
+                    <tr>
+                        <td>Print (wordmark only)</td>
+                        <td><code>20mm</code></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Logo Don'ts -->
+            <div class="subsection">
+                <h3 class="subsection-title">Incorrect Usage</h3>
+                <p class="subsection-text">Maintain the integrity of the logo. Avoid these common mistakes.</p>
+                
+                <div class="do-dont-grid" style="margin-top: 1.5rem;">
+                    <div class="do-dont-card">
+                        <div class="do-dont-display">
+                            <div class="logo-primary" style="opacity: 0.3;">
+                                <div class="mark"></div>
+                                <span class="text">MinTax</span>
+                            </div>
+                        </div>
+                        <div class="do-dont-label dont-label">✕ Don't reduce opacity</div>
+                    </div>
+                    <div class="do-dont-card">
+                        <div class="do-dont-display">
+                            <div class="logo-primary" style="transform: skewX(-10deg);">
+                                <div class="mark"></div>
+                                <span class="text">MinTax</span>
+                            </div>
+                        </div>
+                        <div class="do-dont-label dont-label">✕ Don't distort or skew</div>
+                    </div>
+                    <div class="do-dont-card">
+                        <div class="do-dont-display">
+                            <div class="logo-primary">
+                                <div class="mark" style="background: #e74c3c;"></div>
+                                <span class="text" style="color: #e74c3c;">MinTax</span>
+                            </div>
+                        </div>
+                        <div class="do-dont-label dont-label">✕ Don't use unapproved colors</div>
+                    </div>
+                    <div class="do-dont-card">
+                        <div class="do-dont-display" style="background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);">
+                            <div class="logo-primary light">
+                                <div class="mark"></div>
+                                <span class="text">MinTax</span>
+                            </div>
+                        </div>
+                        <div class="do-dont-label dont-label">✕ Don't place on busy backgrounds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. COLOR -->
+    <section class="section" id="color">
+        <div class="section-inner">
+            <div class="section-number">03</div>
+            <h2 class="section-title">Color Palette</h2>
+            <p class="section-intro">Our color system is built on three pillars: blue for trust and identity, terracotta for action and energy, and gold reserved exclusively for the logo mark.</p>
+            
+            <!-- Primary Colors -->
+            <div class="subsection">
+                <h3 class="subsection-title">Primary Colors</h3>
+                <div class="grid-3" style="margin-top: 1.5rem;">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #2c4a6e;"></div>
+                        <div class="color-info">
+                            <div class="color-name">MinTax Blue</div>
+                            <div class="color-values">
+                                <code>#2c4a6e</code><br>
+                                RGB: 44, 74, 110<br>
+                                CMYK: 85, 60, 25, 10
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #c75d48;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Terracotta (Action)</div>
+                            <div class="color-values">
+                                <code>#c75d48</code><br>
+                                RGB: 199, 93, 72<br>
+                                CMYK: 15, 75, 70, 5
+                            </div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #c9a962;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gold (Logo Only)</div>
+                            <div class="color-values">
+                                <code>#c9a962</code><br>
+                                RGB: 201, 169, 98<br>
+                                CMYK: 20, 28, 68, 0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Secondary Colors -->
+            <div class="subsection">
+                <h3 class="subsection-title">Secondary Colors</h3>
+                <p class="subsection-text">Extended palette for backgrounds, borders, and supporting elements.</p>
+                
+                <div class="grid-4" style="margin-top: 1.5rem;">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #3d5d85;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Blue Light</div>
+                            <div class="color-values"><code>#3d5d85</code></div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #5a7fa3;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Blue Soft</div>
+                            <div class="color-values"><code>#5a7fa3</code></div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #e8eef4;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Blue Pale</div>
+                            <div class="color-values"><code>#e8eef4</code></div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #b54d3a;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Terracotta Dark</div>
+                            <div class="color-values"><code>#b54d3a</code></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Neutrals -->
+            <div class="subsection">
+                <h3 class="subsection-title">Neutrals</h3>
+                <div class="grid-4" style="margin-top: 1.5rem;">
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #1a1a1a;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Black</div>
+                            <div class="color-values"><code>#1a1a1a</code></div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #525252;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 600</div>
+                            <div class="color-values"><code>#525252</code></div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #e0e0e0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 200</div>
+                            <div class="color-values"><code>#e0e0e0</code></div>
+                        </div>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-swatch" style="background: #fafafa; border: 1px solid #e0e0e0;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 50</div>
+                            <div class="color-values"><code>#fafafa</code></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Color Usage -->
+            <div class="subsection">
+                <h3 class="subsection-title">Color Usage Rules</h3>
+                <table class="spec-table" style="margin-top: 1.5rem;">
+                    <tr>
+                        <th>Color</th>
+                        <th>Use For</th>
+                        <th>Never Use For</th>
+                    </tr>
+                    <tr>
+                        <td><span style="display: inline-block; width: 12px; height: 12px; background: #2c4a6e; border-radius: 2px; margin-right: 0.5rem;"></span>Blue</td>
+                        <td>Logo text, headers, backgrounds, secondary buttons</td>
+                        <td>CTAs, alerts, error states</td>
+                    </tr>
+                    <tr>
+                        <td><span style="display: inline-block; width: 12px; height: 12px; background: #c75d48; border-radius: 2px; margin-right: 0.5rem;"></span>Terracotta</td>
+                        <td>CTAs, links, hovers, arrows, emphasis</td>
+                        <td>Large background areas, logo</td>
+                    </tr>
+                    <tr>
+                        <td><span style="display: inline-block; width: 12px; height: 12px; background: #c9a962; border-radius: 2px; margin-right: 0.5rem;"></span>Gold</td>
+                        <td>Logo mark only, stationery accents</td>
+                        <td>Buttons, links, text, backgrounds</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. TYPOGRAPHY -->
+    <section class="section" id="typography">
+        <div class="section-inner">
+            <div class="section-number">04</div>
+            <h2 class="section-title">Typography</h2>
+            <p class="section-intro">Our typography pairs Fraunces, a modern variable serif for headlines, with Inter, a highly legible sans-serif for body text. Together they create a balance of warmth and clarity.</p>
+            
+            <!-- Type specimens -->
+            <div class="subsection">
+                <h3 class="subsection-title">Type Scale</h3>
+                
+                <div style="margin-top: 2rem;">
+                    <div class="type-sample">
+                        <div class="type-label">H1 — Display</div>
+                        <div class="type-h1">Professional services you can trust</div>
+                        <div class="type-specs">Fraunces Regular — 48px / 1.2 line-height</div>
+                    </div>
+                    
+                    <div class="type-sample">
+                        <div class="type-label">H2 — Section Title</div>
+                        <div class="type-h2">Audit & Assurance Services</div>
+                        <div class="type-specs">Fraunces Regular — 32px / 1.3 line-height</div>
+                    </div>
+                    
+                    <div class="type-sample">
+                        <div class="type-label">H3 — Subsection</div>
+                        <div class="type-h3">Our approach to financial audits</div>
+                        <div class="type-specs">Fraunces Regular — 24px / 1.4 line-height</div>
+                    </div>
+                    
+                    <div class="type-sample">
+                        <div class="type-label">Body</div>
+                        <div class="type-body">MinTax Group provides comprehensive professional services including audit, tax consulting, legal advisory, and accounting outsourcing. Our team of certified professionals brings decades of combined experience across all major industries.</div>
+                        <div class="type-specs">Inter Regular — 16px / 1.7 line-height</div>
+                    </div>
+                    
+                    <div class="type-sample">
+                        <div class="type-label">Small</div>
+                        <div class="type-small">Our services are designed to help businesses navigate complex regulatory environments with confidence and clarity.</div>
+                        <div class="type-specs">Inter Regular — 14px / 1.6 line-height</div>
+                    </div>
+                    
+                    <div class="type-sample">
+                        <div class="type-label">Caption / Label</div>
+                        <div class="type-caption">ALMATY · ASTANA · ATYRAU</div>
+                        <div class="type-specs">Inter Medium — 12px / 1.5 line-height / 0.1em letter-spacing</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Font files -->
+            <div class="subsection">
+                <h3 class="subsection-title">Font Resources</h3>
+                <table class="spec-table" style="margin-top: 1.5rem;">
+                    <tr>
+                        <th>Font</th>
+                        <th>Weights</th>
+                        <th>Source</th>
+                    </tr>
+                    <tr>
+                        <td>Fraunces</td>
+                        <td>300, 400, 500, 600</td>
+                        <td>Google Fonts (free)</td>
+                    </tr>
+                    <tr>
+                        <td>Inter</td>
+                        <td>400, 500, 600, 700</td>
+                        <td>Google Fonts (free)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. UI COMPONENTS -->
+    <section class="section" id="components">
+        <div class="section-inner">
+            <div class="section-number">05</div>
+            <h2 class="section-title">UI Components</h2>
+            <p class="section-intro">Consistent components ensure our digital presence feels cohesive. These patterns should be used across all digital touchpoints.</p>
+            
+            <!-- Buttons -->
+            <div class="subsection">
+                <h3 class="subsection-title">Buttons</h3>
+                <div class="component-demo">
+                    <div class="component-label">Button Styles</div>
+                    <div class="button-row">
+                        <button class="btn btn-primary">Primary Action</button>
+                        <button class="btn btn-secondary">Secondary</button>
+                        <button class="btn btn-outline">Outline</button>
+                        <button class="btn btn-ghost">Text Link →</button>
+                    </div>
+                </div>
+                <table class="spec-table">
+                    <tr>
+                        <th>Style</th>
+                        <th>Use For</th>
+                    </tr>
+                    <tr>
+                        <td>Primary (Terracotta)</td>
+                        <td>Main CTAs — Contact Us, Get Started, Submit</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary (Blue)</td>
+                        <td>Secondary actions — Learn More, View Details</td>
+                    </tr>
+                    <tr>
+                        <td>Outline</td>
+                        <td>Tertiary actions, paired with Primary</td>
+                    </tr>
+                    <tr>
+                        <td>Ghost/Text</td>
+                        <td>Inline links, "Read more" patterns</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Service List -->
+            <div class="subsection">
+                <h3 class="subsection-title">Service List Pattern</h3>
+                <p class="subsection-text">Use this pattern for listing services, capabilities, or navigation items. The terracotta arrow appears on hover.</p>
+                
+                <div class="component-demo">
+                    <div class="component-label">Interactive List</div>
+                    <div class="service-list-demo">
+                        <div class="service-item">
+                            <h4>Audit & Assurance</h4>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="service-item">
+                            <h4>Tax Consulting</h4>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="service-item">
+                            <h4>Legal Services</h4>
+                            <span class="arrow">→</span>
+                        </div>
+                        <div class="service-item">
+                            <h4>IFRS Reporting</h4>
+                            <span class="arrow">→</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Links -->
+            <div class="subsection">
+                <h3 class="subsection-title">Links</h3>
+                <div class="component-demo link-demo">
+                    <div class="component-label">Inline Links</div>
+                    <p style="color: var(--gray-700);">Our <a href="#">tax consulting services</a> help businesses navigate complex regulations. Learn more about our <a href="#">approach to compliance</a> and how we can support your organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 06. STATIONERY -->
+    <section class="section" id="stationery">
+        <div class="section-inner">
+            <div class="section-number">06</div>
+            <h2 class="section-title">Stationery</h2>
+            <p class="section-intro">Business collateral should reflect our professional standards. Use these templates as the basis for all printed materials.</p>
+            
+            <div class="stationery-grid">
+                <!-- Business Cards -->
+                <div class="mockup-container">
+                    <div class="mockup-label">Business Card — Dark</div>
+                    <div class="business-card dark">
+                        <div class="card-logo">
+                            <div class="mark"></div>
+                            <span class="name">MinTax</span>
+                        </div>
+                        <div class="card-details">
+                            <div class="person">Sabina Henschel</div>
+                            <div class="title">Partner</div>
+                            <div class="contact">
+                                +7 727 311 1408<br>
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="04772a6c616a77676c616844696d6a70657c2a6f7e">[email&#160;protected]</a><br>
+                                mintax.kz
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mockup-container">
+                    <div class="mockup-label">Business Card — Light</div>
+                    <div class="business-card light">
+                        <div class="card-logo">
+                            <div class="mark"></div>
+                            <span class="name" style="color: var(--blue-primary);">MinTax</span>
+                        </div>
+                        <div class="card-details">
+                            <div class="person">Roza Kinchinbayeva</div>
+                            <div class="title">Managing Partner</div>
+                            <div class="contact">
+                                +7 727 311 1408<br>
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2b590540424548434245494a524e5d4a6b4642455f4a53054051">[email&#160;protected]</a><br>
+                                mintax.kz
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Letterhead -->
+                <div class="mockup-container">
+                    <div class="mockup-label">Letterhead</div>
+                    <div class="letterhead">
+                        <div class="letterhead-header">
+                            <div class="letterhead-logo">
+                                <div class="mark"></div>
+                                <span class="name">MinTax</span>
+                            </div>
+                            <div class="letterhead-contact">
+                                62B Karmyssov Street<br>
+                                Almaty, Kazakhstan<br>
+                                +7 727 311 1408<br>
+                                mintax.kz
+                            </div>
+                        </div>
+                        <div class="letterhead-body">
+                            <div class="placeholder-line"></div>
+                            <div class="placeholder-line"></div>
+                            <div class="placeholder-line"></div>
+                            <div class="placeholder-line"></div>
+                            <div class="placeholder-line"></div>
+                            <div class="placeholder-line"></div>
+                        </div>
+                        <div class="letterhead-footer">
+                            <span class="offices">Almaty · Astana · Atyrau</span>
+                            <div class="accent"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Email Signature -->
+                <div class="mockup-container">
+                    <div class="mockup-label">Email Signature</div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+                        <div style="border-top: 2px solid var(--gold); padding-top: 1rem; display: flex; gap: 1rem;">
+                            <div style="width: 2px; height: 48px; background: var(--gold);"></div>
+                            <div>
+                                <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 0.15rem;">Andrey Khorunzhiy</div>
+                                <div style="font-size: 0.75rem; color: var(--blue-soft); margin-bottom: 0.5rem;">Managing Partner</div>
+                                <div style="font-size: 0.7rem; color: var(--gray-500); line-height: 1.7;">
+                                    MinTax Group<br>
+                                    +7 727 311 1408<br>
+                                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caabe4a1a2a5b8bfa4b0a2a3b38aa7a3a4beabb2e4a1b0">[email&#160;protected]</a><br>
+                                    <span style="color: var(--action);">mintax.kz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Specs -->
+            <div class="subsection" style="margin-top: 3rem;">
+                <h3 class="subsection-title">Print Specifications</h3>
+                <table class="spec-table">
+                    <tr>
+                        <th>Item</th>
+                        <th>Size</th>
+                        <th>Paper</th>
+                    </tr>
+                    <tr>
+                        <td>Business Card</td>
+                        <td>90 × 50mm</td>
+                        <td>350gsm matte or soft-touch</td>
+                    </tr>
+                    <tr>
+                        <td>Letterhead</td>
+                        <td>A4 (210 × 297mm)</td>
+                        <td>120gsm premium uncoated</td>
+                    </tr>
+                    <tr>
+                        <td>Envelope</td>
+                        <td>DL (220 × 110mm)</td>
+                        <td>120gsm matching stock</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07. PHOTOGRAPHY -->
+    <section class="section" id="photography">
+        <div class="section-inner">
+            <div class="section-number">07</div>
+            <h2 class="section-title">Photography</h2>
+            <p class="section-intro">Photography should feel authentic, professional, and warm. We favor real moments over staged corporate imagery.</p>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">Style Guidelines</h3>
+                <div class="grid-2" style="margin-top: 1.5rem;">
+                    <div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: #2e7d32;">✓ Do</h4>
+                        <ul style="font-size: 0.85rem; color: var(--gray-600); line-height: 2;">
+                            <li>Natural lighting when possible</li>
+                            <li>Real people in authentic settings</li>
+                            <li>Clean, uncluttered compositions</li>
+                            <li>Warm, approachable expressions</li>
+                            <li>Professional but not stiff</li>
+                            <li>Kazakhstan context where relevant</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: #c62828;">✕ Don't</h4>
+                        <ul style="font-size: 0.85rem; color: var(--gray-600); line-height: 2;">
+                            <li>Obvious stock photography</li>
+                            <li>Overly posed or artificial</li>
+                            <li>Heavy filters or effects</li>
+                            <li>Cluttered backgrounds</li>
+                            <li>Generic "business handshake" clichés</li>
+                            <li>Low resolution or pixelated images</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">Image Categories</h3>
+                <table class="spec-table" style="margin-top: 1.5rem;">
+                    <tr>
+                        <th>Category</th>
+                        <th>Use Case</th>
+                        <th>Notes</th>
+                    </tr>
+                    <tr>
+                        <td>Team Photos</td>
+                        <td>About page, team section</td>
+                        <td>Professional headshots, consistent style</td>
+                    </tr>
+                    <tr>
+                        <td>Office/Environment</td>
+                        <td>About page, careers</td>
+                        <td>Real MinTax spaces, clean and modern</td>
+                    </tr>
+                    <tr>
+                        <td>Client Interaction</td>
+                        <td>Services, case studies</td>
+                        <td>Meetings, collaboration, consultation</td>
+                    </tr>
+                    <tr>
+                        <td>Kazakhstan Context</td>
+                        <td>Homepage, about</td>
+                        <td>Almaty/Astana skylines, local business</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08. VOICE & TONE -->
+    <section class="section" id="voice">
+        <div class="section-inner">
+            <div class="section-number">08</div>
+            <h2 class="section-title">Voice & Tone</h2>
+            <p class="section-intro">How we communicate is as important as what we communicate. Our voice is confident but not arrogant, expert but accessible, professional but warm.</p>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">Voice Principles</h3>
+                <div class="grid-2" style="margin-top: 1.5rem;">
+                    <div class="voice-example">
+                        <div class="voice-label do">✓ We are confident</div>
+                        <p class="voice-text">"We've helped Kazakhstan's leading businesses navigate tax complexity for over 25 years."</p>
+                    </div>
+                    <div class="voice-example">
+                        <div class="voice-label dont">✕ Not arrogant</div>
+                        <p class="voice-text">"We're the best tax consultants in the country and no one else comes close."</p>
+                    </div>
+                    <div class="voice-example">
+                        <div class="voice-label do">✓ We are expert</div>
+                        <p class="voice-text">"The new Tax Code introduces several provisions that affect transfer pricing — here's what you need to know."</p>
+                    </div>
+                    <div class="voice-example">
+                        <div class="voice-label dont">✕ Not jargon-heavy</div>
+                        <p class="voice-text">"The amended NLA provisions pursuant to Article 12.3(b) necessitate recalibration of BEPS-aligned TP methodologies."</p>
+                    </div>
+                    <div class="voice-example">
+                        <div class="voice-label do">✓ We are warm</div>
+                        <p class="voice-text">"We'd love to discuss how we can help. Get in touch — we're always happy to talk."</p>
+                    </div>
+                    <div class="voice-example">
+                        <div class="voice-label dont">✕ Not casual</div>
+                        <p class="voice-text">"Hey! Hit us up if you need tax stuff done. We're pretty good at it lol."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <h3 class="subsection-title">Writing Guidelines</h3>
+                <ul style="font-size: 0.9rem; color: var(--gray-600); line-height: 2.2; max-width: 600px;">
+                    <li>Use active voice: "We prepare your returns" not "Returns are prepared by our team"</li>
+                    <li>Be specific: "26 years of experience" not "decades of experience"</li>
+                    <li>Lead with benefits: What does the client gain?</li>
+                    <li>Avoid superlatives: Skip "best," "leading," "unparalleled" — let work speak</li>
+                    <li>Keep sentences short: Aim for 15-20 words average</li>
+                    <li>Use "you" and "we": Create direct connection with reader</li>
+                </ul>
+            </div>
+  

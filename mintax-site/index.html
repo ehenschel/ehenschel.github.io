@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinTax Group — Professional Services in Kazakhstan</title>
+    <meta name="description" content="Audit, tax consulting, legal services, and business advisory for Kazakhstan's leading companies. International standards, local expertise. Since 1999.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <style>
+        /* Homepage-specific styles */
+        .home-hero {
+            padding-top: calc(var(--header-height) + var(--space-4xl));
+            padding-bottom: var(--space-4xl);
+            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+        }
+
+        .home-hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            align-items: center;
+        }
+
+        .home-hero-content {
+            max-width: 540px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--terracotta);
+            margin-bottom: var(--space-md);
+        }
+
+        .home-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.25rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--black);
+            margin-bottom: var(--space-lg);
+        }
+
+        .home-hero .lead {
+            font-size: 1.15rem;
+            color: var(--gray-600);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--space-3xl);
+            padding-top: var(--space-2xl);
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--blue-primary);
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+
+        .hero-visual {
+            background: var(--blue-pale);
+            border-radius: var(--radius-lg);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-size: 0.9rem;
+        }
+
+        /* Services section */
+        .home-services {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: var(--black);
+        }
+
+        .section-header .view-all {
+            font-size: 0.9rem;
+            color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-header .view-all:hover {
+            text-decoration: underline;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .services-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .service-card {
+            background: var(--gray-50);
+            border-radius: var(--radius-md);
+            padding: var(--space-2xl);
+            transition: all 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        .service-card:hover {
+            background: var(--blue-pale);
+            transform: translateY(-2px);
+        }
+
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: var(--space-md);
+        }
+
+        .service-card .link {
+            font-size: 0.85rem;
+            color: var(--terracotta);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* About preview */
+        .home-about {
+            padding: var(--space-4xl) 0;
+            background: var(--blue-primary);
+            color: var(--white);
+        }
+
+        .home-about .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            align-items: center;
+        }
+
+        .home-about h2 {
+            font-family: var(--font-display);
+            font-size: 2.25rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .home-about p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        .about-image {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-lg);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Credentials */
+        .home-credentials {
+            padding: var(--space-4xl) 0;
+            background: var(--gray-50);
+        }
+
+        .home-credentials h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--black);
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* CTA box */
+        .home-cta {
+            padding: var(--space-4xl) 0;
+        }
+
+        .cta-box {
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4xl);
+            text-align: center;
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: var(--space-md);
+        }
+
+        .cta-box p {
+            font-size: 1.05rem;
+            color: var(--gray-600);
+            margin-bottom: var(--space-2xl);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 900px) {
+            .home-hero .container,
+            .home-about .container {
+                grid-template-columns: 1fr;
+                gap: var(--space-3xl);
+            }
+
+            .home-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-visual,
+            .about-image {
+                max-width: 400px;
+            }
+
+            .services-grid,
+            .services-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: var(--space-xl);
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-mark"></div>
+                <span class="logo-text">MinTax</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="services/">Services</a></li>
+                    <li><a href="about/">About</a></li>
+                    <li><a href="clients/">Clients</a></li>
+                    <li><a href="contact/">Contact</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <div class="lang-switch">
+                        <a href="#" class="active">EN</a>
+                        <span>|</span>
+                        <a href="ru/">RU</a>
+                    </div>
+                    <a href="contact/" class="btn btn-primary">Get in Touch</a>
+                </div>
+
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="home-hero">
+        <div class="container">
+            <div class="home-hero-content">
+                <span class="hero-tag">Since 1999</span>
+                <h1>Professional services built on trust</h1>
+                <p class="lead">Audit, tax consulting, legal services, and business advisory for Kazakhstan's leading companies. International standards, local expertise.</p>
+
+                <div class="hero-buttons">
+                    <a href="services/" class="btn btn-primary">Our Services</a>
+                    <a href="contact/" class="btn btn-outline">Free Consultation</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">25+</div>
+                        <div class="stat-label">years in the market</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">clients served</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">Top 10</div>
+                        <div class="stat-label">audit firm in Kazakhstan</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                [Office / Team Photo]
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="home-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <a href="services/" class="view-all">View all services →</a>
+            </div>
+
+            <div class="services-grid">
+                <a href="services/audit.html" class="service-card">
+                    <h3>Audit & Assurance</h3>
+                    <p>Statutory and voluntary audits of financial statements under national and international standards.</p>
+                    <span class="link">Learn more →</span>
+                </a>
+                <a href="services/tax.html" class="service-card">
+                    <h3>Tax Consulting</h3>
+                    <p>Tax planning, audit support, and representation in tax disputes and proceedings.</p>
+                    <span class="link">Learn more →</span>
+                </a>
+                <a href="services/legal.html" class="service-card">
+                    <h3>Legal Services</h3>
+                    <p>Corporate law, M&A transactions, company registration and reorganization, court representation.</p>
+                    <span class="link">Learn more →</span>
+                </a>
+            </div>
+
+            <div class="services-grid-2">
+                <a href="services/ifrs.html" class="service-card">
+                    <h3>IFRS Reporting</h3>
+                    <p>Financial statement transformation, standards consultation, and consolidated reporting preparation.</p>
+                    <span class="link">Learn more →</span>
+                </a>
+                <a href="services/outsourcing.html" class="service-card">
+                    <h3>Accounting & Outsourcing</h3>
+                    <p>Bookkeeping, payroll processing, financial reporting, and HR administration.</p>
+                    <span class="link">Learn more →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT PREVIEW -->
+    <section class="home-about">
+        <div class="container">
+            <div class="about-content">
+                <h2>For over 25 years, we've helped businesses make the right decisions</h2>
+                <p>MinTax Group is one of Kazakhstan's leading consulting firms. We combine deep expertise in audit, tax, and law with understanding of local specifics and international standards.</p>
+                <p>Our specialists are certified auditors and tax consultants with experience at leading international and Kazakhstani companies.</p>
+                <a href="about/" class="btn btn-white">Learn more about us →</a>
+            </div>
+            <div class="about-image">
+                [Office / Team Photo]
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section class="home-credentials">
+        <div class="container">
+            <h2>Why Clients Trust Us</h2>
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <div class="credential-title">KASE Listed</div>
+                    <div class="credential-desc">Approved auditor for stock exchange companies</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <div class="credential-title">ISO Certified</div>
+                    <div class="credential-desc">ISO 9001:2015 quality management</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <div class="credential-title">Nationally Ranked</div>
+                    <div class="credential-desc">Top 10 audit firm in Kazakhstan</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">✓</div>
+                    <div class="credential-title">Award Winner</div>
+                    <div class="credential-desc">Best Tax Consultants 2016</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="home-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to discuss your needs?</h2>
+                <p>Contact us for a free consultation. We'll help find the optimal solution for your business.</p>
+                <a href="contact/" class="btn btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark"></div>
+                        <span class="logo-text">MinTax</span>
+                    </div>
+                    <p>Professional audit, tax, and legal consulting services since 1999.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services/audit.html">Audit & Assurance</a></li>
+                        <li><a href="services/tax.html">Tax Consulting</a></li>
+                        <li><a href="services/legal.html">Legal Services</a></li>
+                        <li><a href="services/ifrs.html">IFRS Reporting</a></li>
+                        <li><a href="services/outsourcing.html">Outsourcing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about/">About Us</a></li>
+                        <li><a href="team/">Our Team</a></li>
+                        <li><a href="clients/">Clients</a></li>
+                        <li><a href="careers/">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>+7 727 311 14 08</li>
+                        <li>info@mintax.kz</li>
+                        <li>62B Karmysov St., Almaty</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2025 MinTax Group. All rights reserved.</div>
+                <div class="footer-certs">
+                    <span>ISO 9001:2015</span>
+                    <span>ISO 14001:2015</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
