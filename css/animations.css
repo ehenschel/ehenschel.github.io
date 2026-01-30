@@ -1,0 +1,355 @@
+/* ============================================
+   MINTAX - ANIMATIONS & POLISH
+   Modern scroll animations and micro-interactions
+   ============================================ */
+
+/* ========== SCROLL ANIMATIONS ========== */
+
+/* Elements that animate on scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children animations */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-children.animated > *:nth-child(1) { transition-delay: 0s; }
+.stagger-children.animated > *:nth-child(2) { transition-delay: 0.1s; }
+.stagger-children.animated > *:nth-child(3) { transition-delay: 0.2s; }
+.stagger-children.animated > *:nth-child(4) { transition-delay: 0.3s; }
+.stagger-children.animated > *:nth-child(5) { transition-delay: 0.4s; }
+.stagger-children.animated > *:nth-child(6) { transition-delay: 0.5s; }
+
+.stagger-children.animated > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade in from left */
+.animate-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-left.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade in from right */
+.animate-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-right.animated {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale up animation */
+.animate-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animate-scale.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* ========== PAGE LOAD ANIMATION ========== */
+body {
+    animation: fadeInPage 0.5s ease-out;
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ========== BUTTON MICRO-INTERACTIONS ========== */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(199, 93, 72, 0.3);
+}
+
+.btn-outline:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(44, 74, 110, 0.2);
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== CARD HOVER EFFECTS ========== */
+.service-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(44, 74, 110, 0.12);
+}
+
+.service-card h3 {
+    transition: color 0.3s ease;
+}
+
+.service-card:hover h3 {
+    color: var(--blue-primary);
+}
+
+.service-card .link {
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .link {
+    transform: translateX(4px);
+}
+
+/* ========== SERVICE LIST HOVER ========== */
+.service-item {
+    transition: all 0.3s ease;
+}
+
+.service-item:hover {
+    background: var(--gray-50);
+    padding-left: var(--space-lg);
+    border-radius: var(--radius-md);
+}
+
+/* ========== CREDENTIAL CARDS ========== */
+.credential-item {
+    transition: all 0.3s ease;
+}
+
+.credential-item:hover {
+    transform: translateY(-4px);
+}
+
+.credential-icon {
+    transition: all 0.3s ease;
+}
+
+.credential-item:hover .credential-icon {
+    transform: scale(1.1);
+    background: var(--blue-primary);
+    color: var(--white);
+}
+
+/* ========== STATS COUNTER ANIMATION ========== */
+.stat-number {
+    transition: transform 0.3s ease;
+}
+
+.stat:hover .stat-number {
+    transform: scale(1.05);
+}
+
+/* ========== HEADER ENHANCEMENTS ========== */
+.header {
+    transition: all 0.3s ease;
+}
+
+.header.scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--terracotta);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* ========== FOOTER LINK HOVER ========== */
+.footer-col a {
+    position: relative;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-col a:hover {
+    padding-left: 8px;
+}
+
+/* ========== IMAGE PLACEHOLDERS ========== */
+.hero-visual,
+.about-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-visual img,
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.hero-visual:hover img,
+.about-image:hover img {
+    transform: scale(1.03);
+}
+
+/* ========== FORM INTERACTIONS ========== */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--blue-primary);
+    box-shadow: 0 0 0 3px rgba(44, 74, 110, 0.1);
+    outline: none;
+}
+
+.form-group label {
+    transition: color 0.3s ease;
+}
+
+.form-group:focus-within label {
+    color: var(--blue-primary);
+}
+
+/* ========== TEAM MEMBER CARDS ========== */
+.team-member {
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-8px);
+}
+
+.team-photo {
+    overflow: hidden;
+}
+
+.team-photo img {
+    transition: transform 0.4s ease;
+}
+
+.team-member:hover .team-photo img {
+    transform: scale(1.05);
+}
+
+/* ========== CLIENT LOGO HOVER ========== */
+.client-logo {
+    transition: all 0.3s ease;
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+
+.client-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ========== CTA BOX ========== */
+.cta-box {
+    transition: all 0.3s ease;
+}
+
+.cta-box:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ========== BREADCRUMB ========== */
+.breadcrumb a {
+    transition: color 0.3s ease;
+}
+
+/* ========== SMOOTH SCROLL ========== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========== LOADING SKELETON (for images) ========== */
+.skeleton {
+    background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-50) 50%, var(--gray-100) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ========== REDUCED MOTION ========== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
