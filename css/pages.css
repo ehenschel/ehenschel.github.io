@@ -78,6 +78,612 @@
     }
 }
 
+/* ========== HOMEPAGE SECTIONS — GRID & LAYOUT ========== */
+
+/* Section header — flex row for title + "View all" link */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-3xl);
+}
+
+.section-header-left .overline {
+    display: block;
+    margin-bottom: var(--space-xs);
+}
+
+.view-all {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    white-space: nowrap;
+}
+
+.view-all span {
+    transition: transform var(--transition-base);
+}
+
+.view-all:hover span {
+    transform: translateX(4px);
+}
+
+/* ── Trusted By logos bar ── */
+.home-trusted {
+    padding: var(--space-2xl) 0;
+    border-top: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+    overflow: hidden;
+}
+
+.trusted-logos-wrapper {
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.trusted-logo {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--gray-400);
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    opacity: 0.5;
+    padding: 0 var(--space-md);
+}
+
+/* ── Services grid ── */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    border: 1px solid rgba(44, 74, 110, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold);
+    opacity: 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.service-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--blue-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.service-card-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--blue-primary);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.service-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: var(--space-sm);
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    margin-bottom: var(--space-lg);
+}
+
+.service-card .link {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--terracotta);
+}
+
+@media (max-width: 900px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Industries grid ── */
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.industry-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    border: 1px solid rgba(44, 74, 110, 0.06);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.industry-card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--blue-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+}
+
+.industry-card-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--blue-primary);
+}
+
+.industry-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+}
+
+.industry-card p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .industries-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .industries-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Insights grid ── */
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.insight-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(44, 74, 110, 0.06);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.insight-image {
+    aspect-ratio: 16/9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.insight-category {
+    position: absolute;
+    top: var(--space-md);
+    left: var(--space-md);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+}
+
+.insight-body {
+    padding: var(--space-xl);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.insight-meta {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin-bottom: var(--space-sm);
+}
+
+.insight-card h3 {
+    font-size: 1.15rem;
+    line-height: 1.35;
+    margin-bottom: var(--space-sm);
+}
+
+.insight-card p {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    flex: 1;
+}
+
+.insight-card .link {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    margin-top: auto;
+}
+
+@media (max-width: 900px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Case Study spotlight ── */
+.home-casestudy {
+    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);
+    padding: var(--space-5xl) 0;
+    color: var(--white);
+}
+
+.casestudy-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.casestudy-content .overline {
+    color: var(--gold);
+}
+
+.casestudy-content h2 {
+    color: var(--white);
+    margin-bottom: var(--space-md);
+}
+
+.casestudy-client {
+    display: block;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: var(--space-lg);
+}
+
+.casestudy-content p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-2xl);
+}
+
+.casestudy-metrics {
+    display: flex;
+    gap: var(--space-3xl);
+    margin-bottom: var(--space-2xl);
+}
+
+.casestudy-metric-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.casestudy-metric-label {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.casestudy-image {
+    border-radius: var(--radius-lg);
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .casestudy-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .casestudy-image {
+        order: -1;
+    }
+
+    .casestudy-metrics {
+        flex-wrap: wrap;
+        gap: var(--space-xl);
+    }
+}
+
+/* ── People grid ── */
+.home-people {
+    padding: var(--space-5xl) 0;
+}
+
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-xl);
+}
+
+.person-card {
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.person-photo {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: var(--space-lg);
+    background: var(--gray-100);
+}
+
+.person-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.person-role {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    margin-bottom: 0.15rem;
+}
+
+.person-cred {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .people-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ── Credentials ── */
+.home-credentials {
+    padding: var(--space-5xl) 0;
+    background: var(--gray-50);
+    text-align: center;
+}
+
+.home-credentials h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    margin-bottom: var(--space-3xl);
+}
+
+/* ── News & Events layout ── */
+.home-news {
+    padding: var(--space-5xl) 0;
+}
+
+.news-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: var(--space-4xl);
+}
+
+.news-column h3,
+.events-column h3 {
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    margin-bottom: var(--space-xl);
+}
+
+.news-item {
+    display: block;
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--gray-200);
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-item:first-of-type {
+    border-top: 1px solid var(--gray-200);
+}
+
+.news-date {
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.news-item h4 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 0.35rem;
+    transition: color var(--transition-base);
+}
+
+.news-item:hover h4 {
+    color: var(--terracotta);
+}
+
+.news-item p {
+    font-size: 0.9rem;
+    color: var(--gray-500);
+    margin: 0;
+}
+
+/* Events */
+.event-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--gray-200);
+    text-decoration: none;
+    color: inherit;
+}
+
+.event-item:first-of-type {
+    border-top: 1px solid var(--gray-200);
+}
+
+.event-date-box {
+    min-width: 52px;
+    text-align: center;
+    background: var(--blue-pale);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+}
+
+.event-month {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--blue-primary);
+}
+
+.event-day {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--blue-deep);
+    line-height: 1.1;
+}
+
+.event-details h4 {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+    transition: color var(--transition-base);
+}
+
+.event-item:hover .event-details h4 {
+    color: var(--terracotta);
+}
+
+.event-type {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+}
+
+@media (max-width: 900px) {
+    .news-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-md);
+    }
+}
+
+/* ── CTA box ── */
+.home-cta {
+    padding: var(--space-5xl) 0;
+    background: var(--gray-50);
+}
+
+.cta-box {
+    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 50%, var(--blue-light) 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4xl);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-box::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cta-box h2 {
+    color: var(--white);
+    margin-bottom: var(--space-md);
+}
+
+.cta-box p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto var(--space-xl);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn-outline {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--white);
+}
+
+.cta-buttons .btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: var(--white);
+}
+
+/* ── Homepage section spacing ── */
+.home-services,
+.home-industries,
+.home-insights {
+    padding: var(--space-5xl) 0;
+}
+
+.home-industries {
+    background: var(--gray-50);
+}
+
 /* ========== SERVICES SECTION (Homepage) ========== */
 .services-preview {
     padding: var(--space-4xl) 0;

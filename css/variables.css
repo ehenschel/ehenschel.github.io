@@ -1,27 +1,32 @@
 /* ============================================
-   MINTAX DESIGN SYSTEM - VARIABLES
-   Single source of truth for all styling
+   MINTAX DESIGN SYSTEM — VARIABLES
+   V2: Aligned with MinTax Credentials Deck V6
+   Premium consulting identity
    ============================================ */
 
 :root {
-    /* Brand Colors */
-    --blue-primary: #2c4a6e;
-    --blue-light: #3d5d85;
-    --blue-soft: #5a7fa3;
-    --blue-pale: #e8eef4;
-    
-    /* Action Color - Terracotta */
-    --terracotta: #c75d48;
-    --terracotta-hover: #b54d3a;
-    --terracotta-light: #f4e8e5;
-    
-    /* Gold - Logo accent only */
-    --gold: #c9a962;
-    --gold-light: #d4b97a;
-    --gold-pale: #f5f0e4;
-    
-    /* Neutrals */
+    /* ── Brand Blues ── */
+    --blue-primary: #2C4A6E;
+    --blue-light: #3D5D85;
+    --blue-soft: #5A7FA3;
+    --blue-pale: #E8EEF4;
+    --blue-deep: #1A3350;
+    --blue-mist: #F2F6FA;
+
+    /* ── Terracotta (Action) ── */
+    --terracotta: #C75D48;
+    --terracotta-hover: #B54D3A;
+    --terracotta-light: #F4E8E5;
+
+    /* ── Gold (Accent) ── */
+    --gold: #C9A962;
+    --gold-light: #D4B97A;
+    --gold-pale: #F5F0E4;
+    --gold-dim: rgba(201, 169, 98, 0.3);
+
+    /* ── Neutrals ── */
     --black: #1a1a1a;
+    --gray-900: #212121;
     --gray-800: #2d2d2d;
     --gray-700: #3d3d3d;
     --gray-600: #525252;
@@ -32,12 +37,12 @@
     --gray-100: #f5f5f5;
     --gray-50: #fafafa;
     --white: #ffffff;
-    
-    /* Typography */
-    --font-display: 'Fraunces', Georgia, serif;
-    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    
-    /* Spacing Scale */
+
+    /* ── Typography — matching deck: EB Garamond + Inter ── */
+    --font-display: 'EB Garamond', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', 'Segoe UI', Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+
+    /* ── Spacing Scale ── */
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
     --space-md: 1rem;
@@ -46,23 +51,36 @@
     --space-2xl: 3rem;
     --space-3xl: 4rem;
     --space-4xl: 6rem;
-    
-    /* Layout */
+    --space-5xl: 8rem;
+
+    /* ── Layout ── */
     --max-width: 1200px;
     --header-height: 72px;
-    
-    /* Transitions */
+
+    /* ── Transitions ── */
     --transition-fast: 0.15s ease;
-    --transition-base: 0.2s ease;
-    --transition-slow: 0.3s ease;
-    
-    /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-    --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
-    
-    /* Border Radius */
+    --transition-base: 0.25s ease;
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* ── Shadows ── */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 16px rgba(44, 74, 110, 0.08);
+    --shadow-lg: 0 8px 32px rgba(44, 74, 110, 0.12);
+    --shadow-xl: 0 16px 48px rgba(44, 74, 110, 0.16);
+
+    /* ── Border Radius ── */
     --radius-sm: 4px;
     --radius-md: 8px;
-    --radius-lg: 12px;
+    --radius-lg: 14px;
+    --radius-xl: 20px;
+
+    /* ── Glassmorphism (from deck V6) ── */
+    --glass-dark: rgba(20, 40, 65, 0.6);
+    --glass-dark-border: rgba(255, 255, 255, 0.12);
+    --glass-light: rgba(255, 255, 255, 0.12);
+    --glass-light-border: rgba(255, 255, 255, 0.18);
+    --glass-blur: blur(14px);
+    --glass-blur-soft: blur(8px);
+    --glass-card: rgba(255, 255, 255, 0.7);
+    --glass-card-border: rgba(44, 74, 110, 0.08);
 }

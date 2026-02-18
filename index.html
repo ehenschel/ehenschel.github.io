@@ -3,25 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinTax Group — Professional Services in Kazakhstan</title>
-    <meta name="description" content="Audit, tax consulting, legal services, and business advisory for Kazakhstan's leading companies. International standards, local expertise. Since 1999.">
+    <title>MinTax Group — Audit, Tax & Legal Services in Kazakhstan</title>
+    <meta name="description" content="MinTax Group is one of Kazakhstan's leading professional services firms. Audit, tax consulting, legal services, IFRS reporting, and business advisory since 1999. Offices in Almaty, Astana, Atyrau.">
+    <meta name="keywords" content="audit Kazakhstan, tax consulting Almaty, legal services Kazakhstan, IFRS reporting, MinTax Group, professional services Kazakhstan">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MinTax Group — Professional Services in Kazakhstan">
+    <meta property="og:description" content="Audit, tax consulting, legal services, and business advisory for Kazakhstan's leading companies since 1999.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/pages.css">
     <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Schema: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "MinTax Group",
+        "description": "Audit, tax consulting, legal services, and business advisory firm in Kazakhstan",
+        "url": "https://ehenschel.github.io",
+        "foundingDate": "1999-03",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "62B Karmyssov Street",
+            "addressLocality": "Almaty",
+            "postalCode": "050057",
+            "addressCountry": "KZ"
+        },
+        "telephone": "+77272218888",
+        "email": "info@mintax.kz",
+        "numberOfEmployees": {
+            "@type": "QuantitativeValue",
+            "minValue": 50
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Kazakhstan"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Professional Services",
+            "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Audit & Assurance" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tax Consulting" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Legal Services" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IFRS Reporting" }},
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Outsourcing & HR" }}
+            ]
+        }
+    }
+    </script>
+
     <style>
-        /* Homepage-specific styles */
+        /* ══════════════════════════════════════════════════
+           HOMEPAGE V3 — Professional Services Depth
+           10-section layout matching Big 4 firm standards
+           ══════════════════════════════════════════════════ */
+
+        /* ── 1. HERO ── */
         .home-hero {
-            padding-top: calc(var(--header-height) + var(--space-4xl));
-            padding-bottom: var(--space-4xl);
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
+            position: relative;
+            min-height: 92vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--header-height);
+            background: var(--blue-deep);
+            overflow: hidden;
+        }
+
+        .hero-parallax-bg {
+            position: absolute;
+            inset: -15%;
+            background:
+                url('https://images.unsplash.com/photo-1578898886225-c7c894047899?w=1600&q=85')
+                center/cover no-repeat;
+            opacity: 0.3;
+            will-change: transform;
+            transform: translateY(0) scale(1.15);
+        }
+
+        .home-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(
+                180deg,
+                rgba(26, 51, 80, 0.75) 0%,
+                rgba(26, 51, 80, 0.55) 40%,
+                rgba(26, 51, 80, 0.88) 100%
+            );
         }
 
         .home-hero .container {
+            position: relative;
+            z-index: 2;
+            padding-top: var(--space-4xl);
+            padding-bottom: var(--space-4xl);
+        }
+
+        .hero-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-4xl);
@@ -29,31 +122,36 @@
         }
 
         .home-hero-content {
-            max-width: 540px;
+            max-width: 580px;
         }
 
         .hero-tag {
             display: inline-block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--terracotta);
-            margin-bottom: var(--space-md);
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--gold);
+            margin-bottom: var(--space-lg);
         }
 
         .home-hero h1 {
             font-family: var(--font-display);
-            font-size: 3.25rem;
+            font-size: 3.4rem;
             font-weight: 400;
             line-height: 1.1;
-            color: var(--black);
+            color: var(--white);
             margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
         }
 
         .home-hero .lead {
-            font-size: 1.15rem;
-            color: var(--gray-600);
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.72);
             margin-bottom: var(--space-2xl);
-            line-height: 1.7;
+            line-height: 1.75;
+            max-width: 480px;
         }
 
         .hero-buttons {
@@ -62,40 +160,148 @@
             margin-bottom: var(--space-3xl);
         }
 
-        .hero-stats {
+        .hero-buttons .btn-outline {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+        }
+
+        .hero-buttons .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.45);
+            color: var(--white);
+        }
+
+        /* Glass stats panel */
+        .hero-stats-panel {
+            background: rgba(20, 40, 65, 0.5);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl) var(--space-2xl);
             display: flex;
             gap: var(--space-3xl);
-            padding-top: var(--space-2xl);
-            border-top: 1px solid var(--gray-200);
         }
 
-        .stat-number {
+        .hero-stat { text-align: left; }
+
+        .hero-stat-number {
             font-family: var(--font-display);
-            font-size: 2.5rem;
-            color: var(--blue-primary);
+            font-size: 2.4rem;
+            color: var(--white);
             line-height: 1;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.3rem;
         }
 
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--gray-500);
+        .hero-stat-label {
+            font-size: 0.76rem;
+            color: rgba(255, 255, 255, 0.48);
+            letter-spacing: 0.02em;
         }
 
-        .hero-visual {
-            background: var(--blue-pale);
-            border-radius: var(--radius-lg);
-            aspect-ratio: 4/3;
+        /* Right column — glass card */
+        .hero-glass-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-xl);
+            padding: var(--space-3xl);
+        }
+
+        .hero-glass-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero-capabilities { list-style: none; margin: 0; padding: 0; }
+
+        .hero-capabilities li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 0.93rem;
+        }
+
+        .hero-capabilities li:last-child { border-bottom: none; }
+
+        .capability-icon {
+            width: 34px;
+            height: 34px;
+            background: rgba(201, 169, 98, 0.12);
+            border: 1px solid rgba(201, 169, 98, 0.2);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray-400);
-            font-size: 0.9rem;
+            flex-shrink: 0;
         }
 
-        /* Services section */
+        .capability-icon svg {
+            width: 17px;
+            height: 17px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        /* ── 2. TRUSTED BY (Client Logos) ── */
+        .home-trusted {
+            padding: var(--space-3xl) 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .trusted-inner {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3xl);
+        }
+
+        .trusted-label {
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--gray-400);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .trusted-logos {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2xl);
+            overflow: hidden;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .trusted-logo {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-300);
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            opacity: 0.6;
+            transition: opacity var(--transition-base);
+        }
+
+        .trusted-logo:hover {
+            opacity: 1;
+        }
+
+        /* ── 3. SERVICES ── */
         .home-services {
-            padding: var(--space-4xl) 0;
+            padding: var(--space-5xl) 0;
+            background: var(--white);
         }
 
         .section-header {
@@ -105,24 +311,29 @@
             margin-bottom: var(--space-3xl);
         }
 
+        .section-header-left .overline {
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
         .section-header h2 {
             font-family: var(--font-display);
-            font-size: 2.25rem;
+            font-size: 2.4rem;
             font-weight: 400;
             color: var(--black);
         }
 
         .section-header .view-all {
-            font-size: 0.9rem;
+            font-size: 0.86rem;
             color: var(--terracotta);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            font-weight: 500;
+            transition: all var(--transition-base);
         }
 
-        .section-header .view-all:hover {
-            text-decoration: underline;
-        }
+        .section-header .view-all:hover { gap: 0.7rem; }
 
         .services-grid {
             display: grid;
@@ -138,157 +349,796 @@
         }
 
         .service-card {
-            background: var(--gray-50);
-            border-radius: var(--radius-md);
+            background: var(--white);
+            border: 1px solid rgba(44, 74, 110, 0.06);
+            border-radius: var(--radius-lg);
             padding: var(--space-2xl);
-            transition: all 0.2s;
+            transition: all var(--transition-slow);
             cursor: pointer;
             text-decoration: none;
             display: block;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            opacity: 0;
+            transition: opacity var(--transition-slow);
         }
 
         .service-card:hover {
+            border-color: rgba(44, 74, 110, 0.1);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before { opacity: 1; }
+
+        .service-card-icon {
+            width: 44px;
+            height: 44px;
             background: var(--blue-pale);
-            transform: translateY(-2px);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .service-card-icon svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--blue-primary);
+            fill: none;
+            stroke-width: 1.5;
         }
 
         .service-card h3 {
             font-family: var(--font-display);
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             font-weight: 400;
             color: var(--black);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
+            transition: color var(--transition-base);
         }
 
+        .service-card:hover h3 { color: var(--blue-primary); }
+
         .service-card p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--gray-600);
-            line-height: 1.6;
+            line-height: 1.65;
             margin-bottom: var(--space-md);
         }
 
         .service-card .link {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--terracotta);
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.35rem;
+            transition: gap var(--transition-base);
         }
 
-        /* About preview */
-        .home-about {
-            padding: var(--space-4xl) 0;
+        .service-card:hover .link { gap: 0.65rem; }
+
+        /* ── 4. INDUSTRIES ── */
+        .home-industries {
+            padding: var(--space-5xl) 0;
+            background: var(--gray-50);
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .industry-card {
+            background: var(--white);
+            border: 1px solid rgba(44, 74, 110, 0.05);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-decoration: none;
+            display: block;
+            transition: all var(--transition-slow);
+        }
+
+        .industry-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(44, 74, 110, 0.1);
+        }
+
+        .industry-card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gold-pale);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .industry-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .industry-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+            transition: color var(--transition-base);
+        }
+
+        .industry-card:hover h3 { color: var(--blue-primary); }
+
+        .industry-card p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── 5. FEATURED INSIGHTS ── */
+        .home-insights {
+            padding: var(--space-5xl) 0;
+            background: var(--white);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: var(--space-xl);
+        }
+
+        .insight-card {
+            border: 1px solid rgba(44, 74, 110, 0.06);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-slow);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .insight-image {
+            aspect-ratio: 16/9;
+            background: var(--blue-mist);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .insight-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .insight-image .placeholder-text {
+            font-size: 0.8rem;
+            color: var(--gray-400);
+        }
+
+        .insight-category {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            background: rgba(44, 74, 110, 0.85);
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .insight-body {
+            padding: var(--space-xl);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-meta {
+            font-size: 0.76rem;
+            color: var(--gray-400);
+            margin-bottom: var(--space-sm);
+        }
+
+        .insight-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: var(--space-sm);
+            line-height: 1.35;
+            transition: color var(--transition-base);
+        }
+
+        .insight-card:hover h3 { color: var(--blue-primary); }
+
+        .insight-card p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .insight-card .link {
+            font-size: 0.8rem;
+            color: var(--terracotta);
+            font-weight: 500;
+            margin-top: var(--space-md);
+        }
+
+        /* ── 6. CASE STUDY SPOTLIGHT ── */
+        .home-casestudy {
+            padding: var(--space-5xl) 0;
             background: var(--blue-primary);
             color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
 
-        .home-about .container {
+        .home-casestudy::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .casestudy-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: var(--space-4xl);
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
-        .home-about h2 {
+        .casestudy-content .overline {
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        .casestudy-content h2 {
             font-family: var(--font-display);
-            font-size: 2.25rem;
+            font-size: 2.2rem;
             font-weight: 400;
             color: var(--white);
             margin-bottom: var(--space-lg);
+            line-height: 1.2;
         }
 
-        .home-about p {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.85);
-            line-height: 1.8;
+        .casestudy-content p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.75;
             margin-bottom: var(--space-lg);
         }
 
-        .about-image {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius-lg);
+        .casestudy-client {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--gold);
+            margin-bottom: var(--space-xl);
+        }
+
+        .casestudy-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .casestudy-metric {
+            text-align: left;
+        }
+
+        .casestudy-metric-number {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .casestudy-metric-label {
+            font-size: 0.76rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .casestudy-image {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-xl);
             aspect-ratio: 4/3;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.9rem;
+            overflow: hidden;
         }
 
-        /* Credentials */
+        .casestudy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .casestudy-image .placeholder-text {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+        }
+
+        /* ── 7. OUR PEOPLE ── */
+        .home-people {
+            padding: var(--space-5xl) 0;
+            background: var(--white);
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .person-card {
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            transition: all var(--transition-slow);
+        }
+
+        .person-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .person-photo {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-lg);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .person-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .person-photo .placeholder-text {
+            color: var(--gray-300);
+            font-size: 0.8rem;
+        }
+
+        .person-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+        }
+
+        .person-role {
+            font-size: 0.82rem;
+            color: var(--gray-500);
+            margin-bottom: 0.25rem;
+        }
+
+        .person-cred {
+            font-size: 0.72rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── 8. CREDENTIALS ── */
         .home-credentials {
-            padding: var(--space-4xl) 0;
-            background: var(--gray-50);
+            padding: var(--space-5xl) 0;
+            background: var(--blue-mist);
         }
 
         .home-credentials h2 {
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 400;
             color: var(--black);
             text-align: center;
+            margin-bottom: var(--space-sm);
+        }
+
+        .home-credentials .section-subtitle {
+            text-align: center;
+            font-size: 0.98rem;
+            color: var(--gray-500);
             margin-bottom: var(--space-3xl);
-        }
-
-        /* CTA box */
-        .home-cta {
-            padding: var(--space-4xl) 0;
-        }
-
-        .cta-box {
-            background: var(--gray-100);
-            border-radius: var(--radius-lg);
-            padding: var(--space-4xl);
-            text-align: center;
-        }
-
-        .cta-box h2 {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--black);
-            margin-bottom: var(--space-md);
-        }
-
-        .cta-box p {
-            font-size: 1.05rem;
-            color: var(--gray-600);
-            margin-bottom: var(--space-2xl);
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .credential-item {
+            text-align: center;
+            padding: var(--space-2xl) var(--space-lg);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(44, 74, 110, 0.04);
+            transition: all var(--transition-slow);
+        }
+
+        .credential-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .credential-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto var(--space-md);
+            background: var(--blue-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-slow);
+        }
+
+        .credential-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--blue-primary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .credential-item:hover .credential-icon {
+            background: var(--blue-primary);
+        }
+
+        .credential-item:hover .credential-icon svg {
+            stroke: var(--white);
+        }
+
+        .credential-title {
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+        }
+
+        .credential-desc {
+            font-size: 0.82rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+        }
+
+        /* ── 9. NEWS & EVENTS ── */
+        .home-news {
+            padding: var(--space-5xl) 0;
+            background: var(--white);
+        }
+
+        .news-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+        }
+
+        .news-column h3,
+        .events-column h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-md);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .news-item {
+            padding: var(--space-lg) 0;
+            border-bottom: 1px solid var(--gray-100);
+            text-decoration: none;
+            display: block;
+            transition: all var(--transition-base);
+        }
+
+        .news-item:hover {
+            padding-left: var(--space-sm);
+        }
+
+        .news-date {
+            font-size: 0.72rem;
+            color: var(--gray-400);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.35rem;
+        }
+
+        .news-item h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 0.35rem;
+            line-height: 1.35;
+            transition: color var(--transition-base);
+        }
+
+        .news-item:hover h4 { color: var(--blue-primary); }
+
+        .news-item p {
+            font-size: 0.84rem;
+            color: var(--gray-500);
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .event-item {
+            display: flex;
+            gap: var(--space-lg);
+            padding: var(--space-lg) 0;
+            border-bottom: 1px solid var(--gray-100);
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+
+        .event-item:hover {
+            padding-left: var(--space-sm);
+        }
+
+        .event-date-box {
+            flex-shrink: 0;
+            width: 56px;
+            height: 56px;
+            background: var(--blue-pale);
+            border-radius: var(--radius-md);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-slow);
+        }
+
+        .event-item:hover .event-date-box {
+            background: var(--blue-primary);
+        }
+
+        .event-date-box .event-month {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--blue-primary);
+            transition: color var(--transition-slow);
+        }
+
+        .event-item:hover .event-date-box .event-month {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .event-date-box .event-day {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--blue-primary);
+            line-height: 1;
+            transition: color var(--transition-slow);
+        }
+
+        .event-item:hover .event-date-box .event-day {
+            color: var(--white);
+        }
+
+        .event-details h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+            transition: color var(--transition-base);
+        }
+
+        .event-item:hover .event-details h4 { color: var(--blue-primary); }
+
+        .event-type {
+            font-size: 0.72rem;
+            color: var(--gray-400);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── 10. CTA ── */
+        .home-cta {
+            padding: var(--space-5xl) 0;
+            background: var(--gray-50);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 2px;
+            background: var(--gold);
+        }
+
+        .cta-box h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box p {
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, 0.68);
+            margin-bottom: var(--space-2xl);
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box .btn { position: relative; z-index: 2; }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-buttons .btn-outline {
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+        }
+
+        .cta-buttons .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.45);
+            color: var(--white);
+        }
+
+        /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .home-hero .container,
-            .home-about .container {
+            .hero-layout,
+            .casestudy-layout,
+            .news-layout {
                 grid-template-columns: 1fr;
                 gap: var(--space-3xl);
             }
 
-            .home-hero h1 {
-                font-size: 2.5rem;
-            }
+            .home-hero h1 { font-size: 2.65rem; }
 
-            .hero-visual,
-            .about-image {
-                max-width: 400px;
-            }
+            .hero-glass-card { display: none; }
 
-            .services-grid,
-            .services-grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-stats {
+            .hero-stats-panel {
                 flex-wrap: wrap;
                 gap: var(--space-xl);
             }
 
-            .hero-buttons {
+            .services-grid,
+            .services-grid-2,
+            .industries-grid,
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .people-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .trusted-logos {
+                overflow-x: auto;
+                padding-bottom: var(--space-sm);
+            }
+
+            .casestudy-metrics {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .home-hero h1 { font-size: 2.15rem; }
+
+            .hero-buttons,
+            .cta-buttons {
                 flex-direction: column;
+            }
+
+            .hero-stats-panel {
+                flex-direction: column;
+                gap: var(--space-lg);
+            }
+
+            .people-grid,
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trusted-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-lg);
+            }
+
+            .cta-box {
+                padding: var(--space-3xl) var(--space-xl);
+            }
+
+            .casestudy-metrics {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -306,8 +1156,9 @@
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="services/">Services</a></li>
+                    <li><a href="industries/">Industries</a></li>
+                    <li><a href="insights/">Insights</a></li>
                     <li><a href="about/">About</a></li>
-                    <li><a href="clients/">Clients</a></li>
                     <li><a href="contact/">Contact</a></li>
                 </ul>
 
@@ -329,136 +1180,497 @@
         </div>
     </header>
 
-    <!-- HERO -->
+
+    <!-- ══════════ 1. HERO ══════════ -->
     <section class="home-hero">
+        <div class="hero-parallax-bg" aria-hidden="true"></div>
         <div class="container">
-            <div class="home-hero-content">
-                <span class="hero-tag">Since 1999</span>
-                <h1>Professional services built on trust</h1>
-                <p class="lead">Audit, tax consulting, legal services, and business advisory for Kazakhstan's leading companies. International standards, local expertise.</p>
+            <div class="hero-layout">
+                <div class="home-hero-content">
+                    <span class="hero-tag">Since 1999 &middot; Almaty &middot; Astana &middot; Atyrau</span>
+                    <h1>Trusted advisors for<br>business in Kazakhstan</h1>
+                    <p class="lead">Audit, tax consulting, legal services, and IFRS reporting for Kazakhstan's leading companies. International standards, deep local expertise, measurable outcomes.</p>
 
-                <div class="hero-buttons">
-                    <a href="services/" class="btn btn-primary">Our Services</a>
-                    <a href="contact/" class="btn btn-outline">Free Consultation</a>
+                    <div class="hero-buttons">
+                        <a href="services/" class="btn btn-primary">Our Services</a>
+                        <a href="contact/" class="btn btn-outline">Schedule a Consultation</a>
+                    </div>
+
+                    <div class="hero-stats-panel">
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">26+</div>
+                            <div class="hero-stat-label">Years in the market</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">500+</div>
+                            <div class="hero-stat-label">Clients served</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-number">Top 10</div>
+                            <div class="hero-stat-label">Audit firm in KZ</div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">25+</div>
-                        <div class="stat-label">years in the market</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">500+</div>
-                        <div class="stat-label">clients served</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">Top 10</div>
-                        <div class="stat-label">audit firm in Kazakhstan</div>
-                    </div>
+                <!-- Glass capabilities card -->
+                <div class="hero-glass-card">
+                    <h3>Our Practice Areas</h3>
+                    <ul class="hero-capabilities">
+                        <li>
+                            <div class="capability-icon">
+                                <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6m-3 7v4m-2-2h4"/></svg>
+                            </div>
+                            Audit &amp; Assurance
+                        </li>
+                        <li>
+                            <div class="capability-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                            </div>
+                            Tax Consulting
+                        </li>
+                        <li>
+                            <div class="capability-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            Legal Services
+                        </li>
+                        <li>
+                            <div class="capability-icon">
+                                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zm0 7v-7"/></svg>
+                            </div>
+                            IFRS Reporting
+                        </li>
+                        <li>
+                            <div class="capability-icon">
+                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            Outsourcing &amp; HR
+                        </li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="hero-visual">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Modern office interior" loading="lazy">
             </div>
         </div>
     </section>
 
-    <!-- SERVICES -->
+
+    <!-- ══════════ 2. TRUSTED BY ══════════ -->
+    <section class="home-trusted">
+        <div class="container">
+            <div class="trusted-inner">
+                <span class="trusted-label">Trusted by</span>
+                <div class="trusted-logos">
+                    <!-- Replace with actual client logos -->
+                    <span class="trusted-logo">KazMunayGas</span>
+                    <span class="trusted-logo">Samruk-Kazyna</span>
+                    <span class="trusted-logo">Kazakhtelecom</span>
+                    <span class="trusted-logo">KEGOC</span>
+                    <span class="trusted-logo">Halyk Bank</span>
+                    <span class="trusted-logo">Air Astana</span>
+                    <span class="trusted-logo">Kaspi.kz</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════ 3. SERVICES ══════════ -->
     <section class="home-services">
         <div class="container">
             <div class="section-header">
-                <h2>Our Services</h2>
-                <a href="services/" class="view-all">View all services →</a>
+                <div class="section-header-left">
+                    <span class="overline">What We Do</span>
+                    <h2>Our Services</h2>
+                </div>
+                <a href="services/" class="view-all">All services <span>&rarr;</span></a>
             </div>
 
             <div class="services-grid">
                 <a href="services/audit.html" class="service-card">
-                    <h3>Audit & Assurance</h3>
-                    <p>Statutory and voluntary audits of financial statements under national and international standards.</p>
-                    <span class="link">Learn more →</span>
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6m-6 4h6m-6 4h6m-6 4h4"/></svg>
+                    </div>
+                    <h3>Audit &amp; Assurance</h3>
+                    <p>Statutory and voluntary audits under ISA and national standards. KASE-listed company audits, due diligence, internal audit.</p>
+                    <span class="link">Learn more <span>&rarr;</span></span>
                 </a>
                 <a href="services/tax.html" class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
                     <h3>Tax Consulting</h3>
-                    <p>Tax planning, audit support, and representation in tax disputes and proceedings.</p>
-                    <span class="link">Learn more →</span>
+                    <p>Tax planning and optimization, audit support, transfer pricing, representation in tax disputes and proceedings.</p>
+                    <span class="link">Learn more <span>&rarr;</span></span>
                 </a>
                 <a href="services/legal.html" class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
                     <h3>Legal Services</h3>
-                    <p>Corporate law, M&A transactions, company registration and reorganization, court representation.</p>
-                    <span class="link">Learn more →</span>
+                    <p>Corporate law, M&amp;A transactions, company registration and reorganization, court representation, labor law.</p>
+                    <span class="link">Learn more <span>&rarr;</span></span>
                 </a>
             </div>
 
             <div class="services-grid-2">
                 <a href="services/ifrs.html" class="service-card">
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zm0 7v-7"/></svg>
+                    </div>
                     <h3>IFRS Reporting</h3>
-                    <p>Financial statement transformation, standards consultation, and consolidated reporting preparation.</p>
-                    <span class="link">Learn more →</span>
+                    <p>Financial statement transformation, IFRS implementation, standards consultation, and consolidated reporting preparation.</p>
+                    <span class="link">Learn more <span>&rarr;</span></span>
                 </a>
                 <a href="services/outsourcing.html" class="service-card">
-                    <h3>Accounting & Outsourcing</h3>
-                    <p>Bookkeeping, payroll processing, financial reporting, and HR administration.</p>
-                    <span class="link">Learn more →</span>
+                    <div class="service-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Accounting &amp; Outsourcing</h3>
+                    <p>Bookkeeping, payroll processing, financial reporting, HR administration, and compliance management.</p>
+                    <span class="link">Learn more <span>&rarr;</span></span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT PREVIEW -->
-    <section class="home-about">
+
+    <!-- ══════════ 4. INDUSTRIES ══════════ -->
+    <section class="home-industries">
         <div class="container">
-            <div class="about-content">
-                <h2>For over 25 years, we've helped businesses make the right decisions</h2>
-                <p>MinTax Group is one of Kazakhstan's leading consulting firms. We combine deep expertise in audit, tax, and law with understanding of local specifics and international standards.</p>
-                <p>Our specialists are certified auditors and tax consultants with experience at leading international and Kazakhstani companies.</p>
-                <a href="about/" class="btn btn-white">Learn more about us →</a>
+            <div class="section-header">
+                <div class="section-header-left">
+                    <span class="overline">Industry Expertise</span>
+                    <h2>Industries We Serve</h2>
+                </div>
+                <a href="industries/" class="view-all">All industries <span>&rarr;</span></a>
             </div>
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Team collaboration" loading="lazy">
+
+            <div class="industries-grid">
+                <a href="industries/" class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C12 2 8 6 8 10c0 2 1 3.5 2.5 4.5M12 2c0 0 4 4 4 8 0 2-1 3.5-2.5 4.5M12 22v-8m-4 0h8"/><circle cx="12" cy="14" r="1"/></svg>
+                    </div>
+                    <h3>Oil &amp; Gas</h3>
+                    <p>Subsoil use, production sharing agreements, environmental compliance, and petroleum tax regimes.</p>
+                </a>
+                <a href="industries/" class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2 20h20M5 20V8l7-6 7 6v12M9 20v-6h6v6M9 10h.01M15 10h.01"/></svg>
+                    </div>
+                    <h3>Mining &amp; Metals</h3>
+                    <p>Resource extraction regulations, environmental reporting, cross-border operations, and commodity taxation.</p>
+                </a>
+                <a href="industries/" class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                    </div>
+                    <h3>Financial Services</h3>
+                    <p>Banking regulation, insurance compliance, AIFC framework, and financial institution audits.</p>
+                </a>
+                <a href="industries/" class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V9l3-3 3 3v11M14 20V5l3-3 3 3v15M10 14h4M10 10h4"/></svg>
+                    </div>
+                    <h3>Construction &amp; Real Estate</h3>
+                    <p>Project finance, tax incentives, land use regulations, and construction sector compliance.</p>
+                </a>
+                <a href="industries/" class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zm0 4h12M16 10a4 4 0 0 1-8 0"/></svg>
+                    </div>
+                    <h3>Retail &amp; FMCG</h3>
+                    <p>VAT optimization, customs and trade, franchise structuring, and supply chain compliance.</p>
+                </a>
+                <a href="industries/" class="industry-card">
+                    <div class="industry-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zm0 13l-8-4v5l8 4 8-4v-5l-8 4z"/></svg>
+                    </div>
+                    <h3>Government &amp; Public Sector</h3>
+                    <p>Public procurement compliance, state enterprise audits, and government project advisory.</p>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- CREDENTIALS -->
+
+    <!-- ══════════ 5. FEATURED INSIGHTS ══════════ -->
+    <!-- ATLAS Content System Preview — these articles demonstrate the type of
+         thought leadership content ATLAS will generate 2-3x per week automatically -->
+    <section class="home-insights">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <span class="overline">Knowledge &amp; Thought Leadership</span>
+                    <h2>Latest Insights</h2>
+                </div>
+                <a href="insights/" class="view-all">All publications <span>&rarr;</span></a>
+            </div>
+
+            <div class="insights-grid">
+                <!-- Article 1 — Tax Code Changes -->
+                <a href="insights/" class="insight-card">
+                    <div class="insight-image" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);">
+                        <span class="insight-category">Tax &amp; Compliance</span>
+                    </div>
+                    <div class="insight-body">
+                        <div class="insight-meta">February 2026 &middot; 8 min read</div>
+                        <h3>Key Changes to Kazakhstan's Tax Code in 2026: What Businesses Need to Know</h3>
+                        <p>An overview of the most significant amendments affecting corporate income tax, VAT, and transfer pricing rules for the current fiscal year.</p>
+                        <span class="link">Read more</span>
+                    </div>
+                </a>
+
+                <!-- Article 2 — IFRS 18 -->
+                <a href="insights/" class="insight-card">
+                    <div class="insight-image" style="background: linear-gradient(135deg, #2C4A6E 0%, #5A7FA3 100%);">
+                        <span class="insight-category">Audit &amp; Assurance</span>
+                    </div>
+                    <div class="insight-body">
+                        <div class="insight-meta">January 2026 &middot; 6 min read</div>
+                        <h3>IFRS 18 Presentation and Disclosure: Preparing for the Transition</h3>
+                        <p>The new standard takes effect in 2027. Here's how Kazakh companies should start preparing their financial statements today.</p>
+                        <span class="link">Read more</span>
+                    </div>
+                </a>
+
+                <!-- Article 3 — Labor Code -->
+                <a href="insights/" class="insight-card">
+                    <div class="insight-image" style="background: linear-gradient(135deg, #1A3350 0%, #3D5D85 100%);">
+                        <span class="insight-category">Legal</span>
+                    </div>
+                    <div class="insight-body">
+                        <div class="insight-meta">January 2026 &middot; 5 min read</div>
+                        <h3>New Labor Code Amendments: Employer Obligations and Compliance Checklist</h3>
+                        <p>Recent labor law changes introduce stricter employee protection rules. A practical guide for HR departments and company leadership.</p>
+                        <span class="link">Read more</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════ 6. CASE STUDY SPOTLIGHT ══════════ -->
+    <section class="home-casestudy">
+        <div class="container">
+            <div class="casestudy-layout">
+                <div class="casestudy-content">
+                    <span class="overline">What We Deliver</span>
+                    <h2>26 years of results across Kazakhstan's most demanding sectors</h2>
+                    <span class="casestudy-client">Oil &amp; Gas &middot; Mining &middot; Banking &middot; Government</span>
+                    <p>From statutory audits for KASE-listed companies to complex transfer pricing engagements in the extractive sector, MinTax Group has built its reputation on deep regulatory expertise, international-standard methodology, and measurable outcomes for clients.</p>
+
+                    <div class="casestudy-metrics">
+                        <div class="casestudy-metric">
+                            <div class="casestudy-metric-number">26+</div>
+                            <div class="casestudy-metric-label">Years of practice</div>
+                        </div>
+                        <div class="casestudy-metric">
+                            <div class="casestudy-metric-number">500+</div>
+                            <div class="casestudy-metric-label">Clients served</div>
+                        </div>
+                        <div class="casestudy-metric">
+                            <div class="casestudy-metric-number">90%</div>
+                            <div class="casestudy-metric-label">Referred by existing clients</div>
+                        </div>
+                    </div>
+
+                    <a href="case-studies/" class="btn btn-white">View case studies</a>
+                </div>
+
+                <div class="casestudy-image" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 60%, var(--gold-dim) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; padding: 3rem;">
+                    <div style="font-family: var(--font-display); font-size: 4rem; color: rgba(255,255,255,0.15); font-weight: 400; line-height:1;">Top 10</div>
+                    <div style="font-family: var(--font-body); font-size: 0.85rem; color: rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.12em; text-align:center;">Kazakhstan Audit &amp;<br>Consulting Ranking<br>Since 2011</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════ 7. OUR PEOPLE ══════════ -->
+    <section class="home-people">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <span class="overline">Leadership</span>
+                    <h2>Our People</h2>
+                </div>
+                <a href="team/" class="view-all">Full team <span>&rarr;</span></a>
+            </div>
+
+            <div class="people-grid">
+                <a href="team/" class="person-card">
+                    <div class="person-photo" style="background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%); display:flex; align-items:center; justify-content:center;">
+                        <div style="width:60px; height:60px; border-radius:50%; background: var(--blue-primary); display:flex; align-items:center; justify-content:center; color: var(--white); font-family: var(--font-display); font-size:1.5rem;">AK</div>
+                    </div>
+                    <h3>Andrey Khorunzhiy</h3>
+                    <div class="person-role">Managing Partner</div>
+                    <div class="person-cred">Auditor of the RoK</div>
+                </a>
+
+                <a href="team/" class="person-card">
+                    <div class="person-photo" style="background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%); display:flex; align-items:center; justify-content:center;">
+                        <div style="width:60px; height:60px; border-radius:50%; background: var(--blue-primary); display:flex; align-items:center; justify-content:center; color: var(--white); font-family: var(--font-display); font-size:1.5rem;">RK</div>
+                    </div>
+                    <h3>Roza Kinchinbayeva</h3>
+                    <div class="person-role">Managing Partner</div>
+                    <div class="person-cred">Auditor of the RoK</div>
+                </a>
+
+                <a href="team/" class="person-card">
+                    <div class="person-photo" style="background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%); display:flex; align-items:center; justify-content:center;">
+                        <div style="width:60px; height:60px; border-radius:50%; background: var(--blue-primary); display:flex; align-items:center; justify-content:center; color: var(--white); font-family: var(--font-display); font-size:1.5rem;">GS</div>
+                    </div>
+                    <h3>Gulnara Shokibayeva</h3>
+                    <div class="person-role">Partner, Head of Audit</div>
+                    <div class="person-cred">Certified Auditor</div>
+                </a>
+
+                <a href="team/" class="person-card">
+                    <div class="person-photo" style="background: linear-gradient(135deg, var(--blue-pale) 0%, var(--gray-100) 100%); display:flex; align-items:center; justify-content:center;">
+                        <div style="width:60px; height:60px; border-radius:50%; background: var(--blue-primary); display:flex; align-items:center; justify-content:center; color: var(--white); font-family: var(--font-display); font-size:1.5rem;">MB</div>
+                    </div>
+                    <h3>Mukhtar Bekzhigitov</h3>
+                    <div class="person-role">Partner, Head of Tax</div>
+                    <div class="person-cred">Tax Consultant of the RoK</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══════════ 8. CREDENTIALS ══════════ -->
     <section class="home-credentials">
         <div class="container">
+            <span class="overline text-center" style="display:block; margin-bottom: var(--space-sm);">Recognition</span>
             <h2>Why Clients Trust Us</h2>
+            <p class="section-subtitle">Proven track record across audit, tax, and advisory services in Kazakhstan</p>
+
             <div class="credentials-grid">
                 <div class="credential-item">
-                    <div class="credential-icon">✓</div>
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3"/></svg>
+                    </div>
                     <div class="credential-title">KASE Listed</div>
                     <div class="credential-desc">Approved auditor for stock exchange companies</div>
                 </div>
                 <div class="credential-item">
-                    <div class="credential-icon">✓</div>
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
                     <div class="credential-title">ISO Certified</div>
-                    <div class="credential-desc">ISO 9001:2015 quality management</div>
+                    <div class="credential-desc">ISO 9001:2015 quality management system</div>
                 </div>
                 <div class="credential-item">
-                    <div class="credential-icon">✓</div>
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                    </div>
                     <div class="credential-title">Nationally Ranked</div>
                     <div class="credential-desc">Top 10 audit firm in Kazakhstan</div>
                 </div>
                 <div class="credential-item">
-                    <div class="credential-icon">✓</div>
+                    <div class="credential-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2 L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26z"/></svg>
+                    </div>
                     <div class="credential-title">Award Winner</div>
-                    <div class="credential-desc">Best Tax Consultants 2016</div>
+                    <div class="credential-desc">Best Tax Consultants Organization 2016</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="home-cta">
+
+    <!-- ══════════ 9. NEWS & EVENTS ══════════ -->
+    <section class="home-news">
         <div class="container">
-            <div class="cta-box">
-                <h2>Ready to discuss your needs?</h2>
-                <p>Contact us for a free consultation. We'll help find the optimal solution for your business.</p>
-                <a href="contact/" class="btn btn-primary">Contact Us</a>
+            <div class="section-header" style="margin-bottom: var(--space-2xl);">
+                <div class="section-header-left">
+                    <span class="overline">Stay Informed</span>
+                    <h2>News &amp; Events</h2>
+                </div>
+            </div>
+
+            <!-- ATLAS Content System — these items demonstrate automated
+                 news aggregation and event curation from MinTax's domain -->
+            <div class="news-layout">
+                <!-- News Column -->
+                <div class="news-column">
+                    <h3>Latest News</h3>
+
+                    <a href="insights/" class="news-item">
+                        <div class="news-date">February 2026</div>
+                        <h4>Kazakhstan introduces new transfer pricing documentation requirements for 2026</h4>
+                        <p>The Ministry of Finance has published updated guidelines requiring enhanced documentation for cross-border transactions exceeding 250 MCI.</p>
+                    </a>
+
+                    <a href="insights/" class="news-item">
+                        <div class="news-date">January 2026</div>
+                        <h4>MinTax Group confirmed in Top 10 audit firms by Expert RA Kazakhstan</h4>
+                        <p>For the fifteenth consecutive year, both MinTax LLP and MinTax Audit LLP are ranked among Kazakhstan's leading professional services practices.</p>
+                    </a>
+
+                    <a href="insights/" class="news-item">
+                        <div class="news-date">December 2025</div>
+                        <h4>New VAT reporting deadlines take effect for Q1 2026 submissions</h4>
+                        <p>The State Revenue Committee has revised electronic filing deadlines. Companies should review their internal reporting calendars accordingly.</p>
+                    </a>
+                </div>
+
+                <!-- Events Column -->
+                <div class="events-column">
+                    <h3>Upcoming Events</h3>
+
+                    <a href="#" class="event-item">
+                        <div class="event-date-box">
+                            <span class="event-month">Mar</span>
+                            <span class="event-day">14</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Tax Code 2026: Practical Implications for Business</h4>
+                            <span class="event-type">Webinar &middot; Online</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="event-item">
+                        <div class="event-date-box">
+                            <span class="event-month">Apr</span>
+                            <span class="event-day">03</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>IFRS 18 Readiness: Financial Statement Presentation Changes</h4>
+                            <span class="event-type">Seminar &middot; Almaty</span>
+                        </div>
+                    </a>
+
+                    <a href="#" class="event-item">
+                        <div class="event-date-box">
+                            <span class="event-month">Apr</span>
+                            <span class="event-day">22</span>
+                        </div>
+                        <div class="event-details">
+                            <h4>Annual Tax Conference: Transfer Pricing in the CIS Region</h4>
+                            <span class="event-type">Conference &middot; Astana</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
+
+
+    <!-- ══════════ 10. CTA ══════════ -->
+    <section class="home-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Ready to discuss your business needs?</h2>
+                <p>Contact us for a confidential consultation. Our team will help identify the optimal approach for your specific situation.</p>
+                <div class="cta-buttons">
+                    <a href="contact/" class="btn btn-white">Contact Us</a>
+                    <a href="tel:+77272218888" class="btn btn-outline">+7 (727) 221-88-88</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -469,13 +1681,13 @@
                         <div class="logo-mark"></div>
                         <span class="logo-text">MinTax</span>
                     </div>
-                    <p>Professional audit, tax, and legal consulting services since 1999.</p>
+                    <p>Professional audit, tax, and legal consulting services for businesses in Kazakhstan since 1999.</p>
                 </div>
 
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="services/audit.html">Audit & Assurance</a></li>
+                        <li><a href="services/audit.html">Audit &amp; Assurance</a></li>
                         <li><a href="services/tax.html">Tax Consulting</a></li>
                         <li><a href="services/legal.html">Legal Services</a></li>
                         <li><a href="services/ifrs.html">IFRS Reporting</a></li>
@@ -489,6 +1701,7 @@
                         <li><a href="about/">About Us</a></li>
                         <li><a href="team/">Our Team</a></li>
                         <li><a href="clients/">Clients</a></li>
+                        <li><a href="insights/">Insights</a></li>
                         <li><a href="careers/">Careers</a></li>
                     </ul>
                 </div>
@@ -496,15 +1709,26 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li>+7 727 311 14 08</li>
-                        <li>info@mintax.kz</li>
-                        <li>62B Karmysov St., Almaty</li>
+                        <li><a href="tel:+77272218888">+7 (727) 221-88-88</a></li>
+                        <li><a href="mailto:info@mintax.kz">info@mintax.kz</a></li>
+                        <li>62B Karmyssov St., Almaty</li>
                     </ul>
+                    <div style="display:flex; gap: var(--space-md); margin-top: var(--space-lg);">
+                        <a href="https://www.linkedin.com/company/mintax/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: rgba(255,255,255,0.5); transition: color 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                        <a href="https://www.facebook.com/mintaxgroup" target="_blank" rel="noopener" aria-label="Facebook" style="color: rgba(255,255,255,0.5); transition: color 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/mintaxgroup" target="_blank" rel="noopener" aria-label="Instagram" style="color: rgba(255,255,255,0.5); transition: color 0.2s;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div>© 2025 MinTax Group. All rights reserved.</div>
+                <div>&copy; 2026 MinTax Group. All rights reserved.</div>
                 <div class="footer-certs">
                     <span>ISO 9001:2015</span>
                     <span>ISO 14001:2015</span>

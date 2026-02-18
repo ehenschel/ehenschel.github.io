@@ -1,205 +1,394 @@
 /* ============================================
-   MINTAX - ANIMATIONS & POLISH
-   Modern scroll animations and micro-interactions
+   MINTAX - ANIMATIONS & VISUAL EFFECTS V2
+   Professional services depth: scroll reveals,
+   counters, parallax, hover micro-interactions
    ============================================ */
 
-/* ========== SCROLL ANIMATIONS ========== */
+/* ========== SCROLL-REVEAL SYSTEM ========== */
 
-/* Elements that animate on scroll */
+/* Base fade-up reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+}
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-up from left */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+}
+.reveal-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade-up from right */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+}
+.reveal-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Scale up */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.75s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: opacity, transform;
+}
+.reveal-scale.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger children — grid items reveal one at a time */
+.reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+                transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal-stagger.is-visible > *:nth-child(1)  { transition-delay: 0.0s; }
+.reveal-stagger.is-visible > *:nth-child(2)  { transition-delay: 0.08s; }
+.reveal-stagger.is-visible > *:nth-child(3)  { transition-delay: 0.16s; }
+.reveal-stagger.is-visible > *:nth-child(4)  { transition-delay: 0.24s; }
+.reveal-stagger.is-visible > *:nth-child(5)  { transition-delay: 0.32s; }
+.reveal-stagger.is-visible > *:nth-child(6)  { transition-delay: 0.40s; }
+.reveal-stagger.is-visible > *:nth-child(7)  { transition-delay: 0.48s; }
+.reveal-stagger.is-visible > *:nth-child(8)  { transition-delay: 0.56s; }
+
+.reveal-stagger.is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Legacy classes — backward compat */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
-.animate-on-scroll.animated {
+.animate-on-scroll.animated,
+.animate-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Stagger children animations */
 .stagger-children > * {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-
 .stagger-children.animated > *:nth-child(1) { transition-delay: 0s; }
 .stagger-children.animated > *:nth-child(2) { transition-delay: 0.1s; }
-.stagger-children.animated > *:nth-child(3) { transition-delay: 0.2s; }
-.stagger-children.animated > *:nth-child(4) { transition-delay: 0.3s; }
-.stagger-children.animated > *:nth-child(5) { transition-delay: 0.4s; }
-.stagger-children.animated > *:nth-child(6) { transition-delay: 0.5s; }
-
+.stagger-children.animated > *:nth-child(3) { transition-delay: 0.1s; }
+.stagger-children.animated > *:nth-child(4) { transition-delay: 0.15s; }
+.stagger-children.animated > *:nth-child(5) { transition-delay: 0.2s; }
+.stagger-children.animated > *:nth-child(6) { transition-delay: 0.25s; }
 .stagger-children.animated > * {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Fade in from left */
 .animate-left {
     opacity: 0;
     transform: translateX(-40px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+.animate-left.animated { opacity: 1; transform: translateX(0); }
 
-.animate-left.animated {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Fade in from right */
 .animate-right {
     opacity: 0;
     transform: translateX(40px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+.animate-right.animated { opacity: 1; transform: translateX(0); }
 
-.animate-right.animated {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Scale up animation */
 .animate-scale {
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
+.animate-scale.animated { opacity: 1; transform: scale(1); }
 
-.animate-scale.animated {
-    opacity: 1;
-    transform: scale(1);
-}
 
 /* ========== PAGE LOAD ANIMATION ========== */
 body {
     animation: fadeInPage 0.5s ease-out;
 }
-
 @keyframes fadeInPage {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+/* ========== HERO PARALLAX ========== */
+.home-hero {
+    overflow: hidden;
+}
+
+.hero-parallax-bg {
+    will-change: transform;
+    transition: transform 0.05s linear;
+}
+
+/* Hero content entrance */
+.home-hero-content {
+    animation: heroContentIn 1s cubic-bezier(0.23, 1, 0.32, 1) 0.15s both;
+}
+
+.hero-glass-card {
+    animation: heroCardIn 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+}
+
+@keyframes heroContentIn {
     from {
         opacity: 0;
+        transform: translateY(40px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* ========== BUTTON MICRO-INTERACTIONS ========== */
-.btn {
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
+@keyframes heroCardIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.btn::after {
+/* Hero stats panel — subtle glow */
+.hero-stats-panel {
+    animation: statsPanelIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.6s both;
+    position: relative;
+}
+
+.hero-stats-panel::after {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(201, 169, 98, 0.15) 0%, transparent 50%, rgba(201, 169, 98, 0.08) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
-.btn:active::after {
-    width: 300px;
-    height: 300px;
+.hero-stats-panel:hover::after {
+    opacity: 1;
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(199, 93, 72, 0.3);
+@keyframes statsPanelIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.btn-outline:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(44, 74, 110, 0.2);
+
+/* ========== ANIMATED NUMBER COUNTERS ========== */
+.counter-animated {
+    display: inline-block;
+    min-width: 1ch;
 }
 
-.btn-white:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+/* ========== TRUSTED BY — MARQUEE ========== */
+@keyframes marqueeScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* ========== CARD HOVER EFFECTS ========== */
-.service-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.trusted-logos-track {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+    animation: marqueeScroll 30s linear infinite;
+    width: max-content;
 }
 
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(44, 74, 110, 0.12);
+.trusted-logos-track:hover {
+    animation-play-state: paused;
 }
 
-.service-card h3 {
-    transition: color 0.3s ease;
+.trusted-logo {
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.3s ease;
 }
 
-.service-card:hover h3 {
-    color: var(--blue-primary);
-}
-
-.service-card .link {
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover .link {
-    transform: translateX(4px);
-}
-
-/* ========== SERVICE LIST HOVER ========== */
-.service-item {
-    transition: all 0.3s ease;
-}
-
-.service-item:hover {
-    background: var(--gray-50);
-    padding-left: var(--space-lg);
-    border-radius: var(--radius-md);
-}
-
-/* ========== CREDENTIAL CARDS ========== */
-.credential-item {
-    transition: all 0.3s ease;
-}
-
-.credential-item:hover {
-    transform: translateY(-4px);
-}
-
-.credential-icon {
-    transition: all 0.3s ease;
-}
-
-.credential-item:hover .credential-icon {
-    transform: scale(1.1);
-    background: var(--blue-primary);
-    color: var(--white);
-}
-
-/* ========== STATS COUNTER ANIMATION ========== */
-.stat-number {
-    transition: transform 0.3s ease;
-}
-
-.stat:hover .stat-number {
+.trusted-logo:hover {
+    opacity: 1 !important;
     transform: scale(1.05);
 }
 
-/* ========== HEADER ENHANCEMENTS ========== */
-.header {
-    transition: all 0.3s ease;
+
+/* ========== CARD HOVER — GOLD TOP BORDER + LIFT ========== */
+.service-card,
+.industry-card,
+.insight-card,
+.credential-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.header.scrolled {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+.service-card:hover,
+.industry-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(44, 74, 110, 0.12);
 }
 
+.insight-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(44, 74, 110, 0.14);
+}
+
+.credential-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(44, 74, 110, 0.1);
+}
+
+/* Gold top-border reveal on service/industry cards */
+.service-card::before {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.industry-card {
+    position: relative;
+}
+.industry-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.industry-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* ========== BUTTON HOVER — SWEEP EFFECT ========== */
+.btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+.btn-primary:hover::before {
+    transform: translateX(0);
+}
+
+.btn-white::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(44, 74, 110, 0.04) 0%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+.btn-white:hover::before {
+    transform: translateX(0);
+}
+
+/* Gold glow on case study button */
+.home-casestudy .btn-white:hover {
+    box-shadow: 0 6px 24px rgba(201, 169, 98, 0.25);
+}
+
+/* Button lift */
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-outline:hover,
+.btn-white:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ========== LINK UNDERLINE — LEFT TO RIGHT ========== */
+.view-all,
+.service-card .link,
+.insight-card .link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.service-card .link::after,
+.insight-card .link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--terracotta);
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover .link::after,
+.insight-card:hover .link::after {
+    width: 100%;
+}
+
+/* Arrow motion on link hover */
+.service-card .link span,
+.insight-card .link span {
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.service-card:hover .link span,
+.insight-card:hover .link span {
+    transform: translateX(4px);
+}
+
+
+/* ========== NAV LINK UNDERLINE ========== */
 .nav-links a {
     position: relative;
 }
@@ -212,13 +401,199 @@ body {
     width: 0;
     height: 2px;
     background: var(--terracotta);
-    transition: width 0.3s ease;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
     width: 100%;
 }
+
+
+/* ========== TEAM / PEOPLE CARDS — HOVER OVERLAY ========== */
+.person-card {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.person-photo {
+    position: relative;
+    overflow: hidden;
+}
+
+.person-photo::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(26, 51, 80, 0.7) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: inherit;
+}
+
+.person-card:hover .person-photo::after {
+    opacity: 1;
+}
+
+.person-photo img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.person-card:hover .person-photo img {
+    transform: scale(1.05);
+}
+
+.person-card:hover {
+    transform: translateY(-6px);
+}
+
+.person-card h3 {
+    transition: color 0.3s ease;
+}
+.person-card:hover h3 {
+    color: var(--blue-primary);
+}
+
+
+/* ========== INSIGHT CARD IMAGE — ZOOM ON HOVER ========== */
+.insight-image {
+    overflow: hidden;
+}
+
+.insight-image img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.insight-card:hover .insight-image img {
+    transform: scale(1.06);
+}
+
+
+/* ========== CASE STUDY — GLASSMORPHISM IMAGE ========== */
+.casestudy-image {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.casestudy-image::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(201, 169, 98, 0.12) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.casestudy-image:hover::before {
+    opacity: 1;
+}
+
+.casestudy-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ========== SVG ICON HOVER — STROKE DRAW ========== */
+.service-card-icon svg,
+.industry-card-icon svg,
+.capability-icon svg {
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-card-icon svg {
+    stroke: var(--gold);
+    transform: scale(1.08);
+}
+
+.industry-card:hover .industry-card-icon svg {
+    stroke: var(--blue-primary);
+    transform: scale(1.08);
+}
+
+.service-card-icon,
+.industry-card-icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover .service-card-icon {
+    background: var(--gold-pale);
+    transform: translateY(-2px);
+}
+
+.industry-card:hover .industry-card-icon {
+    background: var(--blue-pale);
+    transform: translateY(-2px);
+}
+
+
+/* ========== CREDENTIAL ICON — ANIMATED FILL ========== */
+.credential-icon {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.credential-icon svg {
+    transition: all 0.4s ease;
+}
+
+.credential-item:hover .credential-icon {
+    background: var(--blue-primary);
+    transform: scale(1.08);
+}
+
+.credential-item:hover .credential-icon svg {
+    stroke: var(--white);
+}
+
+
+/* ========== NEWS & EVENTS — HOVER ENHANCEMENT ========== */
+.news-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-md);
+    padding-left: 0;
+}
+
+.news-item:hover {
+    padding-left: var(--space-md);
+    background: rgba(242, 246, 250, 0.5);
+}
+
+.event-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: var(--radius-md);
+}
+
+.event-item:hover {
+    padding-left: var(--space-sm);
+}
+
+.event-date-box {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-item:hover .event-date-box {
+    background: var(--blue-primary);
+    transform: scale(1.05);
+}
+
+
+/* ========== CTA — ANIMATED GRADIENT ========== */
+.cta-box {
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+    transition: all 0.4s ease;
+}
+
+@keyframes gradientShift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.cta-box:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 40px rgba(26, 51, 80, 0.2);
+}
+
 
 /* ========== FOOTER LINK HOVER ========== */
 .footer-col a {
@@ -230,25 +605,16 @@ body {
     padding-left: 8px;
 }
 
-/* ========== IMAGE PLACEHOLDERS ========== */
-.hero-visual,
-.about-image {
-    position: relative;
-    overflow: hidden;
+
+/* ========== HEADER SCROLL SHADOW ========== */
+.header {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.hero-visual img,
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
+.header.scrolled {
+    box-shadow: 0 2px 24px rgba(44, 74, 110, 0.08);
 }
 
-.hero-visual:hover img,
-.about-image:hover img {
-    transform: scale(1.03);
-}
 
 /* ========== FORM INTERACTIONS ========== */
 .form-group input,
@@ -273,61 +639,28 @@ body {
     color: var(--blue-primary);
 }
 
-/* ========== TEAM MEMBER CARDS ========== */
-.team-member {
-    transition: all 0.3s ease;
+
+/* ========== HERO CAPABILITY LIST — STAGGER IN ========== */
+.hero-capabilities li {
+    opacity: 0;
+    transform: translateX(16px);
+    animation: capabilityIn 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+.hero-capabilities li:nth-child(1) { animation-delay: 0.55s; }
+.hero-capabilities li:nth-child(2) { animation-delay: 0.65s; }
+.hero-capabilities li:nth-child(3) { animation-delay: 0.75s; }
+.hero-capabilities li:nth-child(4) { animation-delay: 0.85s; }
+.hero-capabilities li:nth-child(5) { animation-delay: 0.95s; }
+
+@keyframes capabilityIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.team-member:hover {
-    transform: translateY(-8px);
-}
 
-.team-photo {
-    overflow: hidden;
-}
-
-.team-photo img {
-    transition: transform 0.4s ease;
-}
-
-.team-member:hover .team-photo img {
-    transform: scale(1.05);
-}
-
-/* ========== CLIENT LOGO HOVER ========== */
-.client-logo {
-    transition: all 0.3s ease;
-    filter: grayscale(100%);
-    opacity: 0.7;
-}
-
-.client-logo:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* ========== CTA BOX ========== */
-.cta-box {
-    transition: all 0.3s ease;
-}
-
-.cta-box:hover {
-    transform: scale(1.01);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-}
-
-/* ========== BREADCRUMB ========== */
-.breadcrumb a {
-    transition: color 0.3s ease;
-}
-
-/* ========== SMOOTH SCROLL ========== */
-html {
-    scroll-behavior: smooth;
-}
-
-/* ========== LOADING SKELETON (for images) ========== */
+/* ========== SKELETON LOADING ========== */
 .skeleton {
     background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-50) 50%, var(--gray-100) 75%);
     background-size: 200% 100%;
@@ -335,13 +668,29 @@ html {
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
+
+
+/* ========== SMOOTH SCROLL ========== */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* ========== SCROLL PROGRESS INDICATOR ========== */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--terracotta) 100%);
+    z-index: 9999;
+    transition: width 0.1s linear;
+    pointer-events: none;
+}
+
 
 /* ========== REDUCED MOTION ========== */
 @media (prefers-reduced-motion: reduce) {
@@ -351,5 +700,16 @@ html {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-scale,
+    .reveal-stagger > *,
+    .animate-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }

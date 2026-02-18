@@ -1,6 +1,6 @@
 /* ============================================
-   MINTAX DESIGN SYSTEM - BASE STYLES
-   Resets, typography, fundamental styles
+   MINTAX DESIGN SYSTEM — BASE STYLES
+   V2: Premium consulting typography & layout
    ============================================ */
 
 /* Reset */
@@ -19,26 +19,65 @@ html {
 body {
     font-family: var(--font-body);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     color: var(--gray-700);
     background: var(--white);
 }
 
-/* Typography */
+/* ── Typography ── */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     font-weight: 400;
     color: var(--black);
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
 }
 
-h1 { font-size: 3rem; }
-h2 { font-size: 2.25rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
+h1 {
+    font-size: 3.25rem;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.6rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
 
 p {
     margin-bottom: 1rem;
+}
+
+.lead {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    color: var(--gray-600);
+}
+
+/* Small caps for labels/tags */
+.overline {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+}
+
+/* Gold rule — horizontal accent */
+.gold-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    border: none;
+    margin: var(--space-lg) 0;
 }
 
 a {
@@ -66,19 +105,19 @@ li {
     margin-bottom: 0.5rem;
 }
 
-/* Container */
+/* ── Container ── */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--space-xl);
 }
 
-/* Section spacing */
+/* ── Section spacing ── */
 .section {
-    padding: var(--space-4xl) 0;
+    padding: var(--space-5xl) 0;
 }
 
-/* Utility classes */
+/* ── Utility classes ── */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
@@ -95,17 +134,23 @@ li {
 .mb-xl { margin-bottom: var(--space-xl); }
 .mb-2xl { margin-bottom: var(--space-2xl); }
 
-/* Responsive */
+/* Selection color */
+::selection {
+    background: var(--blue-pale);
+    color: var(--blue-primary);
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
     h1 { font-size: 2.25rem; }
-    h2 { font-size: 1.75rem; }
-    h3 { font-size: 1.25rem; }
-    
+    h2 { font-size: 1.85rem; }
+    h3 { font-size: 1.3rem; }
+
     .container {
         padding: 0 var(--space-lg);
     }
-    
+
     .section {
-        padding: var(--space-3xl) 0;
+        padding: var(--space-4xl) 0;
     }
 }
