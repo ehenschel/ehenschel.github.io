@@ -274,70 +274,77 @@
 
 .insight-card {
     background: var(--white);
-    border-radius: var(--radius-lg);
+    border-radius: 14px;
     overflow: hidden;
-    border: 1px solid rgba(44, 74, 110, 0.06);
+    border: 1px solid rgba(44, 74, 110, 0.08);
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 2px 8px rgba(44, 74, 110, 0.04);
+    transition: all 0.4s ease;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 40px rgba(44, 74, 110, 0.12);
 }
 
 .insight-image {
-    aspect-ratio: 16/9;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 180px;
     overflow: hidden;
+    position: relative;
 }
 
 .insight-category {
-    position: absolute;
-    top: var(--space-md);
-    left: var(--space-md);
-    font-size: 0.7rem;
+    display: inline-block;
+    font-size: 0.65rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--white);
-    background: rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-sm);
+    color: var(--terracotta);
+    background: rgba(199, 93, 72, 0.08);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
 }
 
 .insight-body {
-    padding: var(--space-xl);
+    padding: 1.5rem;
     flex: 1;
     display: flex;
     flex-direction: column;
 }
 
 .insight-meta {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--gray-400);
-    margin-bottom: var(--space-sm);
+    margin-top: auto;
 }
 
 .insight-card h3 {
+    font-family: var(--font-display);
     font-size: 1.15rem;
+    color: var(--blue-deep);
     line-height: 1.35;
-    margin-bottom: var(--space-sm);
+    margin-bottom: 0.5rem;
 }
 
 .insight-card p {
-    font-size: 0.9rem;
-    color: var(--gray-600);
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    line-height: 1.6;
     flex: 1;
 }
 
 .insight-card .link {
-    font-size: 0.88rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--terracotta);
-    margin-top: auto;
+    margin-top: var(--space-md);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 @media (max-width: 900px) {
@@ -348,63 +355,70 @@
 
 /* ── Case Study spotlight ── */
 .home-casestudy {
-    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);
-    padding: var(--space-5xl) 0;
-    color: var(--white);
+    background: #F6F6F5;
+    padding: 6rem 0;
 }
 
 .casestudy-layout {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--space-4xl);
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: center;
 }
 
+.casestudy-visual {
+    background: linear-gradient(135deg, #E8E8E6, #E0E2E4);
+    border-radius: 18px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(44, 74, 110, 0.06);
+    overflow: hidden;
+}
+
+.casestudy-visual svg {
+    width: 80%;
+    height: 80%;
+    opacity: 0.25;
+}
+
 .casestudy-content .overline {
-    color: var(--gold);
+    color: var(--terracotta);
 }
 
 .casestudy-content h2 {
-    color: var(--white);
-    margin-bottom: var(--space-md);
-}
-
-.casestudy-client {
-    display: block;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: var(--space-lg);
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--blue-deep);
+    margin-bottom: 1rem;
 }
 
 .casestudy-content p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1.05rem;
-    margin-bottom: var(--space-2xl);
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: 2rem;
 }
 
 .casestudy-metrics {
-    display: flex;
-    gap: var(--space-3xl);
-    margin-bottom: var(--space-2xl);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    margin-bottom: 2rem;
 }
 
 .casestudy-metric-number {
     font-family: var(--font-display);
-    font-size: 2.5rem;
-    color: var(--white);
+    font-size: 2rem;
+    color: var(--blue-deep);
     line-height: 1;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
 }
 
 .casestudy-metric-label {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.casestudy-image {
-    border-radius: var(--radius-lg);
-    aspect-ratio: 4/3;
-    overflow: hidden;
+    font-size: 0.76rem;
+    color: var(--gray-400);
 }
 
 @media (max-width: 900px) {
@@ -412,13 +426,14 @@
         grid-template-columns: 1fr;
     }
 
-    .casestudy-image {
+    .casestudy-visual {
         order: -1;
+        height: 260px;
     }
 
     .casestudy-metrics {
-        flex-wrap: wrap;
-        gap: var(--space-xl);
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
     }
 }
 

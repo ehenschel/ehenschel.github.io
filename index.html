@@ -587,30 +587,37 @@
         .insights-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: var(--space-xl);
+            gap: 1.5rem;
         }
 
         .insight-card {
-            border: 1px solid rgba(44, 74, 110, 0.06);
-            border-radius: var(--radius-lg);
+            border: 1px solid rgba(44, 74, 110, 0.08);
+            border-radius: 14px;
             overflow: hidden;
-            transition: all var(--transition-slow);
+            transition: all 0.4s ease;
             text-decoration: none;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 2px 8px rgba(44, 74, 110, 0.04);
         }
 
         .insight-card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(44, 74, 110, 0.12);
+        }
+
+        /* Neutral gradient placeholders — V8 palette */
+        .ins-img-1 { background: linear-gradient(135deg, #DCD8CE, #CDD5E0); }
+        .ins-img-2 { background: linear-gradient(135deg, #D2D8E2, #E3E1DA); }
+        .ins-img-3 { background: linear-gradient(135deg, #D8D9D3, #D0D6DF); }
+
+        .insight-card:hover .insight-image img {
+            transform: scale(1.04);
             box-shadow: var(--shadow-lg);
         }
 
         .insight-image {
-            aspect-ratio: 16/9;
-            background: var(--blue-mist);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 180px;
             overflow: hidden;
             position: relative;
         }
@@ -619,52 +626,46 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .insight-image .placeholder-text {
-            font-size: 0.8rem;
-            color: var(--gray-400);
+            transition: transform 0.4s ease;
         }
 
         .insight-category {
-            position: absolute;
-            top: var(--space-md);
-            left: var(--space-md);
-            font-family: var(--font-body);
-            font-size: 0.68rem;
+            display: inline-block;
+            font-size: 0.65rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--white);
-            background: rgba(44, 74, 110, 0.85);
-            padding: 0.3rem 0.75rem;
-            border-radius: var(--radius-sm);
+            color: var(--terracotta);
+            background: rgba(199, 93, 72, 0.08);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
         }
 
         .insight-body {
-            padding: var(--space-xl);
+            padding: 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
         .insight-meta {
-            font-size: 0.76rem;
+            font-size: 0.75rem;
             color: var(--gray-400);
-            margin-bottom: var(--space-sm);
+            margin-top: auto;
         }
 
         .insight-card h3 {
             font-family: var(--font-display);
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 400;
-            color: var(--black);
-            margin-bottom: var(--space-sm);
+            color: var(--blue-deep);
+            margin-bottom: 0.5rem;
             line-height: 1.35;
-            transition: color var(--transition-base);
+            transition: color 0.3s ease;
         }
 
-        .insight-card:hover h3 { color: var(--blue-primary); }
+        .insight-card:hover h3 { color: var(--terracotta); }
 
         .insight-card p {
             font-size: 0.85rem;
@@ -678,70 +679,68 @@
             color: var(--terracotta);
             font-weight: 500;
             margin-top: var(--space-md);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
-        /* ── 6. CASE STUDY SPOTLIGHT ── */
+        /* ── 6. CASE STUDY SPOTLIGHT — V8: neutral bone band ── */
         .home-casestudy {
-            padding: var(--space-5xl) 0;
-            background: var(--blue-primary);
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .home-casestudy::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -15%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(201, 169, 98, 0.06) 0%, transparent 70%);
-            pointer-events: none;
+            padding: 6rem 0;
+            background: #F6F6F5;
         }
 
         .casestudy-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: var(--space-4xl);
+            gap: 4rem;
             align-items: center;
+        }
+
+        .casestudy-visual {
+            background: linear-gradient(135deg, #E8E8E6, #E0E2E4);
+            border-radius: 18px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(44, 74, 110, 0.06);
             position: relative;
-            z-index: 2;
+            overflow: hidden;
+        }
+
+        .casestudy-visual svg {
+            width: 80%;
+            height: 80%;
+            opacity: 0.25;
         }
 
         .casestudy-content .overline {
             display: block;
-            margin-bottom: var(--space-sm);
+            margin-bottom: 0.75rem;
         }
 
         .casestudy-content h2 {
             font-family: var(--font-display);
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 400;
-            color: var(--white);
-            margin-bottom: var(--space-lg);
+            color: var(--blue-deep);
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
 
         .casestudy-content p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.72);
-            line-height: 1.75;
-            margin-bottom: var(--space-lg);
-        }
-
-        .casestudy-client {
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--gold);
-            margin-bottom: var(--space-xl);
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
         .casestudy-metrics {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: var(--space-lg);
-            margin-bottom: var(--space-2xl);
+            margin-bottom: 2rem;
         }
 
         .casestudy-metric {
@@ -751,36 +750,14 @@
         .casestudy-metric-number {
             font-family: var(--font-display);
             font-size: 2rem;
-            color: var(--white);
+            color: var(--blue-deep);
             line-height: 1;
             margin-bottom: 0.3rem;
         }
 
         .casestudy-metric-label {
             font-size: 0.76rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .casestudy-image {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-xl);
-            aspect-ratio: 4/3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .casestudy-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .casestudy-image .placeholder-text {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 0.85rem;
+            color: var(--gray-400);
         }
 
         /* ── 7. OUR PEOPLE ── */
@@ -1482,40 +1459,40 @@
             <div class="insights-grid">
                 <!-- Article 1 — Tax Code Changes -->
                 <a href="insights/" class="insight-card">
-                    <div class="insight-image" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);">
-                        <span class="insight-category">Tax &amp; Compliance</span>
+                    <div class="insight-image ins-img-1">
+                        <span class="insight-category">Tax Advisory</span>
                     </div>
                     <div class="insight-body">
                         <div class="insight-meta">February 2026 &middot; 8 min read</div>
                         <h3>Key Changes to Kazakhstan's Tax Code in 2026: What Businesses Need to Know</h3>
                         <p>An overview of the most significant amendments affecting corporate income tax, VAT, and transfer pricing rules for the current fiscal year.</p>
-                        <span class="link">Read more</span>
+                        <span class="link">Read more <span>&rarr;</span></span>
                     </div>
                 </a>
 
                 <!-- Article 2 — IFRS 18 -->
                 <a href="insights/" class="insight-card">
-                    <div class="insight-image" style="background: linear-gradient(135deg, #2C4A6E 0%, #5A7FA3 100%);">
-                        <span class="insight-category">Audit &amp; Assurance</span>
+                    <div class="insight-image ins-img-2">
+                        <span class="insight-category">Audit</span>
                     </div>
                     <div class="insight-body">
                         <div class="insight-meta">January 2026 &middot; 6 min read</div>
                         <h3>IFRS 18 Presentation and Disclosure: Preparing for the Transition</h3>
                         <p>The new standard takes effect in 2027. Here's how Kazakh companies should start preparing their financial statements today.</p>
-                        <span class="link">Read more</span>
+                        <span class="link">Read more <span>&rarr;</span></span>
                     </div>
                 </a>
 
                 <!-- Article 3 — Labor Code -->
                 <a href="insights/" class="insight-card">
-                    <div class="insight-image" style="background: linear-gradient(135deg, #1A3350 0%, #3D5D85 100%);">
+                    <div class="insight-image ins-img-3">
                         <span class="insight-category">Legal</span>
                     </div>
                     <div class="insight-body">
                         <div class="insight-meta">January 2026 &middot; 5 min read</div>
                         <h3>New Labor Code Amendments: Employer Obligations and Compliance Checklist</h3>
                         <p>Recent labor law changes introduce stricter employee protection rules. A practical guide for HR departments and company leadership.</p>
-                        <span class="link">Read more</span>
+                        <span class="link">Read more <span>&rarr;</span></span>
                     </div>
                 </a>
             </div>
@@ -1527,11 +1504,20 @@
     <section class="home-casestudy">
         <div class="container">
             <div class="casestudy-layout">
+                <div class="casestudy-visual">
+                    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+                        <path d="M50,200 Q120,80 250,150 T380,100" fill="none" stroke="rgba(201,169,98,0.3)" stroke-width="1"/>
+                        <path d="M30,250 Q150,120 280,180 T400,140" fill="none" stroke="rgba(44,74,110,0.15)" stroke-width="0.8"/>
+                        <path d="M80,180 Q200,60 320,130" fill="none" stroke="rgba(201,169,98,0.2)" stroke-width="0.6"/>
+                        <circle cx="250" cy="150" r="3" fill="rgba(201,169,98,0.3)"/>
+                        <circle cx="150" cy="130" r="2" fill="rgba(44,74,110,0.2)"/>
+                        <circle cx="320" cy="130" r="2.5" fill="rgba(201,169,98,0.25)"/>
+                    </svg>
+                </div>
                 <div class="casestudy-content">
-                    <span class="overline">What We Deliver</span>
-                    <h2>26 years of results across Kazakhstan's most demanding sectors</h2>
-                    <span class="casestudy-client">Oil &amp; Gas &middot; Mining &middot; Banking &middot; Government</span>
-                    <p>From statutory audits for KASE-listed companies to complex transfer pricing engagements in the extractive sector, MinTax Group has built its reputation on deep regulatory expertise, international-standard methodology, and measurable outcomes for clients.</p>
+                    <span class="overline">Client Success</span>
+                    <h2>26 Years of Measurable Impact</h2>
+                    <p>Since 1999, MinTax Group has helped Kazakhstan's leading enterprises navigate complex regulatory environments, optimize tax positions, and achieve compliance across all major jurisdictions.</p>
 
                     <div class="casestudy-metrics">
                         <div class="casestudy-metric">
@@ -1544,16 +1530,11 @@
                         </div>
                         <div class="casestudy-metric">
                             <div class="casestudy-metric-number">90%</div>
-                            <div class="casestudy-metric-label">Referred by existing clients</div>
+                            <div class="casestudy-metric-label">Referral rate</div>
                         </div>
                     </div>
 
-                    <a href="case-studies/" class="btn btn-white">View case studies</a>
-                </div>
-
-                <div class="casestudy-image" style="background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 60%, var(--gold-dim) 100%); display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1rem; padding: 3rem;">
-                    <div style="font-family: var(--font-display); font-size: 4rem; color: rgba(255,255,255,0.15); font-weight: 400; line-height:1;">Top 10</div>
-                    <div style="font-family: var(--font-body); font-size: 0.85rem; color: rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.12em; text-align:center;">Kazakhstan Audit &amp;<br>Consulting Ranking<br>Since 2011</div>
+                    <a href="case-studies/" class="btn btn-primary">View Our Track Record <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                 </div>
             </div>
         </div>
