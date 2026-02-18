@@ -68,186 +68,271 @@
 
     <style>
         /* ══════════════════════════════════════════════════
-           HOMEPAGE V3 — Professional Services Depth
-           10-section layout matching Big 4 firm standards
+           HOMEPAGE V8 — Light hero + photo blend
+           Migrated from mintax-full-color-study.html
            ══════════════════════════════════════════════════ */
 
-        /* ── 1. HERO ── */
+        /* ── 1. HERO — Light canvas + photo on right ── */
         .home-hero {
             position: relative;
-            min-height: 92vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: var(--header-height);
-            background: var(--blue-deep);
             overflow: hidden;
+            background: linear-gradient(135deg, #F6F6F5 0%, #F4F4F3 30%, #F1F1F0 70%, #EEEEEE 100%);
         }
 
-        .hero-parallax-bg {
+        /* Photo composition — right side, blended into canvas */
+        .hero-photo {
             position: absolute;
-            inset: -15%;
-            background:
-                url('https://images.unsplash.com/photo-1578898886225-c7c894047899?w=1600&q=85')
-                center/cover no-repeat;
-            opacity: 0.3;
-            will-change: transform;
-            transform: translateY(0) scale(1.15);
+            right: 0;
+            top: 0;
+            width: 60%;
+            height: 100%;
+            z-index: 1;
         }
 
-        .home-hero::after {
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* Seamless gradient blend — wide feather, no hard line */
+        .hero-photo::before {
             content: '';
             position: absolute;
             inset: 0;
-            z-index: 1;
+            z-index: 2;
             background: linear-gradient(
-                180deg,
-                rgba(26, 51, 80, 0.75) 0%,
-                rgba(26, 51, 80, 0.55) 40%,
-                rgba(26, 51, 80, 0.88) 100%
+                to right,
+                #F6F6F5 0%, #F6F6F5 5%,
+                rgba(246,246,245,0.97) 12%,
+                rgba(246,246,245,0.88) 20%,
+                rgba(246,246,245,0.72) 28%,
+                rgba(244,244,243,0.50) 36%,
+                rgba(242,242,241,0.30) 44%,
+                rgba(240,240,239,0.15) 55%,
+                rgba(238,238,238,0.08) 70%,
+                rgba(236,236,236,0.04) 85%,
+                transparent 100%
             );
         }
 
-        .home-hero .container {
-            position: relative;
-            z-index: 2;
-            padding-top: var(--space-4xl);
-            padding-bottom: var(--space-4xl);
+        /* Soft navy tint for brand cohesion */
+        .hero-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            background:
+                linear-gradient(180deg, rgba(26,51,80,0.06) 0%, transparent 30%, rgba(26,51,80,0.1) 100%),
+                linear-gradient(to right, transparent 0%, rgba(26,51,80,0.04) 100%);
         }
 
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-4xl);
-            align-items: center;
+        /* Brass accent arc — single elegant sweep over photo */
+        .hero-accent {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .arc-main {
+            fill: none;
+            stroke: var(--gold);
+            stroke-width: 1;
+            opacity: 0;
+            filter: drop-shadow(0 0 6px rgba(201,169,98,0.2));
+            animation: arcDraw 3s cubic-bezier(0.4,0,0.2,1) 1.2s forwards;
+        }
+        .arc-inner {
+            fill: none;
+            stroke: rgba(201,169,98,0.25);
+            stroke-width: 0.5;
+            opacity: 0;
+            animation: arcDraw 2.5s cubic-bezier(0.4,0,0.2,1) 1.6s forwards;
+        }
+        .arc-node {
+            fill: var(--gold);
+            opacity: 0;
+            filter: drop-shadow(0 0 4px rgba(201,169,98,0.4));
+            animation: arcNodeGlow 5s ease-in-out infinite 2.5s;
+        }
+
+        @keyframes arcDraw {
+            from { opacity: 0; stroke-dashoffset: 800; }
+            to { opacity: 1; stroke-dashoffset: 0; }
+        }
+        @keyframes arcNodeGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Ambient glow orbs on text side */
+        .hero-ambient {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .amb-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+        .amb-warm {
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(201,169,98,0.08) 0%, transparent 70%);
+            top: 10%; left: 5%;
+        }
+        .amb-cool {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(44,74,110,0.05) 0%, transparent 70%);
+            bottom: 10%; left: 30%;
+        }
+
+        /* Hero content — single column, navy text on light */
+        .home-hero .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .home-hero-content {
             max-width: 580px;
+            padding-top: 80px;
         }
 
         .hero-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
             font-family: var(--font-body);
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.18em;
             color: var(--gold);
-            margin-bottom: var(--space-lg);
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: heroFadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .tag-line {
+            display: inline-block;
+            width: 32px;
+            height: 1.5px;
+            background: var(--gold);
         }
 
         .home-hero h1 {
             font-family: var(--font-display);
-            font-size: 3.4rem;
-            font-weight: 400;
-            line-height: 1.1;
-            color: var(--white);
-            margin-bottom: var(--space-lg);
-            letter-spacing: -0.02em;
+            font-size: 4.8rem;
+            font-weight: 500;
+            line-height: 1.04;
+            color: var(--blue-deep);
+            letter-spacing: -0.025em;
+            margin-bottom: 1.75rem;
+            opacity: 0;
+            animation: heroFadeUp 0.8s ease 0.6s forwards;
+        }
+
+        .home-hero h1 em {
+            font-style: italic;
+            color: var(--blue-primary);
         }
 
         .home-hero .lead {
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.72);
-            margin-bottom: var(--space-2xl);
+            font-size: 1.15rem;
+            color: rgba(26, 51, 80, 0.6);
+            margin-bottom: 2.5rem;
             line-height: 1.75;
-            max-width: 480px;
+            max-width: 540px;
+            opacity: 0;
+            animation: heroFadeUp 0.8s ease 0.8s forwards;
         }
 
         .hero-buttons {
             display: flex;
-            gap: var(--space-md);
-            margin-bottom: var(--space-3xl);
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 0;
+            opacity: 0;
+            animation: heroFadeUp 0.8s ease 1.0s forwards;
         }
 
-        .hero-buttons .btn-outline {
-            border-color: rgba(255, 255, 255, 0.3);
-            color: var(--white);
+        .hero-text-link {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--blue-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.3s, gap 0.3s;
+        }
+        .hero-text-link:hover { color: var(--blue-deep); gap: 0.6rem; }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-buttons .btn-outline:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.45);
-            color: var(--white);
+        /* ── 1b. AUTHORITY STRIP — below hero ── */
+        .authority-strip {
+            background: var(--blue-deep);
+            padding: 0;
         }
 
-        /* Glass stats panel */
-        .hero-stats-panel {
-            background: rgba(20, 40, 65, 0.5);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl) var(--space-2xl);
+        .authority-inner {
             display: flex;
-            gap: var(--space-3xl);
+            align-items: stretch;
         }
 
-        .hero-stat { text-align: left; }
+        .auth-item {
+            flex: 1;
+            padding: 1.6rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: background 0.3s;
+        }
+        .auth-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 25%;
+            height: 50%;
+            width: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+        .auth-item:hover { background: rgba(255,255,255,0.03); }
 
-        .hero-stat-number {
+        .auth-num {
             font-family: var(--font-display);
-            font-size: 2.4rem;
+            font-size: 1.6rem;
+            font-weight: 500;
             color: var(--white);
             line-height: 1;
             margin-bottom: 0.3rem;
         }
+        .auth-num .accent { color: var(--gold-light); }
 
-        .hero-stat-label {
-            font-size: 0.76rem;
-            color: rgba(255, 255, 255, 0.48);
-            letter-spacing: 0.02em;
-        }
-
-        /* Right column — glass card */
-        .hero-glass-card {
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: var(--radius-xl);
-            padding: var(--space-3xl);
-        }
-
-        .hero-glass-card h3 {
-            font-family: var(--font-display);
-            font-size: 1.45rem;
-            color: var(--white);
-            margin-bottom: var(--space-lg);
-        }
-
-        .hero-capabilities { list-style: none; margin: 0; padding: 0; }
-
-        .hero-capabilities li {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            padding: var(--space-md) 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 0.93rem;
-        }
-
-        .hero-capabilities li:last-child { border-bottom: none; }
-
-        .capability-icon {
-            width: 34px;
-            height: 34px;
-            background: rgba(201, 169, 98, 0.12);
-            border: 1px solid rgba(201, 169, 98, 0.2);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .capability-icon svg {
-            width: 17px;
-            height: 17px;
-            stroke: var(--gold);
-            fill: none;
-            stroke-width: 1.5;
+        .auth-lbl {
+            font-size: 0.68rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(255,255,255,0.45);
         }
 
         /* ── 2. TRUSTED BY (Client Logos) ── */
@@ -1164,7 +1249,7 @@
 
                 <div class="nav-right">
                     <div class="lang-switch">
-                        <a href="#" class="active">EN</a>
+                        <a href="index.html" class="active">EN</a>
                         <span>|</span>
                         <a href="ru/">RU</a>
                     </div>
@@ -1181,72 +1266,61 @@
     </header>
 
 
-    <!-- ══════════ 1. HERO ══════════ -->
+    <!-- ══════════ 1. HERO — V8 Light canvas + photo blend ══════════ -->
     <section class="home-hero">
-        <div class="hero-parallax-bg" aria-hidden="true"></div>
+        <!-- Background photo — right side, blended into canvas -->
+        <div class="hero-photo">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80" alt="Modern architecture" loading="eager"/>
+        </div>
+
+        <!-- Single brass arc composition -->
+        <svg class="hero-accent" viewBox="0 0 400 400" aria-hidden="true">
+            <path class="arc-main" d="M200,20 A180,180 0 1,1 20,200" stroke-dasharray="800" stroke-dashoffset="800"/>
+            <path class="arc-inner" d="M200,60 A140,140 0 1,1 60,200" stroke-dasharray="800" stroke-dashoffset="800"/>
+            <circle class="arc-node" cx="200" cy="20" r="3"/>
+            <circle class="arc-node" cx="20" cy="200" r="2.5"/>
+            <circle class="arc-node" cx="200" cy="200" r="2" style="animation-delay: 3s;"/>
+        </svg>
+
+        <!-- Ambient glow on text side -->
+        <div class="hero-ambient" aria-hidden="true">
+            <div class="amb-orb amb-warm"></div>
+            <div class="amb-orb amb-cool"></div>
+        </div>
+
         <div class="container">
-            <div class="hero-layout">
-                <div class="home-hero-content">
-                    <span class="hero-tag">Since 1999 &middot; Almaty &middot; Astana &middot; Atyrau</span>
-                    <h1>Trusted advisors for<br>business in Kazakhstan</h1>
-                    <p class="lead">Audit, tax consulting, legal services, and IFRS reporting for Kazakhstan's leading companies. International standards, deep local expertise, measurable outcomes.</p>
+            <div class="home-hero-content">
+                <span class="hero-tag"><span class="tag-line"></span> Since 1999 &middot; Almaty &middot; Astana &middot; Atyrau</span>
+                <h1>Trusted Advisors<br>for Business<br>in <em>Kazakhstan</em></h1>
+                <p class="lead">Audit, tax, legal, and advisory services built on 26 years of navigating Kazakhstan's regulatory landscape for the country's most important enterprises.</p>
 
-                    <div class="hero-buttons">
-                        <a href="services/" class="btn btn-primary">Our Services</a>
-                        <a href="contact/" class="btn btn-outline">Schedule a Consultation</a>
-                    </div>
-
-                    <div class="hero-stats-panel">
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">26+</div>
-                            <div class="hero-stat-label">Years in the market</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">500+</div>
-                            <div class="hero-stat-label">Clients served</div>
-                        </div>
-                        <div class="hero-stat">
-                            <div class="hero-stat-number">Top 10</div>
-                            <div class="hero-stat-label">Audit firm in KZ</div>
-                        </div>
-                    </div>
+                <div class="hero-buttons">
+                    <a href="services/" class="btn btn-primary">Explore Our Services</a>
+                    <a href="contact/" class="hero-text-link">Contact our team <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Glass capabilities card -->
-                <div class="hero-glass-card">
-                    <h3>Our Practice Areas</h3>
-                    <ul class="hero-capabilities">
-                        <li>
-                            <div class="capability-icon">
-                                <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 5h6m-3 7v4m-2-2h4"/></svg>
-                            </div>
-                            Audit &amp; Assurance
-                        </li>
-                        <li>
-                            <div class="capability-icon">
-                                <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                            </div>
-                            Tax Consulting
-                        </li>
-                        <li>
-                            <div class="capability-icon">
-                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                            </div>
-                            Legal Services
-                        </li>
-                        <li>
-                            <div class="capability-icon">
-                                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zm0 7v-7"/></svg>
-                            </div>
-                            IFRS Reporting
-                        </li>
-                        <li>
-                            <div class="capability-icon">
-                                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm14 10v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                            </div>
-                            Outsourcing &amp; HR
-                        </li>
-                    </ul>
+    <!-- ══════════ 1b. AUTHORITY STRIP ══════════ -->
+    <section class="authority-strip">
+        <div class="container">
+            <div class="authority-inner">
+                <div class="auth-item">
+                    <div class="auth-num">26<span class="accent">+</span></div>
+                    <div class="auth-lbl">Years of practice</div>
+                </div>
+                <div class="auth-item">
+                    <div class="auth-num">500<span class="accent">+</span></div>
+                    <div class="auth-lbl">Enterprises served</div>
+                </div>
+                <div class="auth-item">
+                    <div class="auth-num">Top <span class="accent">10</span></div>
+                    <div class="auth-lbl">Audit firm in Kazakhstan</div>
+                </div>
+                <div class="auth-item">
+                    <div class="auth-num">ISA<span class="accent"> &middot; </span>IFRS</div>
+                    <div class="auth-lbl">International standards</div>
                 </div>
             </div>
         </div>
@@ -1619,7 +1693,7 @@
                 <div class="events-column">
                     <h3>Upcoming Events</h3>
 
-                    <a href="#" class="event-item">
+                    <a href="contact/" class="event-item">
                         <div class="event-date-box">
                             <span class="event-month">Mar</span>
                             <span class="event-day">14</span>
@@ -1630,7 +1704,7 @@
                         </div>
                     </a>
 
-                    <a href="#" class="event-item">
+                    <a href="contact/" class="event-item">
                         <div class="event-date-box">
                             <span class="event-month">Apr</span>
                             <span class="event-day">03</span>
@@ -1641,7 +1715,7 @@
                         </div>
                     </a>
 
-                    <a href="#" class="event-item">
+                    <a href="contact/" class="event-item">
                         <div class="event-date-box">
                             <span class="event-month">Apr</span>
                             <span class="event-day">22</span>

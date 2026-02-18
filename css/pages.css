@@ -474,7 +474,7 @@
 /* ── Credentials ── */
 .home-credentials {
     padding: var(--space-5xl) 0;
-    background: var(--gray-50);
+    background: #F6F6F5;
     text-align: center;
 }
 
@@ -620,26 +620,26 @@
 /* ── CTA box ── */
 .home-cta {
     padding: var(--space-5xl) 0;
-    background: var(--gray-50);
+    background: var(--white);
 }
 
 .cta-box {
-    background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 50%, var(--blue-light) 100%);
+    background: linear-gradient(135deg, var(--blue-deep) 0%, #142842 60%, #1E3A5C 100%);
     border-radius: var(--radius-xl);
-    padding: var(--space-4xl);
+    padding: 4.5rem 4rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 20px 60px rgba(20, 40, 66, 0.25);
 }
 
+/* Brass border accent inside */
 .cta-box::before {
     content: '';
     position: absolute;
-    top: -40%;
-    right: -15%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
+    top: 2rem; left: 2rem; right: 2rem; bottom: 2rem;
+    border: 1px solid rgba(201, 169, 98, 0.2);
+    border-radius: 12px;
     pointer-events: none;
 }
 
@@ -681,7 +681,7 @@
 }
 
 .home-industries {
-    background: var(--gray-50);
+    background: #F6F6F5;
 }
 
 /* ========== SERVICES SECTION (Homepage) ========== */

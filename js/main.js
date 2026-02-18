@@ -16,7 +16,7 @@
         mobileMenu();
         smoothScrollAnchors();
         scrollReveal();
-        animatedCounters();
+        // animatedCounters(); — REMOVED: bouncing numbers feel cheap (V5 design decision)
         heroParallax();
         scrollProgress();
         currentYear();

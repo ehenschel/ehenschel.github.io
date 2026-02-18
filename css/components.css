@@ -3,38 +3,48 @@
    V2: Glassmorphism, gold accents, premium UI
    ============================================ */
 
-/* ========== HEADER ========== */
+/* ========== HEADER — V8 Dark navy floating pill ========== */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: var(--header-height);
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     z-index: 1000;
-    transition: all var(--transition-slow);
-    border-bottom: 1px solid transparent;
+    padding: 1rem 2rem 0;
+    transition: all 0.35s ease;
+    height: auto;
+    background: none;
+    border-bottom: none;
 }
 
 .header.scrolled {
-    background: rgba(255, 255, 255, 0.97);
-    border-bottom: 1px solid rgba(44, 74, 110, 0.06);
-    box-shadow: 0 1px 12px rgba(44, 74, 110, 0.06);
+    padding-top: 0.5rem;
 }
 
 .header-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 var(--space-xl);
-    height: 100%;
+    padding: 0.85rem 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: rgba(20, 40, 66, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(20, 40, 66, 0.15);
+    transition: all 0.4s ease;
 }
 
-/* ── Logo ── */
+/* On scroll: stays dark but gets more solid */
+.header.scrolled .header-inner {
+    background: rgba(20, 40, 66, 0.97);
+    box-shadow: 0 4px 20px rgba(20, 40, 66, 0.2);
+    border-radius: 14px;
+}
+
+/* ── Logo — white on dark nav ── */
 .logo {
     display: flex;
     align-items: center;
@@ -53,11 +63,11 @@
     font-family: var(--font-display);
     font-size: 1.55rem;
     font-weight: 500;
-    color: var(--blue-primary);
+    color: var(--white);
     letter-spacing: 0.02em;
 }
 
-/* ── Navigation ── */
+/* ── Navigation — light text on dark pill ── */
 .nav {
     display: flex;
     align-items: center;
@@ -66,25 +76,37 @@
 
 .nav-links {
     display: flex;
-    gap: var(--space-xl);
+    gap: 2rem;
     list-style: none;
     margin: 0;
 }
 
 .nav-links a {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--gray-600);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
-    transition: color var(--transition-base);
+    transition: color 0.3s;
     padding: var(--space-sm) 0;
     position: relative;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--blue-primary);
+    color: var(--white);
 }
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--terracotta);
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
 
 .nav-right {
     display: flex;
@@ -100,18 +122,18 @@
 }
 
 .lang-switch a {
-    color: var(--gray-400);
+    color: rgba(255,255,255,0.45);
     text-decoration: none;
     font-weight: 500;
 }
 
 .lang-switch a.active,
 .lang-switch a:hover {
-    color: var(--blue-primary);
+    color: var(--white);
 }
 
 .lang-switch span {
-    color: var(--gray-300);
+    color: rgba(255,255,255,0.25);
 }
 
 /* ── Mobile menu ── */
@@ -132,7 +154,16 @@
     transition: var(--transition-base);
 }
 
+/* Mobile toggle — white hamburger lines on dark pill */
+.mobile-toggle span {
+    background: rgba(255,255,255,0.7);
+}
+
 @media (max-width: 900px) {
+    .header {
+        padding: 0.75rem 1rem 0;
+    }
+
     .mobile-toggle {
         display: block;
         z-index: 1001;
@@ -157,11 +188,11 @@
     .nav-links {
         display: none;
         position: fixed;
-        top: var(--header-height);
+        top: 80px;
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(255, 255, 255, 0.98);
+        background: rgba(20, 40, 66, 0.97);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
@@ -179,7 +210,9 @@
     .nav-links a {
         font-size: 1.4rem;
         font-family: var(--font-display);
+        color: rgba(255,255,255,0.7);
     }
+    .nav-links a:hover { color: var(--white); }
 
     .nav-right {
         display: none;
@@ -198,6 +231,13 @@
     body.menu-open {
         overflow: hidden;
     }
+
+    /* Hero responsive */
+    .hero-photo { width: 100%; opacity: 0.3; }
+    .hero-accent { display: none; }
+    .authority-inner { flex-wrap: wrap; }
+    .auth-item { flex: 1 1 45%; }
+    .auth-item:not(:last-child)::after { display: none; }
 }
 
 /* ========== BUTTONS ========== */
