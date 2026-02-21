@@ -2,11 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+    <!-- ===================== -->
+    <!-- BILINGUAL PAGES (RU root + EN /en/) -->
+    <!-- ===================== -->
+
     <!-- Homepage -->
     <url>
         <loc>https://ehenschel.github.io/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -15,128 +27,106 @@
     <!-- Services Hub -->
     <url>
         <loc>https://ehenschel.github.io/services/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/services/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
-    <!-- Service Detail Pages -->
+    <!-- Service: Audit -->
     <url>
         <loc>https://ehenschel.github.io/services/audit.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/audit.html"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/audit.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/audit.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/audit.html"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/services/audit.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/audit.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/audit.html"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service: Tax -->
     <url>
         <loc>https://ehenschel.github.io/services/tax.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/tax.html"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/tax.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/tax.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/tax.html"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/services/tax.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/tax.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/tax.html"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service: Legal -->
     <url>
         <loc>https://ehenschel.github.io/services/legal.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/legal.html"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/legal.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/legal.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/legal.html"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/services/legal.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/legal.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/legal.html"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service: IFRS -->
     <url>
         <loc>https://ehenschel.github.io/services/ifrs.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/ifrs.html"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/ifrs.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/ifrs.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/ifrs.html"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/services/ifrs.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/ifrs.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/ifrs.html"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Service: Outsourcing -->
     <url>
         <loc>https://ehenschel.github.io/services/outsourcing.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/outsourcing.html"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/outsourcing.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/outsourcing.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/outsourcing.html"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
-
-    <!-- Industries -->
     <url>
-        <loc>https://ehenschel.github.io/industries/</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/industries/oil-gas.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/industries/mining.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/industries/financial-services.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/industries/construction.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/industries/retail-fmcg.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/industries/government.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Insights -->
-    <url>
-        <loc>https://ehenschel.github.io/insights/</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/insights/new-tax-code-2026.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/insights/march-deadline-tax-regime.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/insights/vat-16-percent-sme-impact.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
-    <!-- Case Studies -->
-    <url>
-        <loc>https://ehenschel.github.io/case-studies/</loc>
+        <loc>https://ehenschel.github.io/en/services/outsourcing.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/services/outsourcing.html"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/services/outsourcing.html"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -145,6 +135,16 @@
     <!-- About -->
     <url>
         <loc>https://ehenschel.github.io/about/</loc>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/about/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/about/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/about/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/about/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/about/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -153,6 +153,16 @@
     <!-- Team -->
     <url>
         <loc>https://ehenschel.github.io/team/</loc>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/team/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/team/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/team/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/team/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/team/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -161,8 +171,16 @@
     <!-- Clients -->
     <url>
         <loc>https://ehenschel.github.io/clients/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/clients/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/clients/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/clients/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/clients/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/clients/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/clients/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/clients/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -171,8 +189,16 @@
     <!-- Contact -->
     <url>
         <loc>https://ehenschel.github.io/contact/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/contact/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/contact/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/contact/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/contact/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/contact/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/contact/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/contact/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -181,89 +207,125 @@
     <!-- Careers -->
     <url>
         <loc>https://ehenschel.github.io/careers/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/careers/"/>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/careers/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/careers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/careers/"/>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/careers/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/careers/"/>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/careers/"/>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
 
-    <!-- Russian Pages -->
+    <!-- ===================== -->
+    <!-- ENGLISH-ONLY PAGES -->
+    <!-- ===================== -->
+
+    <!-- Industries Hub -->
     <url>
-        <loc>https://ehenschel.github.io/ru/</loc>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/"/>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/services/</loc>
-        <xhtml:link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/ru/services/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://ehenschel.github.io/services/"/>
+        <loc>https://ehenschel.github.io/en/industries/</loc>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://ehenschel.github.io/ru/services/audit.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/services/tax.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/services/legal.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/services/ifrs.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/services/outsourcing.html</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/about/</loc>
-        <lastmod>2026-02-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://ehenschel.github.io/ru/team/</loc>
+        <loc>https://ehenschel.github.io/en/industries/oil-gas.html</loc>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://ehenschel.github.io/ru/clients/</loc>
+        <loc>https://ehenschel.github.io/en/industries/mining.html</loc>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://ehenschel.github.io/ru/contact/</loc>
+        <loc>https://ehenschel.github.io/en/industries/financial-services.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/industries/construction.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/industries/retail-fmcg.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/industries/government.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Insights Hub -->
+    <url>
+        <loc>https://ehenschel.github.io/en/insights/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/insights/new-tax-code-2026.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/insights/march-deadline-tax-regime.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://ehenschel.github.io/en/insights/vat-16-percent-sme-impact.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Case Studies -->
+    <url>
+        <loc>https://ehenschel.github.io/en/case-studies/</loc>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
+
+    <!-- Events -->
     <url>
-        <loc>https://ehenschel.github.io/ru/careers/</loc>
+        <loc>https://ehenschel.github.io/en/events/</loc>
         <lastmod>2026-02-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
+    </url>
+
+    <!-- Resources -->
+    <url>
+        <loc>https://ehenschel.github.io/en/resources/</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <!-- Brandbook -->
+    <url>
+        <loc>https://ehenschel.github.io/en/brandbook.html</loc>
+        <lastmod>2026-02-19</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 
 </urlset>

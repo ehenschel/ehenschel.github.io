@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team — MinTax Group</title>
+    <meta name="description" content="Meet the experienced professionals behind MinTax Group. Our team of tax advisors, auditors, and legal experts serving Kazakhstan.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Our Team — MinTax Group">
+    <meta property="og:description" content="Meet the experienced professionals behind MinTax Group. Tax advisors, auditors, and legal experts serving Kazakhstan.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ehenschel.github.io/en/team/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Our Team — MinTax Group">
+    <meta name="twitter:description" content="Meet the experienced professionals behind MinTax Group. Tax advisors, auditors, and legal experts serving Kazakhstan.">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/team/">
+    <link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/team/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <style>
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-2xl);
+            margin-top: var(--space-3xl);
+        }
+        .team-member {
+            text-align: center;
+        }
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--blue);
+            margin: 0 auto var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 600;
+            font-family: var(--font-display);
+        }
+        .team-name {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+        }
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--terracotta);
+            margin-bottom: var(--space-sm);
+        }
+        .team-creds {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+        }
+        .leadership-section {
+            padding: var(--space-4xl) 0;
+        }
+        .team-section {
+            padding: var(--space-4xl) 0;
+            background: var(--gray-50);
+        }
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark"></div>
+                <span class="logo-text">MinTax</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../services/">Services</a></li>
+                    <li><a href="../industries/">Industries</a></li>
+                    <li><a href="../insights/">Insights</a></li>
+                    <li><a href="../about/" class="active">About</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <div class="lang-switch">
+                        <a href="#" class="active">EN</a>
+                        <span>|</span>
+                        <a href="../../team/">RU</a>
+                    </div>
+                    <a href="../contact/" class="btn btn-primary">Get in Touch</a>
+                </div>
+
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                <a href="../about/">About</a>
+                <span>›</span>
+                Our Team
+            </nav>
+            <h1>Our Team</h1>
+            <p class="lead">Meet the professionals behind MinTax Group. Our team combines deep technical expertise with practical business experience.</p>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="leadership-section">
+        <div class="container">
+            <h2 class="text-center mb-lg">Leadership</h2>
+            <p class="section-intro text-center" style="max-width: 600px; margin: 0 auto var(--space-2xl);">Our partners bring decades of combined experience in audit, tax, and legal consulting.</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">AK</div>
+                    <div class="team-name">Andrey Khorunzhiy</div>
+                    <div class="team-role">Managing Partner</div>
+                    <div class="team-creds">Auditor of the RoK</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">RK</div>
+                    <div class="team-name">Roza Kinchinbayeva</div>
+                    <div class="team-role">Managing Partner</div>
+                    <div class="team-creds">Auditor of the RoK</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">GS</div>
+                    <div class="team-name">Gulnara Shokibayeva</div>
+                    <div class="team-role">Partner, Head of Audit</div>
+                    <div class="team-creds">Certified Auditor</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">MB</div>
+                    <div class="team-name">Mukhtar Bekzhigitov</div>
+                    <div class="team-role">Partner, Head of Tax</div>
+                    <div class="team-creds">Tax Specialist</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPARTMENT & REGIONAL HEADS -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="text-center mb-lg">Department & Regional Heads</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">KB</div>
+                    <div class="team-name">Kamshat Baytanaeva</div>
+                    <div class="team-role">Partner, Head of Outsourcing</div>
+                    <div class="team-creds">Senior Manager</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">AV</div>
+                    <div class="team-name">Aliya Vayissova</div>
+                    <div class="team-role">Head of Astana Regional Office</div>
+                    <div class="team-creds">Regional Director</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">TS</div>
+                    <div class="team-name">Tatyana Sabikenova</div>
+                    <div class="team-role">Head of Atyrau Regional Office</div>
+                    <div class="team-creds">Auditor of the RoK</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">KA</div>
+                    <div class="team-name">Karlygash Abyldayeva</div>
+                    <div class="team-role">Senior Auditor</div>
+                    <div class="team-creds">Auditor of the RoK</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="leadership-section">
+        <div class="container">
+            <h2 class="text-center mb-lg">Senior Professionals</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">KM</div>
+                    <div class="team-name">Kristina Merzlikina</div>
+                    <div class="team-role">Senior Manager</div>
+                    <div class="team-creds">Auditor of the RoK</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">EA</div>
+                    <div class="team-name">Yernur Alikhan</div>
+                    <div class="team-role">Deputy Director of Outsourcing</div>
+                    <div class="team-creds">Senior Specialist</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">BM</div>
+                    <div class="team-name">Bakhitkul Myrzabekova</div>
+                    <div class="team-role">Senior Auditor</div>
+                    <div class="team-creds">Auditor of the RoK</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">RF</div>
+                    <div class="team-name">Ruslan Faskhutdinov</div>
+                    <div class="team-role">Head of IT Department</div>
+                    <div class="team-creds">IT Specialist</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">AB</div>
+                    <div class="team-name">Assiya Burkutova</div>
+                    <div class="team-role">Senior Manager</div>
+                    <div class="team-creds">Audit Specialist</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">CI</div>
+                    <div class="team-name">Chingis Iklasov</div>
+                    <div class="team-role">Senior Manager</div>
+                    <div class="team-creds">Tax Specialist</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">KO</div>
+                    <div class="team-name">Kuat Omar</div>
+                    <div class="team-role">Senior Manager</div>
+                    <div class="team-creds">Consultant</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">OL</div>
+                    <div class="team-name">Oxana Lyan</div>
+                    <div class="team-role">Manager</div>
+                    <div class="team-creds">Accounting Specialist</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">GK</div>
+                    <div class="team-name">Gaukhar Kabyl</div>
+                    <div class="team-role">Senior Manager</div>
+                    <div class="team-creds">Certified Auditor</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">KU</div>
+                    <div class="team-name">Kairat Uazhanov</div>
+                    <div class="team-role">Manager</div>
+                    <div class="team-creds">Tax Consultant</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUALIFICATIONS -->
+    <section class="section" style="background: var(--blue-pale);">
+        <div class="container">
+            <h2 class="text-center mb-2xl">Our Qualifications</h2>
+            <div class="credentials-grid">
+                <div class="credential-item">
+                    <div class="credential-icon">📜</div>
+                    <div class="credential-title">ACCA</div>
+                    <div class="credential-desc">Association of Chartered Certified Accountants</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">📜</div>
+                    <div class="credential-title">DipIFR</div>
+                    <div class="credential-desc">Diploma in International Financial Reporting</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">📜</div>
+                    <div class="credential-title">CA (RK)</div>
+                    <div class="credential-desc">Certified Auditor of the Republic of Kazakhstan</div>
+                </div>
+                <div class="credential-item">
+                    <div class="credential-icon">📜</div>
+                    <div class="credential-title">Tax Certificate</div>
+                    <div class="credential-desc">Certified Tax Consultant of RK</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Join Our Team</h2>
+            <p>We're always looking for talented professionals. See our current openings.</p>
+            <a href="../careers/" class="btn btn-white">View Careers</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark"></div>
+                        <span class="logo-text">MinTax</span>
+                    </div>
+                    <p>Professional audit, tax, and legal services for businesses in Kazakhstan since 1999.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services/audit.html">Audit & Assurance</a></li>
+                        <li><a href="../services/tax.html">Tax Consulting</a></li>
+                        <li><a href="../services/legal.html">Legal Services</a></li>
+                        <li><a href="../services/ifrs.html">IFRS Reporting</a></li>
+                        <li><a href="../services/outsourcing.html">Outsourcing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../team/">Our Team</a></li>
+                        <li><a href="../clients/">Clients</a></li>
+                        <li><a href="../insights/">Insights</a></li>
+                        <li><a href="../careers/">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>+7 (727) 221-88-88</li>
+                        <li>info@mintax.kz</li>
+                        <li>62B Karmyssov St., Almaty</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 MinTax Group. All rights reserved.</div>
+                <div class="footer-certs">
+                    <span>ISO 9001:2015</span>
+                    <span>ISO 14001:2015</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+
+</body>
+</html>

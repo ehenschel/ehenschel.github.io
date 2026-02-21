@@ -17,6 +17,7 @@
         smoothScrollAnchors();
         scrollReveal();
         // animatedCounters(); — REMOVED: bouncing numbers feel cheap (V5 design decision)
+        heroCarousel();
         heroParallax();
         scrollProgress();
         currentYear();
@@ -281,7 +282,143 @@
 
 
     /* ═══════════════════════════════════
-       6. HERO PARALLAX
+       6. HERO CAROUSEL
+       ═══════════════════════════════════
+       Auto-rotating content slides with tab/arrow nav.
+       7s per slide, gold progress bar on active tab.
+    */
+    function heroCarousel() {
+        var carousel = document.querySelector('.hero-carousel');
+        if (!carousel) return;
+
+        var panel = document.querySelector('.hero-panel');
+        var slides = carousel.querySelectorAll('.hero-slide');
+        var tabs = document.querySelectorAll('.hero-tab');
+        var prevBtn = document.querySelector('.hero-prev');
+        var nextBtn = document.querySelector('.hero-next');
+        var pauseBtn = document.querySelector('.hero-pause');
+
+        if (slides.length < 2) return;
+
+        var current = 0;
+        var total = slides.length;
+        var interval = 7000;
+        var TRANSITION_MS = 800;
+        var timer = null;
+        var paused = false;
+        var isTransitioning = false;
+
+        function goTo(index, direction) {
+            if (isTransitioning) return;
+            var newIndex = ((index % total) + total) % total;
+            if (newIndex === current) return;
+
+            isTransitioning = true;
+            var oldIndex = current;
+            current = newIndex;
+
+            // Determine direction if not explicit
+            if (!direction) {
+                direction = (newIndex > oldIndex || (oldIndex === total - 1 && newIndex === 0)) ? 'next' : 'prev';
+            }
+
+            var exitClass = direction === 'next' ? 'is-exiting-left' : 'is-exiting-right';
+            var enterClass = direction === 'next' ? 'is-entering-right' : 'is-entering-left';
+
+            // Set up entering slide off-screen
+            slides[current].classList.add(enterClass);
+
+            // Force reflow so the initial transform is applied before transition
+            void slides[current].offsetHeight;
+
+            // Start transitions
+            slides[current].classList.add('is-active');
+            slides[oldIndex].classList.add(exitClass);
+            slides[oldIndex].classList.remove('is-active');
+
+            // Update tabs
+            if (tabs[oldIndex]) tabs[oldIndex].classList.remove('is-active');
+            if (tabs[current]) tabs[current].classList.add('is-active');
+
+            // Clean up after transition completes
+            setTimeout(function () {
+                slides[oldIndex].classList.remove(exitClass);
+                slides[current].classList.remove(enterClass);
+                isTransitioning = false;
+            }, TRANSITION_MS);
+
+            restartTimer();
+        }
+
+        function next() { goTo(current + 1, 'next'); }
+        function prev() { goTo(current - 1, 'prev'); }
+
+        function startTimer() {
+            if (paused) return;
+            clearInterval(timer);
+            timer = setInterval(next, interval);
+        }
+
+        function restartTimer() {
+            clearInterval(timer);
+            startTimer();
+        }
+
+        function togglePause() {
+            paused = !paused;
+            if (paused) {
+                clearInterval(timer);
+                carousel.classList.add('is-paused');
+                if (pauseBtn) pauseBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="6,4 20,12 6,20"/></svg>';
+            } else {
+                carousel.classList.remove('is-paused');
+                if (pauseBtn) pauseBtn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>';
+                startTimer();
+            }
+        }
+
+        // Tab clicks (infer direction from position)
+        tabs.forEach(function (tab) {
+            tab.addEventListener('click', function () {
+                var target = parseInt(this.getAttribute('data-target'), 10);
+                var dir = target > current ? 'next' : 'prev';
+                goTo(target, dir);
+            });
+        });
+
+        // Arrow clicks
+        if (prevBtn) prevBtn.addEventListener('click', prev);
+        if (nextBtn) nextBtn.addEventListener('click', next);
+        if (pauseBtn) pauseBtn.addEventListener('click', togglePause);
+
+        // Pause on hover over the panel
+        if (panel) {
+            panel.addEventListener('mouseenter', function () {
+                if (!paused) clearInterval(timer);
+            });
+            panel.addEventListener('mouseleave', function () {
+                if (!paused) startTimer();
+            });
+        }
+
+        // Keyboard
+        document.addEventListener('keydown', function (e) {
+            var hero = document.querySelector('.home-hero');
+            if (!hero) return;
+            var rect = hero.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+            if (e.key === 'ArrowRight') next();
+            else if (e.key === 'ArrowLeft') prev();
+        });
+
+        // Start auto-rotate
+        startTimer();
+    }
+
+
+    /* ═══════════════════════════════════
+       7. HERO PARALLAX
        ═══════════════════════════════════
        Moves the hero background at 0.4x scroll speed
     */
@@ -319,7 +456,7 @@
 
 
     /* ═══════════════════════════════════
-       7. SCROLL PROGRESS INDICATOR
+       8. SCROLL PROGRESS INDICATOR
        ═══════════════════════════════════
        Gold-to-terracotta bar at the top of the page
     */
@@ -349,7 +486,7 @@
 
 
     /* ═══════════════════════════════════
-       8. CURRENT YEAR IN FOOTER
+       9. CURRENT YEAR IN FOOTER
        ═══════════════════════════════════ */
     function currentYear() {
         var yearSpan = document.querySelector('.current-year');
@@ -360,7 +497,7 @@
 
 
     /* ═══════════════════════════════════
-       9. FORM ENHANCEMENTS
+       10. FORM ENHANCEMENTS
        ═══════════════════════════════════ */
     function formEnhancements() {
         var formInputs = document.querySelectorAll('.form-group input, .form-group textarea, .form-group select');

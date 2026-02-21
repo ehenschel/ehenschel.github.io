@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies — MinTax Group Client Success Stories</title>
+    <meta name="description" content="Explore MinTax Group's client success stories. Real results across audit, tax, legal services, and IFRS reporting in Kazakhstan's leading industries.">
+    <meta name="keywords" content="case studies, client success, audit case study, tax consulting results, legal services Kazakhstan, professional services results">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Client Success Stories — MinTax Group">
+    <meta property="og:description" content="Proven results across audit, tax, legal services, and business advisory for Kazakhstan's leading companies.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Client Success Stories — MinTax Group">
+    <meta name="twitter:description" content="Proven results across audit, tax, legal services, and business advisory for Kazakhstan's leading companies.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/pages.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+
+    <!-- Schema: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://ehenschel.github.io"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Case Studies",
+                "item": "https://ehenschel.github.io/case-studies/"
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* ══════════════════════════════════════════════════
+           CASE STUDIES HUB PAGE
+           Client Success Stories Landing Page
+           ══════════════════════════════════════════════════ */
+
+        /* ── BREADCRUMB ── */
+        .breadcrumb {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: var(--space-md) 0;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-inner {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--gray-500);
+        }
+
+        .breadcrumb-inner a {
+            color: var(--blue-primary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .breadcrumb-inner a:hover {
+            color: var(--terracotta);
+        }
+
+        .breadcrumb-inner .active {
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        /* ── HERO ── */
+        .casestudies-hero {
+            position: relative;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            padding: var(--space-5xl) 0;
+            background: var(--blue-deep);
+            overflow: hidden;
+        }
+
+        .casestudies-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=85')
+                center/cover no-repeat;
+            opacity: 0.25;
+        }
+
+        .casestudies-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(26, 51, 80, 0.8) 0%,
+                rgba(26, 51, 80, 0.85) 100%
+            );
+        }
+
+        .casestudies-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .casestudies-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.15;
+            color: var(--white);
+            margin-bottom: var(--space-lg);
+            letter-spacing: -0.02em;
+        }
+
+        .casestudies-hero .lead {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.75;
+            max-width: 560px;
+        }
+
+        /* ── FEATURED CASE STUDY ── */
+        .casestudies-featured {
+            padding: var(--space-5xl) 0;
+            background: var(--white);
+        }
+
+        .featured-casestudy-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-4xl);
+            align-items: center;
+            background: var(--white);
+            border: 1px solid rgba(44, 74, 110, 0.08);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: all var(--transition-slow);
+        }
+
+        .featured-casestudy-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(44, 74, 110, 0.15);
+        }
+
+        .featured-casestudy-image {
+            background: linear-gradient(135deg, var(--blue-mist) 0%, var(--blue-pale) 100%);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+        }
+
+        .featured-casestudy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .featured-casestudy-image .placeholder-text {
+            color: var(--blue-primary);
+            font-size: 0.9rem;
+            opacity: 0.5;
+        }
+
+        .featured-casestudy-content {
+            padding: var(--space-3xl);
+        }
+
+        .featured-casestudy-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            background: rgba(199, 93, 72, 0.08);
+            color: var(--terracotta);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-md);
+        }
+
+        .featured-casestudy-content h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: var(--space-md);
+            line-height: 1.25;
+        }
+
+        .featured-casestudy-client {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--gray-500);
+            margin-bottom: var(--space-lg);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .featured-casestudy-content p {
+            font-size: 1rem;
+            color: var(--gray-600);
+            line-height: 1.75;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .featured-casestudy-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            padding-bottom: var(--space-2xl);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .featured-metric {
+            text-align: left;
+        }
+
+        .featured-metric-number {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--blue-primary);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .featured-metric-label {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .featured-casestudy-link {
+            display: inline-block;
+            font-size: 0.86rem;
+            font-weight: 500;
+            color: var(--terracotta);
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+
+        .featured-casestudy-link:hover {
+            gap: 0.4rem;
+        }
+
+        /* ── CASE STUDY GRID ── */
+        .casestudies-grid-section {
+            padding: var(--space-5xl) 0;
+            background: var(--gray-50);
+        }
+
+        .casestudies-grid-section .section-header {
+            margin-bottom: var(--space-3xl);
+        }
+
+        .casestudies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .casestudy-card {
+            background: var(--white);
+            border: 1px solid rgba(44, 74, 110, 0.06);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-slow);
+            position: relative;
+        }
+
+        .casestudy-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            opacity: 0;
+            transition: opacity var(--transition-slow);
+        }
+
+        .casestudy-card:hover {
+            border-color: rgba(44, 74, 110, 0.12);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .casestudy-card:hover::before {
+            opacity: 1;
+        }
+
+        .casestudy-card-badge {
+            display: inline-block;
+            align-self: flex-start;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--space-md);
+            font-weight: 600;
+        }
+
+        .badge-tax {
+            background: rgba(44, 74, 110, 0.08);
+            color: var(--blue-primary);
+        }
+
+        .badge-audit {
+            background: rgba(201, 169, 98, 0.08);
+            color: var(--gold);
+        }
+
+        .badge-legal {
+            background: rgba(199, 93, 72, 0.08);
+            color: var(--terracotta);
+        }
+
+        .badge-ifrs {
+            background: rgba(76, 175, 80, 0.08);
+            color: #4CAF50;
+        }
+
+        .casestudy-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: var(--space-md);
+            line-height: 1.35;
+            transition: color var(--transition-base);
+            flex-grow: 1;
+        }
+
+        .casestudy-card:hover h3 {
+            color: var(--blue-primary);
+        }
+
+        .casestudy-card p {
+            font-size: 0.88rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .casestudy-card-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .card-metric {
+            text-align: left;
+        }
+
+        .card-metric-value {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: var(--blue-primary);
+            line-height: 1;
+            margin-bottom: 0.2rem;
+        }
+
+        .card-metric-label {
+            font-size: 0.72rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .casestudy-card .link {
+            font-size: 0.82rem;
+            color: var(--terracotta);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: gap var(--transition-base);
+            text-decoration: none;
+            margin-top: auto;
+        }
+
+        .casestudy-card:hover .link {
+            gap: 0.65rem;
+        }
+
+        /* ── TESTIMONIALS ── */
+        .casestudies-testimonials {
+            padding: var(--space-5xl) 0;
+            background: var(--white);
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: var(--space-4xl);
+        }
+
+        .testimonials-header .overline {
+            display: block;
+            margin-bottom: var(--space-sm);
+        }
+
+        .testimonials-header h2 {
+            font-family: var(--font-display);
+            font-size: 2.4rem;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: var(--space-lg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .testimonial-card {
+            background: var(--blue-pale);
+            border: 1px solid rgba(44, 74, 110, 0.08);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-style: italic;
+            color: var(--black);
+            line-height: 1.7;
+            margin-bottom: var(--space-lg);
+            flex-grow: 1;
+        }
+
+        .testimonial-quote::before {
+            content: '"';
+            font-size: 2.5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            display: block;
+            line-height: 0.5;
+            margin-bottom: var(--space-sm);
+        }
+
+        .testimonial-attribution {
+            border-top: 1px solid rgba(44, 74, 110, 0.1);
+            padding-top: var(--space-lg);
+        }
+
+        .testimonial-name {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-company {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ── CTA SECTION ── */
+        .casestudies-cta {
+            padding: var(--space-5xl) 0;
+            background: var(--gray-50);
+        }
+
+        .cta-box-casestudies {
+            background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box-casestudies::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -10%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-box-casestudies::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 60px; height: 2px;
+            background: var(--gold);
+        }
+
+        .cta-box-casestudies h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box-casestudies p {
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, 0.68);
+            margin-bottom: var(--space-2xl);
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-box-casestudies .btn {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .featured-casestudy-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-casestudy-image {
+                border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+                order: -1;
+            }
+
+            .featured-casestudy-content {
+                padding: var(--space-2xl);
+            }
+
+            .casestudies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-casestudy-metrics,
+            .casestudy-card-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .casestudies-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .breadcrumb-inner {
+                flex-wrap: wrap;
+                gap: var(--space-xs);
+            }
+
+            .casestudies-hero {
+                min-height: auto;
+                padding: var(--space-3xl) 0;
+            }
+
+            .casestudies-hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: var(--space-md);
+            }
+
+            .casestudies-hero .lead {
+                font-size: 1rem;
+            }
+
+            .featured-casestudy-content {
+                padding: var(--space-xl);
+            }
+
+            .featured-casestudy-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .casestudy-card {
+                padding: var(--space-lg);
+            }
+
+            .cta-box-casestudies {
+                padding: var(--space-3xl) var(--space-xl);
+            }
+
+            .cta-box-casestudies h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark"></div>
+                <span class="logo-text">MinTax</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../services/">Services</a></li>
+                    <li><a href="../industries/">Industries</a></li>
+                    <li><a href="../insights/">Insights</a></li>
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                </ul>
+
+                <div class="nav-right">
+                    <div class="lang-switch">
+                        <a href="#" class="active">EN</a>
+                        <span>|</span>
+                        <a href="../../">RU</a>
+                    </div>
+                    <a href="../contact/" class="btn btn-primary">Get in Touch</a>
+                </div>
+
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-inner">
+                <a href="../index.html">Home</a>
+                <span>/</span>
+                <span class="active">Case Studies</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- HERO -->
+    <section class="casestudies-hero">
+        <div class="container">
+            <h1>Client Success Stories</h1>
+            <p class="lead">Discover how MinTax Group delivers proven results across audit, tax consulting, legal services, and IFRS reporting for Kazakhstan's leading organizations. Real engagements. Real outcomes.</p>
+        </div>
+    </section>
+
+
+    <!-- FEATURED CASE STUDY -->
+    <section class="casestudies-featured">
+        <div class="container">
+            <div class="featured-casestudy-card">
+                <div class="featured-casestudy-image" style="background: linear-gradient(135deg, var(--blue-deep, #1A3350) 0%, var(--blue-primary, #2C4A6E) 60%, rgba(201, 169, 98, 0.3) 100%); display:flex; align-items:center; justify-content:center;">
+                </div>
+
+                <div class="featured-casestudy-content">
+                    <span class="featured-casestudy-badge">Tax Restructuring</span>
+                    <h2>Helping a national oil company restructure its tax compliance</h2>
+                    <div class="featured-casestudy-client">Energy &amp; Resources Sector · Confidential Client</div>
+                    <p>MinTax Group provided comprehensive tax advisory during a major corporate restructuring, identifying significant savings opportunities while ensuring full compliance with Kazakhstan's evolving tax legislation and international standards. The engagement involved detailed analysis of transfer pricing policies, entity reorganization structures, and multipartite agreements spanning regional operations.</p>
+
+                    <div class="featured-casestudy-metrics">
+                        <div class="featured-metric">
+                            <div class="featured-metric-number">$12M+</div>
+                            <div class="featured-metric-label">Tax Savings Identified</div>
+                        </div>
+                        <div class="featured-metric">
+                            <div class="featured-metric-number">18</div>
+                            <div class="featured-metric-label">Months Engagement</div>
+                        </div>
+                        <div class="featured-metric">
+                            <div class="featured-metric-number">100%</div>
+                            <div class="featured-metric-label">Compliance Achieved</div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="featured-casestudy-link">Read full case study <span>&rarr;</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CASE STUDIES GRID -->
+    <section class="casestudies-grid-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-header-left">
+                    <span class="overline">Additional Success Stories</span>
+                    <h2>More Client Engagements</h2>
+                </div>
+            </div>
+
+            <div class="casestudies-grid">
+                <!-- Case Study 1: Audit -->
+                <a href="#" class="casestudy-card">
+                    <span class="casestudy-card-badge badge-audit">Audit</span>
+                    <h3>Financial Restatement &amp; Controls Enhancement for KASE-Listed Company</h3>
+                    <p>Comprehensive audit engagement and internal control remediation for a publicly traded manufacturing firm following significant management changes and accounting irregularities discovery.</p>
+                    <div class="casestudy-card-metrics">
+                        <div class="card-metric">
+                            <div class="card-metric-value">40+</div>
+                            <div class="card-metric-label">Control Gaps Identified</div>
+                        </div>
+                        <div class="card-metric">
+                            <div class="card-metric-value">12 mo</div>
+                            <div class="card-metric-label">Implementation Period</div>
+                        </div>
+                    </div>
+                    <span class="link">Read case study <span>&rarr;</span></span>
+                </a>
+
+                <!-- Case Study 2: IFRS -->
+                <a href="#" class="casestudy-card">
+                    <span class="casestudy-card-badge badge-ifrs">IFRS</span>
+                    <h3>IFRS Conversion &amp; Consolidated Reporting for Regional Holding Company</h3>
+                    <p>IFRS 16 implementation and consolidated financial statement transformation for a multi-subsidiary real estate and construction holding structure with operations across three countries.</p>
+                    <div class="casestudy-card-metrics">
+                        <div class="card-metric">
+                            <div class="card-metric-value">6 ops</div>
+                            <div class="card-metric-label">Entities Converted</div>
+                        </div>
+                        <div class="card-metric">
+                            <div class="card-metric-value">$18M</div>
+                            <div class="card-metric-label">Assets Reported</div>
+                        </div>
+                    </div>
+                    <span class="link">Read case study <span>&rarr;</span></span>
+                </a>
+
+                <!-- Case Study 3: Legal -->
+                <a href="#" class="casestudy-card">
+                    <span class="casestudy-card-badge badge-legal">Legal</span>
+                    <h3>Cross-Border M&amp;A Transaction &amp; Regulatory Compliance</h3>
+                    <p>Full-cycle legal and regulatory advisory for a significant acquisition of a financial services subsidiary, including antitrust clearance, regulatory approvals, and contract negotiation across multiple jurisdictions.</p>
+                    <div class="casestudy-card-metrics">
+                        <div class="card-metric">
+                            <div class="card-metric-value">$45M</div>
+                            <div class="card-metric-label">Transaction Value</div>
+                        </div>
+                        <div class="card-metric">
+                            <div class="card-metric-value">9 mo</div>
+                            <div class="card-metric-label">Deal Closure</div>
+                        </div>
+                    </div>
+                    <span class="link">Read case study <span>&rarr;</span></span>
+                </a>
+
+                <!-- Case Study 4: Tax -->
+                <a href="#" class="casestudy-card">
+                    <span class="casestudy-card-badge badge-tax">Tax</span>
+                    <h3>Transfer Pricing Study &amp; Tax Optimization for Multinational Manufacturer</h3>
+                    <p>Comprehensive transfer pricing documentation and regional tax optimization strategy for a manufacturing company with production facilities and distribution operations across four CIS countries.</p>
+                    <div class="casestudy-card-metrics">
+                        <div class="card-metric">
+                            <div class="card-metric-value">$8.5M</div>
+                            <div class="card-metric-label">Annual Optimization</div>
+                        </div>
+                        <div class="card-metric">
+                            <div class="card-metric-value">4</div>
+                            <div class="card-metric-label">Countries Covered</div>
+                        </div>
+                    </div>
+                    <span class="link">Read case study <span>&rarr;</span></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="casestudies-testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <span class="overline">Client Feedback</span>
+                <h2>What Our Clients Say</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">MinTax Group went beyond standard audit procedures to identify structural opportunities that saved us millions in tax exposure. Their deep understanding of Kazakhstan's regulations and international standards is unmatched in the market.</div>
+                    <div class="testimonial-attribution">
+                        <div class="testimonial-name">Raimbek Orazov</div>
+                        <div class="testimonial-company">CFO, Samruk Energy Solutions</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">What impressed us most was the team's ability to translate complex IFRS requirements into practical actions for our finance team. The implementation was seamless, and we met all our reporting deadlines ahead of schedule.</div>
+                    <div class="testimonial-attribution">
+                        <div class="testimonial-name">Yana Bekbayeva</div>
+                        <div class="testimonial-company">Finance Director, KazConstruct Development</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="casestudies-cta">
+        <div class="container">
+            <div class="cta-box-casestudies">
+                <h2>Discuss How We Can Help Your Business</h2>
+                <p>Whether you're facing tax challenges, planning an acquisition, implementing IFRS standards, or strengthening internal controls, our experienced team is ready to deliver measurable results.</p>
+                <a href="../contact/" class="btn btn-white">Schedule a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark"></div>
+                        <span class="logo-text">MinTax</span>
+                    </div>
+                    <p>Professional audit, tax, and legal consulting services for businesses in Kazakhstan since 1999.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services/audit.html">Audit &amp; Assurance</a></li>
+                        <li><a href="../services/tax.html">Tax Consulting</a></li>
+                        <li><a href="../services/legal.html">Legal Services</a></li>
+                        <li><a href="../services/ifrs.html">IFRS Reporting</a></li>
+                        <li><a href="../services/outsourcing.html">Outsourcing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../team/">Our Team</a></li>
+                        <li><a href="../clients/">Clients</a></li>
+                        <li><a href="../insights/">Insights</a></li>
+                        <li><a href="../careers/">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>+7 (727) 221-88-88</li>
+                        <li>info@mintax.kz</li>
+                        <li>62B Karmyssov St., Almaty</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 MinTax Group. All rights reserved.</div>
+                <div class="footer-certs">
+                    <span>ISO 9001:2015</span>
+                    <span>ISO 14001:2015</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+
+</body>
+</html>
