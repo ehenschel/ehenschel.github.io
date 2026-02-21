@@ -60,6 +60,22 @@
     max-width: 420px;
     color: var(--blue-deep);
     z-index: 5;
+    position: relative;
+}
+
+/* Liquid glass backdrop — very thin frosted panel for text readability */
+.hero-identity::before {
+    content: '';
+    position: absolute;
+    inset: -1rem -1.5rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    box-shadow: 0 1px 8px rgba(44, 74, 110, 0.04);
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero-overline {
