@@ -156,7 +156,7 @@
 
 /* Mobile toggle — white hamburger lines on dark pill */
 .mobile-toggle span {
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.92);
 }
 
 @media (max-width: 900px) {
