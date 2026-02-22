@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Наша команда — MinTax Group</title>
+    <meta name="description" content="Познакомьтесь с профессионалами MinTax Group — налоговыми консультантами, аудиторами и юристами, обслуживающими бизнес в Казахстане.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Наша команда — MinTax Group">
+    <meta property="og:description" content="Познакомьтесь с профессионалами MinTax Group. Налоговые консультанты, аудиторы и юристы.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ehenschel.github.io/team/">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/team/">
+    <link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/team/">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +29,7 @@
     <style>
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: var(--space-2xl);
             margin-top: var(--space-3xl);
         }
@@ -26,13 +40,23 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: var(--gray-200);
+            background: var(--blue);
             margin: 0 auto var(--space-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray-400);
-            font-size: 0.85rem;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 600;
+            font-family: var(--font-display);
+            overflow: hidden;
+        }
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            border-radius: 50%;
         }
         .team-name {
             font-family: var(--font-display);
@@ -55,6 +79,11 @@
         .team-section {
             padding: var(--space-4xl) 0;
             background: var(--gray-50);
+        }
+        @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
         @media (max-width: 768px) {
             .team-grid {
@@ -81,10 +110,9 @@
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="../services/">Услуги</a></li>
-                    <li><a href="../industries/">Отрасли</a></li>
-                    <li><a href="../insights/">Идеи</a></li>
+                    <li><a href="../en/industries/">Отрасли</a></li>
+                    <li><a href="../en/insights/">Аналитика</a></li>
                     <li><a href="../about/" class="active">О компании</a></li>
-                    
                     <li><a href="../contact/">Контакты</a></li>
                 </ul>
 
@@ -117,7 +145,7 @@
                 Команда
             </nav>
             <h1>Наша команда</h1>
-            <p class="lead">Познакомьтесь с профессионалами MinTax Group. Наша команда сочетает глубокую техническую экспертизу с практическим опытом в бизнесе.</p>
+            <p class="lead">Познакомьтесь с профессионалами MinTax Group. Наша команда сочетает глубокую техническую экспертизу с практическим бизнес-опытом.</p>
         </div>
     </section>
 
@@ -125,79 +153,134 @@
     <section class="leadership-section">
         <div class="container">
             <h2 class="text-center mb-lg">Руководство</h2>
-            <p class="section-intro text-center" style="max-width: 600px; margin: 0 auto var(--space-2xl);">Наши партнёры имеют десятки лет комбинированного опыта в аудите, налоговом и юридическом консалтинге.</p>
+            <p class="section-intro text-center" style="max-width: 600px; margin: 0 auto var(--space-2xl);">Наши партнёры обладают многолетним совокупным опытом в области аудита, налогового и юридического консалтинга.</p>
 
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя партнёра]</div>
+                    <div class="team-photo"><img src="../images/team/andrei.webp" alt="Андрей Хоружий" loading="lazy"></div>
+                    <div class="team-name">Андрей Хоружий</div>
                     <div class="team-role">Управляющий партнер</div>
-                    <div class="team-creds">CA, ACCA, DipIFR</div>
+                    <div class="team-creds">Аудитор РК</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя партнёра]</div>
-                    <div class="team-role">Партнер, Аудит</div>
-                    <div class="team-creds">CA, ACCA</div>
+                    <div class="team-photo"><img src="../images/team/roza.webp" alt="Роза Кинчинбаева" loading="lazy"></div>
+                    <div class="team-name">Роза Кинчинбаева</div>
+                    <div class="team-role">Управляющий партнер</div>
+                    <div class="team-creds">Аудитор РК</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя партнёра]</div>
-                    <div class="team-role">Партнер, Налоги</div>
-                    <div class="team-creds">Сертификат налогового консультанта</div>
+                    <div class="team-photo"><img src="../images/team/gulnara.webp" alt="Гульнара Шокибаева" loading="lazy"></div>
+                    <div class="team-name">Гульнара Шокибаева</div>
+                    <div class="team-role">Партнер, руководитель аудита</div>
+                    <div class="team-creds">Сертифицированный аудитор</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo"><img src="../images/team/mukhtar.webp" alt="Мухтар Бекжигитов" loading="lazy"></div>
+                    <div class="team-name">Мухтар Бекжигитов</div>
+                    <div class="team-role">Партнер, руководитель налогового департамента</div>
+                    <div class="team-creds">Налоговый специалист</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- TEAM SECTIONS -->
+    <!-- DEPARTMENT & REGIONAL HEADS -->
     <section class="team-section">
         <div class="container">
-            <h2 class="text-center mb-lg">Команда аудита</h2>
+            <h2 class="text-center mb-lg">Руководители департаментов и региональных офисов</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя]</div>
-                    <div class="team-role">Старший менеджер</div>
-                    <div class="team-creds">ACCA, DipIFR</div>
+                    <div class="team-photo"><img src="../images/team/kamshat.webp" alt="Камшат Байтанаева" loading="lazy"></div>
+                    <div class="team-name">Камшат Байтанаева</div>
+                    <div class="team-role">Партнер, руководитель аутсорсинга</div>
+                    <div class="team-creds">Старший менеджер</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя]</div>
-                    <div class="team-role">Менеджер</div>
-                    <div class="team-creds">CA</div>
+                    <div class="team-photo">АВ</div>
+                    <div class="team-name">Алия Вайссова</div>
+                    <div class="team-role">Руководитель регионального офиса Астана</div>
+                    <div class="team-creds">Региональный директор</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя]</div>
-                    <div class="team-role">Менеджер</div>
-                    <div class="team-creds">ACCA</div>
+                    <div class="team-photo">ТС</div>
+                    <div class="team-name">Татьяна Сабикенова</div>
+                    <div class="team-role">Руководитель регионального офиса Атырау</div>
+                    <div class="team-creds">Аудитор РК</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">КА</div>
+                    <div class="team-name">Карлыгаш Абылдаева</div>
+                    <div class="team-role">Старший аудитор</div>
+                    <div class="team-creds">Аудитор РК</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SENIOR PROFESSIONALS -->
     <section class="leadership-section">
         <div class="container">
-            <h2 class="text-center mb-lg">Налоговая команда</h2>
+            <h2 class="text-center mb-lg">Старшие специалисты</h2>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя]</div>
-                    <div class="team-role">Старший налоговый консультант</div>
-                    <div class="team-creds">Сертификат налогового консультанта</div>
+                    <div class="team-photo">КМ</div>
+                    <div class="team-name">Кристина Мерзликина</div>
+                    <div class="team-role">Старший менеджер</div>
+                    <div class="team-creds">Аудитор РК</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя]</div>
-                    <div class="team-role">Налоговый консультант</div>
-                    <div class="team-creds"></div>
+                    <div class="team-photo"><img src="../images/team/yernur.webp" alt="Ернур Алихан" loading="lazy"></div>
+                    <div class="team-name">Ернур Алихан</div>
+                    <div class="team-role">Заместитель директора по аутсорсингу</div>
+                    <div class="team-creds">Старший специалист</div>
                 </div>
                 <div class="team-member">
-                    <div class="team-photo">[Фото]</div>
-                    <div class="team-name">[Имя]</div>
-                    <div class="team-role">Налоговый консультант</div>
-                    <div class="team-creds"></div>
+                    <div class="team-photo">БМ</div>
+                    <div class="team-name">Бахыткуль Мырзабекова</div>
+                    <div class="team-role">Старший аудитор</div>
+                    <div class="team-creds">Аудитор РК</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">РФ</div>
+                    <div class="team-name">Руслан Фасхутдинов</div>
+                    <div class="team-role">Руководитель IT-департамента</div>
+                    <div class="team-creds">IT-специалист</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">АБ</div>
+                    <div class="team-name">Асия Буркутова</div>
+                    <div class="team-role">Старший менеджер</div>
+                    <div class="team-creds">Специалист по аудиту</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">ЧИ</div>
+                    <div class="team-name">Чингис Икласов</div>
+                    <div class="team-role">Старший менеджер</div>
+                    <div class="team-creds">Налоговый специалист</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">КО</div>
+                    <div class="team-name">Куат Омар</div>
+                    <div class="team-role">Старший менеджер</div>
+                    <div class="team-creds">Консультант</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">ОЛ</div>
+                    <div class="team-name">Оксана Лян</div>
+                    <div class="team-role">Менеджер</div>
+                    <div class="team-creds">Специалист по бухгалтерскому учёту</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">ГК</div>
+                    <div class="team-name">Гаухар Кабыл</div>
+                    <div class="team-role">Старший менеджер</div>
+                    <div class="team-creds">Сертифицированный аудитор</div>
+                </div>
+                <div class="team-member">
+                    <div class="team-photo">КУ</div>
+                    <div class="team-name">Кайрат Уажанов</div>
+                    <div class="team-role">Менеджер</div>
+                    <div class="team-creds">Налоговый консультант</div>
                 </div>
             </div>
         </div>
@@ -220,7 +303,7 @@
                 </div>
                 <div class="credential-item">
                     <div class="credential-icon">📜</div>
-                    <div class="credential-title">CA (RK)</div>
+                    <div class="credential-title">CA (РК)</div>
                     <div class="credential-desc">Сертифицированный аудитор Республики Казахстан</div>
                 </div>
                 <div class="credential-item">
@@ -237,7 +320,7 @@
         <div class="container">
             <h2>Присоединитесь к нашей команде</h2>
             <p>Мы всегда ищем талантливых профессионалов. Посмотрите наши текущие вакансии.</p>
-            <a href="../careers/" class="btn btn-white">Посмотреть карьеру</a>
+            <a href="../careers/" class="btn btn-white">Карьера в MinTax</a>
         </div>
     </section>
 
@@ -269,7 +352,8 @@
                     <ul>
                         <li><a href="../about/">О компании</a></li>
                         <li><a href="../team/">Команда</a></li>
-                        
+                        <li><a href="../clients/">Клиенты</a></li>
+                        <li><a href="../en/insights/">Аналитика</a></li>
                         <li><a href="../careers/">Карьера</a></li>
                     </ul>
                 </div>
