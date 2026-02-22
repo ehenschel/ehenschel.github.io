@@ -44,7 +44,7 @@
         camLookAt: { x: 6, y: 4.0, z: -10 },
 
         // Animation — visible breathing on peaks, calm elsewhere
-        animSpeed: 0.35,
+        animSpeed: 0.28,
         animAmp: 1.2
     };
 
@@ -233,6 +233,21 @@
             diagFactors[i] = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * peakInf;
         }
 
+        // Per-vertex breathing: spatially coherent phase offsets + speed variation
+        // Low-freq noise ensures nearby vertices breathe in sync — organic, not random chaos
+        var phaseOffsets = new Float32Array(pos.count);
+        var speedScales  = new Float32Array(pos.count);
+        for (var i = 0; i < pos.count; i++) {
+            var bx = basePos[i * 3];
+            var bz = basePos[i * 3 + 2];
+            var nx = (bx + halfW) / CONFIG.planeWidth;
+            var nz = (-bz + halfD) / CONFIG.planeDepth;
+            // Phase: full 0–2π range so no two zones are in sync
+            phaseOffsets[i] = smoothNoise(nx * 3.0 + 5.0, nz * 3.0 + 9.0) * Math.PI * 2.0;
+            // Speed: 0.6–1.0 — some areas breathe slower, none faster than base
+            speedScales[i]  = 0.6 + smoothNoise(nx * 2.0 + 11.0, nz * 2.0 + 13.0) * 0.4;
+        }
+
         // Override bounding sphere computation to prevent NaN warning from animated geometry
         var safeSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 150);
         geo.boundingSphere = safeSphere;
@@ -271,11 +286,11 @@
             var t = clock.getElapsedTime();
 
             for (var i = 0; i < pos.count; i++) {
-                var bx = basePos[i * 3];
                 var by = basePos[i * 3 + 1];
-                var bz = basePos[i * 3 + 2];
-                var wave = Math.sin(t * CONFIG.animSpeed + bx * 0.3)
-                         * Math.cos(t * CONFIG.animSpeed * 0.7 + bz * 0.25)
+                var sp = CONFIG.animSpeed * speedScales[i];
+                var ph = phaseOffsets[i];
+                var wave = Math.sin(t * sp + ph)
+                         * Math.cos(t * sp * 0.7 + ph * 0.7)
                          * CONFIG.animAmp * diagFactors[i];
                 var newY = by + wave;
                 pos.setY(i, newY === newY ? newY : by);
