@@ -12,7 +12,7 @@
 
     var CONFIG = {
         // Opacity — subdued, fill reduced 20% more per Edward
-        fillOpacity: 0.055,
+        fillOpacity: 0.03,
         wireColor: 0xC9A962,
         wireOpacity: 0.16,
 
@@ -31,7 +31,7 @@
         peakHeight: 20.0,
         peakCenter: { x: 0.72, z: 0.62 },  // Where peaks concentrate (normalized 0-1)
         peakRadius: 0.25,                    // Gaussian spread (sigma)
-        gentleFloor: 0.02,                   // 2% height in calm areas — nearly flat
+        gentleFloor: 0.08,                   // 8% height in calm areas — slight movement visible
 
         // Ridge definition — creates distinct peaks without violent spikes
         ridgeFreq: 0.09,                     // Frequency for ridge detail
@@ -44,8 +44,8 @@
         camLookAt: { x: 6, y: 4.0, z: -10 },
 
         // Animation — visible breathing on peaks, calm elsewhere
-        animSpeed: 0.15,
-        animAmp: 0.4
+        animSpeed: 0.35,
+        animAmp: 1.2
     };
 
     /* ---------- Noise ---------- */

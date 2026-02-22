@@ -63,16 +63,16 @@
     position: relative;
 }
 
-/* Liquid glass backdrop — very thin frosted panel for text readability */
+/* Liquid glass backdrop — subtle frosted panel for text readability */
 .hero-identity::before {
     content: '';
     position: absolute;
     inset: -1rem -1.5rem;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.35);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 1px 8px rgba(44, 74, 110, 0.04);
     z-index: -1;
     pointer-events: none;
@@ -286,7 +286,8 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.45) saturate(0.8);
+    filter: brightness(0.55) saturate(0.85);
+    transition: filter 0.5s ease;
 }
 
 /* Gradient overlay for text readability */
@@ -296,10 +297,21 @@
     inset: 0;
     background: linear-gradient(
         135deg,
-        rgba(26, 51, 80, 0.85) 0%,
-        rgba(26, 51, 80, 0.6) 40%,
-        rgba(26, 51, 80, 0.3) 100%
+        rgba(26, 51, 80, 0.7) 0%,
+        rgba(26, 51, 80, 0.4) 40%,
+        rgba(26, 51, 80, 0.15) 100%
     );
+    transition: opacity 0.5s ease;
+}
+
+/* Hover: reveal true image colors */
+@media (hover: hover) {
+    .hero-panel:hover .hero-slide-bg img {
+        filter: brightness(0.85) saturate(1);
+    }
+    .hero-panel:hover .hero-slide-bg::after {
+        opacity: 0.5;
+    }
 }
 
 /* ── Slide content (inside panel, no .container) ── */
