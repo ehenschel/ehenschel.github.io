@@ -30,8 +30,8 @@
         noiseFreq: 0.07,
         peakHeight: 20.0,
         peakCenter: { x: 0.72, z: 0.62 },  // Where peaks concentrate (normalized 0-1)
-        peakRadius: 0.25,                    // Gaussian spread (sigma)
-        gentleFloor: 0.12,                   // 12% height in calm areas — visible contour everywhere
+        peakRadius: 0.35,                    // Gaussian spread (sigma) — wider for more coverage
+        gentleFloor: 0.18,                   // 18% height in calm areas — wireframe visible everywhere
 
         // Ridge definition — creates distinct peaks without violent spikes
         ridgeFreq: 0.09,                     // Frequency for ridge detail
@@ -39,9 +39,9 @@
         ridgeSharpness: 1.2,                 // Exponent: closer to 1 = natural peaks, >1.5 = spiky
 
         // Camera
-        camFOV: 50,
-        camPos: { x: -5, y: 0.8, z: 16 },
-        camLookAt: { x: 6, y: 4.0, z: -10 },
+        camFOV: 60,
+        camPos: { x: -5, y: 8, z: 16 },
+        camLookAt: { x: 6, y: 1.5, z: -8 },
 
         // Animation — visible breathing on peaks, calm elsewhere
         animSpeed: 0.28,
@@ -130,8 +130,8 @@
         canvas.setAttribute('aria-hidden', 'true');
         // CSS mask: only fade the very top edge — bottom stays fully visible
         canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;'
-            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 78%, rgba(0,0,0,0.3) 92%, transparent 100%);'
-            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 78%, rgba(0,0,0,0.3) 92%, transparent 100%);';
+            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);'
+            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);';
         document.body.insertBefore(canvas, document.body.firstChild);
 
         // ---------- Build indexed geometry, displace, color ----------
