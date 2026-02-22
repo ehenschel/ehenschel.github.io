@@ -2,7 +2,7 @@
    MINTAX — GEOMETRIC MOUNTAIN TERRAIN
    Three.js perspective ground-plane terrain
    Flat-shaded low-poly with gold wireframe + blue facets
-   Sharp peaks upper-right, gentle terrain elsewhere
+   Five peaks diagonal: tallest top-right, smallest bottom-left
    ============================================ */
 
 (function () {
@@ -11,10 +11,10 @@
     /* ---------- Configuration ---------- */
 
     var CONFIG = {
-        // Opacity — subdued, fill reduced 20% more per Edward
+        // Opacity
         fillOpacity: 0.015,
         wireColor: 0xC9A962,
-        wireOpacity: 0.16,
+        wireOpacity: 0.10,
 
         // Vertex colors
         colorLow:  { r: 26 / 255, g: 51 / 255, b: 80 / 255 },   // Navy #1A3350
@@ -22,31 +22,33 @@
 
         // Geometry
         segX: 80,
-        segZ: 50,
+        segZ: 65,
         planeWidth: 70,
-        planeDepth: 55,
+        planeDepth: 75,
 
-        // Terrain shape — sharp peaks zone with gentle terrain elsewhere
+        // Terrain — noise for surface texture on peaks
         noiseFreq: 0.07,
-        peakHeight: 20.0,
-        peakCenter: { x: 0.72, z: 0.62 },  // Where peaks concentrate (normalized 0-1)
-        peakRadius: 0.35,                    // Gaussian spread (sigma) — wider for more coverage
-        gentleFloor: 0.18,                   // 18% height in calm areas — wireframe visible everywhere
-
-        // Ridge definition — creates distinct peaks without violent spikes
-        ridgeFreq: 0.09,                     // Frequency for ridge detail
-        ridgeMix: 0.50,                      // How much ridge vs smooth (0=all smooth, 1=all ridge)
-        ridgeSharpness: 1.2,                 // Exponent: closer to 1 = natural peaks, >1.5 = spiky
+        noiseAmp: 0.3,
+        baseFloor: 0.3,                     // Minimum height — wireframe visible everywhere
 
         // Camera
         camFOV: 60,
         camPos: { x: -5, y: 8, z: 16 },
         camLookAt: { x: 6, y: 1.5, z: -8 },
 
-        // Animation — visible breathing on peaks, calm elsewhere
-        animSpeed: 0.28,
-        animAmp: 1.2
+        // Animation — slow, water-like breathing
+        animSpeed: 0.08,
+        animAmp: 0.20
     };
+
+    // Five mountain peaks: tallest top-right, smallest bottom-left
+    var PEAKS = [
+        { x: 22, z: -28, h: 8.0, r: 14 },
+        { x: 12, z: -15, h: 6.0, r: 12 },
+        { x: 0,  z: -2,  h: 4.5, r: 11 },
+        { x: -12, z: 8,  h: 3.0, r: 10 },
+        { x: -20, z: 18, h: 2.0, r: 9 }
+    ];
 
     /* ---------- Noise ---------- */
 
@@ -72,26 +74,6 @@
              + smoothNoise(x * 8, y * 8) * 0.0625;
     }
 
-    // Ridge noise — creates sharp V-shaped ridgelines instead of smooth hills
-    // Uses abs(noise) inverted: valleys become peaks, creating mountain ridges
-    function ridgeNoise(x, y) {
-        var n = smoothNoise(x, y);
-        n = 1.0 - Math.abs(2.0 * n - 1.0);  // Fold to create ridge
-        return n * n;                          // Square for sharper peaks
-    }
-
-    function ridgeFBM(x, y) {
-        var val = 0, amp = 0.5, freq = 1.0;
-        for (var o = 0; o < 4; o++) {
-            var r = ridgeNoise(x * freq, y * freq);
-            val += r * amp;
-            // Each octave gets weighted by previous for cascading ridges
-            amp *= 0.45;
-            freq *= 2.2;
-        }
-        return val;
-    }
-
     /* ---------- Load Three.js ---------- */
 
     function loadThreeJS(cb) {
@@ -114,12 +96,10 @@
 
         var scene = new THREE.Scene();
 
-        // Perspective camera — creates depth
         var camera = new THREE.PerspectiveCamera(CONFIG.camFOV, W / H, 0.1, 200);
         camera.position.set(CONFIG.camPos.x, CONFIG.camPos.y, CONFIG.camPos.z);
         camera.lookAt(CONFIG.camLookAt.x, CONFIG.camLookAt.y, CONFIG.camLookAt.z);
 
-        // Renderer
         var renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(W, H);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -128,65 +108,48 @@
         var canvas = renderer.domElement;
         canvas.id = 'mountain-bg';
         canvas.setAttribute('aria-hidden', 'true');
-        // CSS mask: only fade the very top edge — bottom stays fully visible
         canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;'
             + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);'
             + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);';
         document.body.insertBefore(canvas, document.body.firstChild);
 
-        // ---------- Build indexed geometry, displace, color ----------
+        // ---------- Build indexed geometry ----------
 
         var indexedGeo = new THREE.PlaneGeometry(
             CONFIG.planeWidth, CONFIG.planeDepth, CONFIG.segX, CONFIG.segZ
         );
-        indexedGeo.rotateX(-Math.PI / 2);  // Lay flat as ground
+        indexedGeo.rotateX(-Math.PI / 2);
 
         var iPos = indexedGeo.attributes.position;
         var halfW = CONFIG.planeWidth / 2;
         var halfD = CONFIG.planeDepth / 2;
 
-        // Displace vertices upward (Y)
+        // Displace vertices — five explicit peaks + noise texture
         for (var i = 0; i < iPos.count; i++) {
             var x = iPos.getX(i);
             var z = iPos.getZ(i);
 
-            var nx = (x + halfW) / CONFIG.planeWidth;
-            var nz = (-z + halfD) / CONFIG.planeDepth;
+            // Sum Gaussian contributions from all five peaks
+            var height = 0;
+            for (var p = 0; p < PEAKS.length; p++) {
+                var pk = PEAKS[p];
+                var dx = x - pk.x;
+                var dz = z - pk.z;
+                var dist2 = dx * dx + dz * dz;
+                height += pk.h * Math.exp(-dist2 / (2 * pk.r * pk.r));
+            }
 
-            // Smooth terrain: rolling hills base (0-1 range)
-            var smooth = fbm(x * CONFIG.noiseFreq + 3, z * CONFIG.noiseFreq + 1);
+            // Add FBM noise for surface texture (scales with height)
+            var noise = fbm(x * CONFIG.noiseFreq + 3, z * CONFIG.noiseFreq + 1);
+            height += noise * CONFIG.noiseAmp * (0.5 + height * 0.15);
 
-            // Ridge terrain: sharp V-shaped ridgelines (0-0.85 range)
-            var ridge = ridgeFBM(x * CONFIG.ridgeFreq + 5, z * CONFIG.ridgeFreq + 2);
-            ridge = Math.pow(ridge, CONFIG.ridgeSharpness);  // Sharpen the peaks
-
-            // Blend smooth + ridge, then scale to peak height
-            var terrain = smooth * (1.0 - CONFIG.ridgeMix) + ridge * CONFIG.ridgeMix;
-            var mountain = terrain * CONFIG.peakHeight;
-
-            // Distinct peak anchors for Tian Shan mountain character
-            mountain += Math.max(0, Math.sin(x * 0.15 + 2.0) * Math.sin(z * 0.18 - 1.0)) * 4.0;
-            mountain += Math.max(0, Math.cos(x * 0.09 - 0.5) * Math.sin(z * 0.13 + 0.8)) * 3.0;
-            // Secondary ridgelines — multi-peaked summits
-            mountain += Math.max(0, Math.sin(x * 0.22 - 1.5) * Math.cos(z * 0.16 + 0.4)) * 2.5;
-            mountain += Math.max(0, Math.cos(x * 0.18 + 1.0) * Math.cos(z * 0.22 - 0.6)) * 2.0;
-            // Lower-mid contour: gentle features across the calm zone
-            mountain += Math.max(0, Math.sin(x * 0.11 + 3.0) * Math.sin(z * 0.09 + 2.0)) * 1.5;
-
-            // Gaussian peak zone: concentrated peaks behind carousel, gentle elsewhere
-            var dx = nx - CONFIG.peakCenter.x;
-            var dz = nz - CONFIG.peakCenter.z;
-            var dist2 = dx * dx + dz * dz;
-            var peakInfluence = Math.exp(-dist2 / (2 * CONFIG.peakRadius * CONFIG.peakRadius));
-            var factor = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * peakInfluence;
-
-            var height = mountain * factor;
-            if (!(height > 0)) height = 0;
+            // Base floor so wireframe is visible everywhere
+            height = Math.max(height, CONFIG.baseFloor + noise * 0.2);
 
             iPos.setY(i, height);
         }
 
-        // Vertex colors on indexed geometry (will be flattened per-face below)
+        // Vertex colors
         var iColors = new Float32Array(iPos.count * 3);
         var maxH = 0;
         for (var i = 0; i < iPos.count; i++) {
@@ -208,7 +171,6 @@
         var pos = geo.attributes.position;
         var colors = geo.attributes.color;
 
-        // Flatten colors: each triangle face gets one uniform color (average of 3 vertices)
         for (var f = 0; f < pos.count; f += 3) {
             var r = (colors.getX(f) + colors.getX(f + 1) + colors.getX(f + 2)) / 3;
             var g = (colors.getY(f) + colors.getY(f + 1) + colors.getY(f + 2)) / 3;
@@ -218,24 +180,21 @@
             colors.setXYZ(f + 2, r, g, b);
         }
 
-        // Build base positions and diagonal factors for animation
+        // Build base positions and height-based animation factors
         var basePos = new Float32Array(pos.count * 3);
         var diagFactors = new Float32Array(pos.count);
+        var localMaxH = 0;
         for (var i = 0; i < pos.count; i++) {
-            var x = pos.getX(i);
-            var y = pos.getY(i);
-            var z = pos.getZ(i);
-            basePos[i * 3]     = x;
-            basePos[i * 3 + 1] = y;
-            basePos[i * 3 + 2] = z;
-
-            var nx = (x + halfW) / CONFIG.planeWidth;
-            var nz = (-z + halfD) / CONFIG.planeDepth;
-            var dx = nx - CONFIG.peakCenter.x;
-            var dz = nz - CONFIG.peakCenter.z;
-            var dist2 = dx * dx + dz * dz;
-            var peakInf = Math.exp(-dist2 / (2 * CONFIG.peakRadius * CONFIG.peakRadius));
-            diagFactors[i] = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * peakInf;
+            var h = pos.getY(i);
+            if (h > localMaxH) localMaxH = h;
+        }
+        localMaxH = localMaxH || 1;
+        for (var i = 0; i < pos.count; i++) {
+            basePos[i * 3]     = pos.getX(i);
+            basePos[i * 3 + 1] = pos.getY(i);
+            basePos[i * 3 + 2] = pos.getZ(i);
+            // Taller areas breathe more, flat areas barely move
+            diagFactors[i] = 0.3 + 0.7 * (pos.getY(i) / localMaxH);
         }
 
         // Per-vertex animation parameters for organic breathing
@@ -247,7 +206,7 @@
             animLocalSpeed[i] = 0.55 + smoothNoise(ax * 0.03 + 20, az * 0.03 + 20) * 0.45;
         }
 
-        // Override bounding sphere computation to prevent NaN warning from animated geometry
+        // Override bounding sphere
         var safeSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 150);
         geo.boundingSphere = safeSphere;
         geo.computeBoundingSphere = function () { this.boundingSphere = safeSphere; };
@@ -262,7 +221,7 @@
             depthWrite: false
         });
 
-        // Wireframe with blue veins — shares position buffer, own vertex colors
+        // Wireframe with blue veins
         var wireGeo = new THREE.BufferGeometry();
         wireGeo.setAttribute('position', geo.attributes.position);
         wireGeo.boundingSphere = safeSphere;
@@ -293,7 +252,7 @@
         scene.add(new THREE.Mesh(geo, fillMat));
         scene.add(new THREE.Mesh(wireGeo, wireMat));
 
-        // ---------- Animation — visible breathing ----------
+        // ---------- Animation — water-like breathing ----------
 
         var clock = new THREE.Clock();
         var running = true;
@@ -310,16 +269,16 @@
                 var bz = basePos[i * 3 + 2];
                 var lt = t * CONFIG.animSpeed * animLocalSpeed[i];
                 var ph = animPhase[i];
-                var wave = Math.sin(lt + bx * 0.15 + ph)
-                         * Math.cos(lt * 0.6 + bz * 0.12 + ph * 0.7)
-                         * CONFIG.animAmp * diagFactors[i];
-                wave += Math.sin(lt * 0.35 + bz * 0.08 + ph * 1.3)
-                      * 0.25 * CONFIG.animAmp * diagFactors[i];
+                // Water-like: smooth overlapping sine waves
+                var w1 = Math.sin(lt + bx * 0.08 + ph);
+                var w2 = Math.sin(lt * 0.7 + bz * 0.06 + ph * 0.5);
+                var w3 = Math.sin(lt * 0.4 + bx * 0.04 + bz * 0.05 + ph * 1.2);
+                var wave = (w1 * 0.6 + w2 * 0.3 + w3 * 0.1) * CONFIG.animAmp * diagFactors[i];
                 var newY = by + wave;
                 pos.setY(i, newY === newY ? newY : by);
             }
             pos.needsUpdate = true;
-            geo.boundingSphere = safeSphere;  // Re-assign to prevent NaN recomputation
+            geo.boundingSphere = safeSphere;
 
             renderer.render(scene, camera);
         }
