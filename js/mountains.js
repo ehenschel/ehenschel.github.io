@@ -128,10 +128,10 @@
         var canvas = renderer.domElement;
         canvas.id = 'mountain-bg';
         canvas.setAttribute('aria-hidden', 'true');
-        // CSS mask: only fade the very top edge — bottom stays fully visible
+        // CSS mask: fade in from top, dissolve gently at bottom — no hard geometric edge
         canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;'
-            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);'
-            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);';
+            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 62%, rgba(0,0,0,0.5) 80%, transparent 95%);'
+            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 62%, rgba(0,0,0,0.5) 80%, transparent 95%);';
         document.body.insertBefore(canvas, document.body.firstChild);
 
         // ---------- Build indexed geometry, displace, color ----------
