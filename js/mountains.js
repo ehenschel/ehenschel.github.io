@@ -31,7 +31,7 @@
         peakHeight: 20.0,
         peakCenter: { x: 0.72, z: 0.62 },  // Where peaks concentrate (normalized 0-1)
         peakRadius: 0.25,                    // Gaussian spread (sigma)
-        gentleFloor: 0.08,                   // 8% height in calm areas — slight movement visible
+        gentleFloor: 0.22,                   // 22% height in calm areas — rolling terrain across full viewport
 
         // Ridge definition — creates distinct peaks without violent spikes
         ridgeFreq: 0.09,                     // Frequency for ridge detail
