@@ -841,17 +841,39 @@
     border-color: rgba(44, 74, 110, 0.18);
 }
 
-/* Facet visual panel — top of card */
+/* Photo visual panel — top of card */
 .industry-card-visual {
     position: relative;
     width: 100%;
     aspect-ratio: 5 / 2;
+    overflow: hidden;
+    background: var(--blue-deep);
 }
 
-.industry-facets {
+.industry-card-visual img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.industry-card:hover .industry-card-visual img {
+    transform: scale(1.05);
+}
+
+.industry-card-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 51, 80, 0.90) 0%, rgba(44, 74, 110, 0.80) 100%);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.industry-card:hover .industry-card-visual::after {
+    background: linear-gradient(135deg, rgba(26, 51, 80, 0.10) 0%, rgba(44, 74, 110, 0.08) 100%);
 }
 
 /* Icon floats centered over the facets */
@@ -870,7 +892,7 @@
 }
 
 .industry-card:hover .industry-card-icon {
-    transform: translate(-50%, -52%);
+    transform: translate(-50%, -50%) scale(2);
 }
 
 .industry-card-icon svg {
@@ -889,6 +911,7 @@
 /* Card body — below the visual */
 .industry-card-body {
     padding: var(--space-lg) var(--space-xl) var(--space-xl);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .industry-card h3 {

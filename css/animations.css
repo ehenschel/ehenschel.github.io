@@ -506,8 +506,7 @@ body {
 }
 
 .industry-card:hover .industry-card-icon svg {
-    stroke: var(--blue-primary);
-    transform: scale(1.08);
+    stroke: var(--gold);
 }
 
 .service-card-icon,
@@ -521,8 +520,7 @@ body {
 }
 
 .industry-card:hover .industry-card-icon {
-    background: var(--blue-pale);
-    transform: translateY(-2px);
+    background: transparent;
 }
 
 
