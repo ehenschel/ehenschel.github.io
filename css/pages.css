@@ -618,6 +618,8 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: var(--space-3xl);
+    position: relative;
+    z-index: 2;
 }
 
 .section-header-left .overline {
@@ -671,7 +673,7 @@
 }
 
 .service-card {
-    background: var(--white);
+    background: transparent;
     border: 1px solid rgba(44, 74, 110, 0.08);
     border-radius: 14px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -679,6 +681,7 @@
     text-decoration: none;
     display: block;
     position: relative;
+    z-index: 2;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(44, 74, 110, 0.04);
 }
@@ -715,6 +718,9 @@
 
 .svc-body {
     padding: 1.5rem 1.75rem 1.75rem;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .svc-body h3 {
@@ -775,12 +781,16 @@
 }
 
 .industry-card {
-    background: var(--white);
-    border: 1px solid rgba(44, 74, 110, 0.05);
+    background: rgba(255, 255, 255, 0.80);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     border-radius: var(--radius-lg);
     padding: var(--space-2xl);
     text-decoration: none;
     display: block;
+    position: relative;
+    z-index: 2;
     transition: all var(--transition-slow);
 }
 
@@ -862,6 +872,8 @@
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
     box-shadow: 0 2px 8px rgba(44, 74, 110, 0.04);
 }
 
@@ -910,6 +922,9 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 .insight-meta {
