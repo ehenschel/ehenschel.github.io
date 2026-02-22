@@ -520,7 +520,7 @@ body {
 }
 
 .industry-card:hover .industry-card-icon {
-    background: transparent;
+    /* background handled in pages.css — navy disc for hover contrast */
 }
 
 
