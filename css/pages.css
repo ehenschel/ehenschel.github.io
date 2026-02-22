@@ -63,17 +63,28 @@
     position: relative;
 }
 
-/* Liquid glass backdrop — subtle frosted panel for text readability */
+/* Liquid glass disc — Apple-style physical glass panel */
 .hero-identity::before {
     content: '';
     position: absolute;
     inset: -1rem -1.5rem;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 1px 8px rgba(44, 74, 110, 0.04);
+    border-radius: 18px;
+    /* High opacity: reads as a solid glass disc, not a blurry haze */
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    /* Strong bright border = glass edge catching light */
+    border: 1px solid rgba(255, 255, 255, 0.92);
+    box-shadow:
+        /* Specular top edge — the 1mm glass thickness illusion */
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        /* Faint bottom inner shadow — base of glass disc */
+        inset 0 -1px 0 rgba(44, 74, 110, 0.06),
+        /* Close contact shadow — disc sits slightly above surface */
+        0 2px 4px rgba(44, 74, 110, 0.05),
+        /* Elevation shadow — the disc floating above the background */
+        0 8px 32px rgba(44, 74, 110, 0.10),
+        0 24px 64px rgba(44, 74, 110, 0.07);
     z-index: -1;
     pointer-events: none;
 }
@@ -174,7 +185,9 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
     transform: rotateX(1.5deg) translateZ(0);
-    transform-style: preserve-3d;
+    /* preserve-3d disabled: WebKit bug causes overflow:hidden to stop clipping,
+       making border-radius disappear between carousel slides */
+    transform-style: flat;
     box-shadow:
         0 4px 12px rgba(44, 74, 110, 0.08),
         0 16px 40px rgba(44, 74, 110, 0.12),
@@ -217,6 +230,9 @@
     min-height: 340px;
     max-height: 440px;
     overflow: hidden;
+    /* Explicit radius ensures clipping during slide transitions */
+    border-radius: inherit;
+    isolation: isolate;
 }
 
 .hero-slide {
@@ -510,6 +526,29 @@
 
 
 /* ═══════════════════════════════════════════════
+   HOMEPAGE — MOUNTAIN CANVAS ISOLATION
+   The mountains.js canvas is position:fixed z-index:1 and covers the
+   entire viewport. All non-hero sections need z-index:2 so their solid
+   backgrounds paint over the canvas. Only .home-hero intentionally shows
+   the mountains (it has no z-index so canvas z-index:1 sits above it,
+   while .hero-stage has z-index:5 to keep text above the canvas).
+   ═══════════════════════════════════════════════ */
+.home-trusted,
+.home-services,
+.home-industries,
+.home-insights,
+.home-casestudy,
+.home-people,
+.home-credentials,
+.home-news,
+.home-cta,
+.footer {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ═══════════════════════════════════════════════
    HOMEPAGE — AUTHORITY STRIP (V8)
    ═══════════════════════════════════════════════ */
 .authority-strip {
@@ -656,6 +695,32 @@
 
 .view-all:hover span {
     transform: translateX(4px);
+}
+
+
+/* ═══════════════════════════════════════════════
+   HOMEPAGE — GLASS SECTION HEADERS
+   Services, Industries, Credentials, Insights —
+   Apple-style glass disc on section header text box
+   ═══════════════════════════════════════════════ */
+.home-services .section-header-left,
+.home-industries .section-header-left,
+.home-insights .section-header-left,
+.home-people .section-header-left,
+.home-news .section-header-left {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1.25rem 1.75rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 rgba(44, 74, 110, 0.05),
+        0 2px 4px rgba(44, 74, 110, 0.04),
+        0 8px 24px rgba(44, 74, 110, 0.08);
 }
 
 
@@ -953,10 +1018,17 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--terracotta);
-    background: rgba(199, 93, 72, 0.08);
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding: 0.25rem 0.6rem;
     border-radius: 4px;
     margin-bottom: 0.75rem;
+    /* Float over image when inside .insight-image */
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 2;
 }
 
 .insight-body {
@@ -1027,21 +1099,24 @@
 }
 
 .casestudy-visual {
-    background: linear-gradient(135deg, #E8E8E6, #E0E2E4);
     border-radius: 18px;
     height: 380px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border: 1px solid rgba(44, 74, 110, 0.06);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 32px rgba(44, 74, 110, 0.10);
 }
 
-.casestudy-visual svg {
-    width: 80%;
-    height: 80%;
-    opacity: 0.25;
+.casestudy-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.82) saturate(0.9);
+    transition: filter 0.4s ease;
+}
+
+.casestudy-visual:hover img {
+    filter: brightness(0.88) saturate(1);
 }
 
 .casestudy-content .overline {
@@ -1224,15 +1299,25 @@
 .credential-item {
     text-align: center;
     padding: var(--space-2xl) var(--space-lg);
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.78);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
     border-radius: var(--radius-lg);
-    border: 1px solid rgba(44, 74, 110, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 rgba(44, 74, 110, 0.04),
+        0 2px 4px rgba(44, 74, 110, 0.04),
+        0 6px 20px rgba(44, 74, 110, 0.06);
     transition: all var(--transition-slow);
 }
 
 .credential-item:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 1),
+        0 4px 8px rgba(44, 74, 110, 0.06),
+        0 12px 32px rgba(44, 74, 110, 0.12);
 }
 
 .credential-icon {
@@ -1550,7 +1635,7 @@
 }
 
 @media (max-width: 600px) {
-    .home-hero { height: auto; min-height: auto; padding: var(--space-xl) var(--space-md); }
+    .home-hero { height: auto; min-height: auto; padding: calc(var(--header-height) + var(--space-lg)) var(--space-md) var(--space-xl); }
     .hero-stage { flex-direction: column; perspective: none; gap: var(--space-xl); align-items: stretch; }
     .hero-identity {
         flex: none;
@@ -1613,7 +1698,17 @@
     }
 
     .header { padding: 0.5rem 0.75rem 0; }
-    .header-inner { border-radius: 10px; }
+    .header-inner {
+        border-radius: 10px;
+        background: rgba(20, 40, 66, 0.55);
+        backdrop-filter: blur(24px) saturate(150%);
+        -webkit-backdrop-filter: blur(24px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        box-shadow: 0 2px 16px rgba(20, 40, 66, 0.12);
+    }
+    .header.scrolled .header-inner {
+        background: rgba(20, 40, 66, 0.88);
+    }
 }
 
 
