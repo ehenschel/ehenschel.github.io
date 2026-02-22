@@ -526,29 +526,6 @@
 
 
 /* ═══════════════════════════════════════════════
-   HOMEPAGE — MOUNTAIN CANVAS ISOLATION
-   The mountains.js canvas is position:fixed z-index:1 and covers the
-   entire viewport. All non-hero sections need z-index:2 so their solid
-   backgrounds paint over the canvas. Only .home-hero intentionally shows
-   the mountains (it has no z-index so canvas z-index:1 sits above it,
-   while .hero-stage has z-index:5 to keep text above the canvas).
-   ═══════════════════════════════════════════════ */
-.home-trusted,
-.home-services,
-.home-industries,
-.home-insights,
-.home-casestudy,
-.home-people,
-.home-credentials,
-.home-news,
-.home-cta,
-.footer {
-    position: relative;
-    z-index: 2;
-}
-
-
-/* ═══════════════════════════════════════════════
    HOMEPAGE — AUTHORITY STRIP (V8)
    ═══════════════════════════════════════════════ */
 .authority-strip {
