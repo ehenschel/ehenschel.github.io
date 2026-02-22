@@ -12,7 +12,7 @@
 
     var CONFIG = {
         // Opacity — subdued, fill reduced 20% more per Edward
-        fillOpacity: 0.03,
+        fillOpacity: 0.015,
         wireColor: 0xC9A962,
         wireOpacity: 0.16,
 
@@ -31,12 +31,12 @@
         peakHeight: 20.0,
         peakCenter: { x: 0.72, z: 0.62 },  // Where peaks concentrate (normalized 0-1)
         peakRadius: 0.25,                    // Gaussian spread (sigma)
-        gentleFloor: 0.08,                   // 8% height in calm areas — slight movement visible
+        gentleFloor: 0.12,                   // 12% height in calm areas — visible contour everywhere
 
         // Ridge definition — creates distinct peaks without violent spikes
         ridgeFreq: 0.09,                     // Frequency for ridge detail
-        ridgeMix: 0.40,                      // How much ridge vs smooth (0=all smooth, 1=all ridge)
-        ridgeSharpness: 1.1,                 // Exponent: closer to 1 = natural peaks, >1.5 = spiky
+        ridgeMix: 0.50,                      // How much ridge vs smooth (0=all smooth, 1=all ridge)
+        ridgeSharpness: 1.2,                 // Exponent: closer to 1 = natural peaks, >1.5 = spiky
 
         // Camera
         camFOV: 50,
@@ -44,7 +44,7 @@
         camLookAt: { x: 6, y: 4.0, z: -10 },
 
         // Animation — visible breathing on peaks, calm elsewhere
-        animSpeed: 0.35,
+        animSpeed: 0.28,
         animAmp: 1.2
     };
 
@@ -130,8 +130,8 @@
         canvas.setAttribute('aria-hidden', 'true');
         // CSS mask: only fade the very top edge — bottom stays fully visible
         canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;'
-            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);'
-            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 100%);';
+            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 78%, rgba(0,0,0,0.3) 92%, transparent 100%);'
+            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 78%, rgba(0,0,0,0.3) 92%, transparent 100%);';
         document.body.insertBefore(canvas, document.body.firstChild);
 
         // ---------- Build indexed geometry, displace, color ----------
@@ -164,9 +164,14 @@
             var terrain = smooth * (1.0 - CONFIG.ridgeMix) + ridge * CONFIG.ridgeMix;
             var mountain = terrain * CONFIG.peakHeight;
 
-            // Add a few distinct peak anchors for mountain character
+            // Distinct peak anchors for Tian Shan mountain character
             mountain += Math.max(0, Math.sin(x * 0.15 + 2.0) * Math.sin(z * 0.18 - 1.0)) * 4.0;
             mountain += Math.max(0, Math.cos(x * 0.09 - 0.5) * Math.sin(z * 0.13 + 0.8)) * 3.0;
+            // Secondary ridgelines — multi-peaked summits
+            mountain += Math.max(0, Math.sin(x * 0.22 - 1.5) * Math.cos(z * 0.16 + 0.4)) * 2.5;
+            mountain += Math.max(0, Math.cos(x * 0.18 + 1.0) * Math.cos(z * 0.22 - 0.6)) * 2.0;
+            // Lower-mid contour: gentle features across the calm zone
+            mountain += Math.max(0, Math.sin(x * 0.11 + 3.0) * Math.sin(z * 0.09 + 2.0)) * 1.5;
 
             // Gaussian peak zone: concentrated peaks behind carousel, gentle elsewhere
             var dx = nx - CONFIG.peakCenter.x;
@@ -233,6 +238,15 @@
             diagFactors[i] = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * peakInf;
         }
 
+        // Per-vertex animation parameters for organic breathing
+        var animPhase = new Float32Array(pos.count);
+        var animLocalSpeed = new Float32Array(pos.count);
+        for (var i = 0; i < pos.count; i++) {
+            var ax = basePos[i * 3], az = basePos[i * 3 + 2];
+            animPhase[i] = smoothNoise(ax * 0.05 + 10, az * 0.05 + 10) * Math.PI * 4;
+            animLocalSpeed[i] = 0.55 + smoothNoise(ax * 0.03 + 20, az * 0.03 + 20) * 0.45;
+        }
+
         // Override bounding sphere computation to prevent NaN warning from animated geometry
         var safeSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 150);
         geo.boundingSphere = safeSphere;
@@ -248,8 +262,28 @@
             depthWrite: false
         });
 
+        // Wireframe with blue veins — shares position buffer, own vertex colors
+        var wireGeo = new THREE.BufferGeometry();
+        wireGeo.setAttribute('position', geo.attributes.position);
+        wireGeo.boundingSphere = safeSphere;
+        wireGeo.computeBoundingSphere = function () { this.boundingSphere = safeSphere; };
+
+        var wireVertColors = new Float32Array(pos.count * 3);
+        var goldR = 0xC9 / 255, goldG = 0xA9 / 255, goldB = 0x62 / 255;
+        var blueR = 0x5A / 255, blueG = 0x7F / 255, blueB = 0xA3 / 255;
+        for (var vi = 0; vi < pos.count; vi++) {
+            var vx = basePos[vi * 3], vz = basePos[vi * 3 + 2];
+            var vein = smoothNoise(vx * 0.12 + 50, vz * 0.12 + 50);
+            vein = vein * vein * vein;
+            var bMix = vein * 0.45;
+            wireVertColors[vi * 3]     = goldR * (1 - bMix) + blueR * bMix;
+            wireVertColors[vi * 3 + 1] = goldG * (1 - bMix) + blueG * bMix;
+            wireVertColors[vi * 3 + 2] = goldB * (1 - bMix) + blueB * bMix;
+        }
+        wireGeo.setAttribute('color', new THREE.BufferAttribute(wireVertColors, 3));
+
         var wireMat = new THREE.MeshBasicMaterial({
-            color: CONFIG.wireColor,
+            vertexColors: true,
             wireframe: true,
             transparent: true,
             opacity: CONFIG.wireOpacity,
@@ -257,7 +291,7 @@
         });
 
         scene.add(new THREE.Mesh(geo, fillMat));
-        scene.add(new THREE.Mesh(geo, wireMat));
+        scene.add(new THREE.Mesh(wireGeo, wireMat));
 
         // ---------- Animation — visible breathing ----------
 
@@ -274,9 +308,13 @@
                 var bx = basePos[i * 3];
                 var by = basePos[i * 3 + 1];
                 var bz = basePos[i * 3 + 2];
-                var wave = Math.sin(t * CONFIG.animSpeed + bx * 0.3)
-                         * Math.cos(t * CONFIG.animSpeed * 0.7 + bz * 0.25)
+                var lt = t * CONFIG.animSpeed * animLocalSpeed[i];
+                var ph = animPhase[i];
+                var wave = Math.sin(lt + bx * 0.15 + ph)
+                         * Math.cos(lt * 0.6 + bz * 0.12 + ph * 0.7)
                          * CONFIG.animAmp * diagFactors[i];
+                wave += Math.sin(lt * 0.35 + bz * 0.08 + ph * 1.3)
+                      * 0.25 * CONFIG.animAmp * diagFactors[i];
                 var newY = by + wave;
                 pos.setY(i, newY === newY ? newY : by);
             }
