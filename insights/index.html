@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналитика и публикации — MinTax Group</title>
+    <meta name="description" content="Экспертный анализ налогового законодательства, аудита и права от команды MinTax Group. Актуальные материалы по ключевым изменениям для бизнеса в Казахстане.">
+    <meta name="keywords" content="налоговая аналитика Казахстан, аудит публикации, юридические изменения, МСФО рекомендации, бизнес-консалтинг статьи, MinTax Group">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Аналитика и публикации — MinTax Group">
+    <meta property="og:description" content="Экспертный анализ налогового законодательства, аудита и права от команды MinTax Group. Актуальные материалы для бизнеса в Казахстане.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ehenschel.github.io/insights/">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Аналитика и публикации — MinTax Group">
+    <meta name="twitter:description" content="Экспертный анализ налогового законодательства, аудита и права от команды MinTax Group.">
+
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="ru" href="https://ehenschel.github.io/insights/">
+    <link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/insights/">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <!-- Schema: CollectionPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Аналитика и публикации",
+        "description": "Экспертный анализ налогового законодательства, аудита и права от команды MinTax Group",
+        "url": "https://ehenschel.github.io/insights/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "MinTax Group",
+            "url": "https://ehenschel.github.io"
+        },
+        "inLanguage": "ru",
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "Статьи",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Article",
+                        "headline": "Срок 1 марта: выбор налогового режима в соответствии с новым Кодексом",
+                        "datePublished": "2026-02-18",
+                        "author": { "@type": "Organization", "name": "MinTax Group" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "Article",
+                        "headline": "Как повышение НДС до 16% влияет на МСБ",
+                        "datePublished": "2026-02-16",
+                        "author": { "@type": "Organization", "name": "MinTax Group" }
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "Article",
+                        "headline": "Новый Налоговый кодекс Казахстана 2026: полный анализ для бизнеса",
+                        "datePublished": "2026-02-15",
+                        "author": { "@type": "Organization", "name": "MinTax Group" }
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <style>
+        /* ══════════════════════════════════════════════════
+           INSIGHTS HUB PAGE — RU
+           ══════════════════════════════════════════════════ */
+
+        /* ── BREADCRUMB ── */
+        .insights-breadcrumb {
+            padding: var(--space-lg) 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-inner {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-500);
+        }
+
+        .breadcrumb-inner a {
+            color: var(--blue-primary);
+            text-decoration: none;
+            transition: color var(--transition-base);
+        }
+
+        .breadcrumb-inner a:hover { color: var(--terracotta); }
+
+        .breadcrumb-inner .current {
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        /* ── HERO ── */
+        .insights-hero {
+            position: relative;
+            min-height: 48vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--header-height);
+            background: var(--blue-deep);
+            overflow: hidden;
+        }
+
+        .insights-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1554224311-beee415c15cb?w=1600&q=85') center/cover no-repeat;
+            opacity: 0.2;
+        }
+
+        .insights-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(26, 51, 80, 0.8) 0%, rgba(26, 51, 80, 0.7) 100%);
+        }
+
+        .insights-hero .container {
+            position: relative;
+            z-index: 2;
+            padding-top: var(--space-3xl);
+            padding-bottom: var(--space-3xl);
+        }
+
+        .insights-hero-content { max-width: 700px; }
+
+        .insights-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+            letter-spacing: -0.02em;
+        }
+
+        .insights-hero .lead {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.78);
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        /* ── FILTER BAR ── */
+        .insights-filters {
+            padding: var(--space-2xl) 0;
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            position: sticky;
+            top: var(--header-height);
+            z-index: 10;
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+            overflow-x: auto;
+            padding-bottom: var(--space-sm);
+        }
+
+        .filter-pill {
+            padding: 0.5rem 1.2rem;
+            border: 1px solid var(--gray-200);
+            background: var(--white);
+            border-radius: 50px;
+            font-size: 0.87rem;
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .filter-pill:hover {
+            border-color: var(--blue-primary);
+            color: var(--blue-primary);
+        }
+
+        .filter-pill.active {
+            background: var(--blue-primary);
+            color: var(--white);
+            border-color: var(--blue-primary);
+        }
+
+        /* ── ARTICLES SECTION ── */
+        .insights-section {
+            padding: var(--space-5xl) 0;
+            background: var(--white);
+        }
+
+        /* ── INSIGHTS GRID (spec-defined) ── */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-2xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .insight-card {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-slow);
+        }
+
+        .insight-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(44, 74, 110, 0.12);
+        }
+
+        .insight-meta {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .insight-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--terracotta);
+        }
+
+        .insight-date {
+            font-size: 0.82rem;
+            color: var(--gray-400);
+        }
+
+        .insight-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--blue-deep);
+            margin-bottom: var(--space-md);
+            line-height: 1.3;
+        }
+
+        .insight-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .insight-title a:hover { color: var(--terracotta); }
+
+        .insight-excerpt {
+            font-size: 0.92rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: var(--space-lg);
+        }
+
+        .insight-link {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--blue-primary);
+            text-decoration: none;
+        }
+
+        .insight-link:hover { color: var(--terracotta); }
+
+        /* ── NEWSLETTER ── */
+        .insights-newsletter {
+            padding: var(--space-5xl) 0;
+            background: linear-gradient(135deg, var(--blue-primary) 0%, var(--blue-deep) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insights-newsletter::before {
+            content: '';
+            position: absolute;
+            top: -30%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .insights-newsletter h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: var(--space-sm);
+        }
+
+        .insights-newsletter p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.78);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.7;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.85rem 1.2rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+        }
+
+        .newsletter-form input::placeholder { color: var(--gray-400); }
+
+        .newsletter-form input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-form button {
+            padding: 0.85rem 2rem;
+            background: var(--terracotta);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            background: #b84d3a;
+            transform: translateY(-2px);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .insights-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .insights-grid { grid-template-columns: 1fr; }
+            .insights-hero h1 { font-size: 2rem; }
+            .filter-pills { gap: var(--space-sm); }
+            .filter-pill { font-size: 0.8rem; padding: 0.45rem 1rem; }
+            .newsletter-form { flex-direction: column; }
+            .newsletter-form button { width: 100%; }
+            .insights-newsletter h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
+                <div class="logo-mark"></div>
+                <span class="logo-text">MinTax</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="../services/">Услуги</a></li>
+                    <li><a href="../en/industries/">Отрасли</a></li>
+                    <li><a href="./" class="active">Аналитика</a></li>
+                    <li><a href="../about/">О компании</a></li>
+                    <li><a href="../contact/">Контакты</a></li>
+                </ul>
+                <div class="nav-right">
+                    <div class="lang-switch">
+                        <a href="../en/insights/">EN</a>
+                        <span>|</span>
+                        <a href="#" class="active">RU</a>
+                    </div>
+                    <a href="../contact/" class="btn btn-primary">Связаться</a>
+                </div>
+                <button class="mobile-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <section class="insights-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-inner">
+                <a href="../index.html">Главная</a>
+                <span>&gt;</span>
+                <span class="current">Аналитика</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HERO -->
+    <section class="insights-hero">
+        <div class="container">
+            <div class="insights-hero-content">
+                <h1>Аналитика</h1>
+                <p class="lead">Экспертный анализ налогового законодательства, аудита и права от команды MinTax Group. Актуальные материалы по ключевым изменениям для бизнеса в Казахстане.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="insights-filters">
+        <div class="container">
+            <div class="filter-pills">
+                <a href="#" class="filter-pill active" data-category="all">Все</a>
+                <a href="#" class="filter-pill" data-category="tax">Налоги и соответствие</a>
+                <a href="#" class="filter-pill" data-category="audit">Аудит и заверение</a>
+                <a href="#" class="filter-pill" data-category="legal">Право</a>
+                <a href="#" class="filter-pill" data-category="ifrs">МСФО</a>
+                <a href="#" class="filter-pill" data-category="industry">Отраслевой фокус</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLES GRID -->
+    <section class="insights-section">
+        <div class="container">
+            <div class="insights-grid">
+
+                <article class="insight-card" data-category="tax">
+                    <div class="insight-meta">
+                        <span class="insight-tag">Срочное уведомление</span>
+                        <span class="insight-date">18 февраля 2026</span>
+                    </div>
+                    <h3 class="insight-title"><a href="srok-1-marta-nalogovyy-rezhim.html">Срок 1 марта: выбор налогового режима в соответствии с новым Кодексом</a></h3>
+                    <p class="insight-excerpt">Каждый предприниматель, применявший специальный режим в 2025 году, обязан уведомить налоговый орган о выбранном режиме до 1 марта. Пропуск срока влечёт автоматическое прекращение регистрации.</p>
+                    <a href="srok-1-marta-nalogovyy-rezhim.html" class="insight-link">Читать далее &rarr;</a>
+                </article>
+
+                <article class="insight-card" data-category="tax">
+                    <div class="insight-meta">
+                        <span class="insight-tag">Налоги и соответствие требованиям</span>
+                        <span class="insight-date">16 февраля 2026</span>
+                    </div>
+                    <h3 class="insight-title"><a href="nds-16-procentov-vliyanie-na-msp.html">Как повышение НДС до 16% влияет на МСБ</a></h3>
+                    <p class="insight-excerpt">С 1 января 2026 года стандартная ставка НДС выросла с 12% до 16%. Для малого и среднего бизнеса это означает не только изменение строки в счёте-фактуре, но и пересмотр подходов к ценообразованию и управлению оборотным капиталом.</p>
+                    <a href="nds-16-procentov-vliyanie-na-msp.html" class="insight-link">Читать далее &rarr;</a>
+                </article>
+
+                <article class="insight-card" data-category="tax">
+                    <div class="insight-meta">
+                        <span class="insight-tag">Налоги и соответствие требованиям</span>
+                        <span class="insight-date">15 февраля 2026</span>
+                    </div>
+                    <h3 class="insight-title"><a href="novyy-nalogovyy-kodeks-2026.html">Новый Налоговый кодекс Казахстана 2026: полный анализ для бизнеса</a></h3>
+                    <p class="insight-excerpt">18 июля 2025 года Президент Токаев подписал новый Налоговый кодекс, вступивший в силу с 1 января 2026 года. Комплексный разбор ключевых изменений: НДС, КПН, ИПН и специальные режимы.</p>
+                    <a href="novyy-nalogovyy-kodeks-2026.html" class="insight-link">Читать далее &rarr;</a>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="insights-newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Оставайтесь в курсе</h2>
+                <p>Подпишитесь на квартальные публикации MinTax Group. Экспертный анализ изменений налогового законодательства, регуляторные обновления и рекомендации для бизнеса — прямо на вашу почту.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="ваш@email.com" required aria-label="Адрес электронной почты">
+                    <button type="submit">Подписаться</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-mark"></div>
+                        <span class="logo-text">MinTax</span>
+                    </div>
+                    <p>Профессиональные услуги аудита, налогового и юридического консалтинга для бизнеса в Казахстане с 1999 года.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="../services/audit.html">Аудит и заверение</a></li>
+                        <li><a href="../services/tax.html">Налоговый консалтинг</a></li>
+                        <li><a href="../services/legal.html">Юридические услуги</a></li>
+                        <li><a href="../services/ifrs.html">Отчётность по МСФО</a></li>
+                        <li><a href="../services/outsourcing.html">Аутсорсинг</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Компания</h4>
+                    <ul>
+                        <li><a href="../about/">О компании</a></li>
+                        <li><a href="../team/">Команда</a></li>
+                        <li><a href="../clients/">Клиенты</a></li>
+                        <li><a href="./">Аналитика</a></li>
+                        <li><a href="../careers/">Карьера</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>+7 (727) 221-88-88</li>
+                        <li>info@mintax.kz</li>
+                        <li>ул. Кармысова, 62Б, Алматы</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 MinTax Group. Все права защищены.</div>
+                <div class="footer-certs">
+                    <span>ISO 9001:2015</span>
+                    <span>ISO 14001:2015</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-pill').forEach(pill => {
+            pill.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                const category = this.getAttribute('data-category');
+                document.querySelectorAll('.insight-card').forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'flex';
+                    } else {
+                        const cardCategories = card.getAttribute('data-category').split(' ');
+                        card.style.display = cardCategories.includes(category) ? 'flex' : 'none';
+                    }
+                });
+            });
+        });
+
+        // Newsletter form
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert('Спасибо за подписку! Мы будем отправлять вам обновления на адрес ' + email);
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>
