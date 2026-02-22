@@ -781,62 +781,103 @@
     gap: var(--space-lg);
 }
 
+/* ── Industry card — geometric mountain facet design ── */
 .industry-card {
-    background: rgba(255, 255, 255, 0.80);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
     border-radius: var(--radius-lg);
-    padding: var(--space-2xl);
+    overflow: hidden;
+    padding: 0;
     text-decoration: none;
     display: block;
-    position: relative;
-    z-index: 2;
     transition: all var(--transition-slow);
 }
 
 .industry-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(44, 74, 110, 0.1);
+    border-color: rgba(44, 74, 110, 0.18);
 }
 
+/* Facet visual panel — top of card */
+.industry-card-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 5 / 2;
+    overflow: hidden;
+}
+
+.industry-facets {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Icon floats centered over the facets */
 .industry-card-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--gold-pale);
-    border-radius: var(--radius-md);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--space-lg);
+    transition: transform var(--transition-base);
+}
+
+.industry-card:hover .industry-card-icon {
+    transform: translate(-50%, -52%);
 }
 
 .industry-card-icon svg {
-    width: 24px;
-    height: 24px;
-    stroke: var(--gold);
+    width: 28px;
+    height: 28px;
+    stroke: rgba(255, 255, 255, 0.88);
     fill: none;
     stroke-width: 1.5;
+    transition: stroke var(--transition-base);
+}
+
+.industry-card:hover .industry-card-icon svg {
+    stroke: var(--gold);
+}
+
+/* Card body — below the visual */
+.industry-card-body {
+    padding: var(--space-lg) var(--space-xl) var(--space-xl);
 }
 
 .industry-card h3 {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: var(--black);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     transition: color var(--transition-base);
 }
 
 .industry-card:hover h3 { color: var(--blue-primary); }
 
 .industry-card p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--gray-500);
     line-height: 1.6;
-    margin: 0;
+    margin: 0 0 0.85rem;
 }
+
+.industry-card-link {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--terracotta);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap var(--transition-base);
+}
+
+.industry-card:hover .industry-card-link { gap: 0.55rem; }
 
 @media (max-width: 900px) {
     .industries-grid {
