@@ -51,7 +51,13 @@
 
         // Animation — visible breathing on peaks, calm elsewhere
         animSpeed: 0.28,
-        animAmp: 1.2
+        animAmp: 1.2,
+
+        // Blue vein overlay — sparse coarse wireframe in MinTax navy
+        blueVeinColor: 0x2C4A6E,
+        blueVeinOpacity: 0.05,
+        veinSegX: 20,
+        veinSegZ: 12
     };
 
     /* ---------- Noise ---------- */
@@ -292,6 +298,72 @@
         scene.add(new THREE.Mesh(geo, fillMat));
         scene.add(new THREE.Mesh(geo, wireMat));
 
+        // ---------- Blue vein overlay — coarse sparse wireframe ----------
+        // A 20×12 mesh displaced to the same terrain shape, rendered in navy at low opacity.
+        // Lower segment count means fewer, larger triangles — visible as distinct "vein" lines
+        // over the denser gold wireframe beneath.
+
+        var veinIndexed = new THREE.PlaneGeometry(
+            CONFIG.planeWidth, CONFIG.planeDepth, CONFIG.veinSegX, CONFIG.veinSegZ
+        );
+        veinIndexed.rotateX(-Math.PI / 2);
+        var vip = veinIndexed.attributes.position;
+
+        for (var i = 0; i < vip.count; i++) {
+            var vx = vip.getX(i), vz = vip.getZ(i);
+            var vnx = (vx + halfW) / CONFIG.planeWidth;
+            var vnz = (-vz + halfD) / CONFIG.planeDepth;
+            var vsmooth = fbm(vx * CONFIG.noiseFreq + 3, vz * CONFIG.noiseFreq + 1);
+            var vridge = ridgeFBM(vx * CONFIG.ridgeFreq + 5, vz * CONFIG.ridgeFreq + 2);
+            vridge = Math.pow(vridge, CONFIG.ridgeSharpness);
+            var vmountain = (vsmooth * (1.0 - CONFIG.ridgeMix) + vridge * CONFIG.ridgeMix) * CONFIG.peakHeight;
+            vmountain += Math.max(0, Math.sin(vx * 0.15 + 2.0) * Math.sin(vz * 0.18 - 1.0)) * 4.0;
+            vmountain += Math.max(0, Math.cos(vx * 0.09 - 0.5) * Math.sin(vz * 0.13 + 0.8)) * 3.0;
+            var vdx = vnx - CONFIG.peakCenter.x, vdz2 = vnz - CONFIG.peakCenter.z;
+            var vPeakInf = Math.exp(-(vdx * vdx + vdz2 * vdz2) / (2 * CONFIG.peakRadius * CONFIG.peakRadius));
+            var vSec = 0;
+            for (var p = 0; p < CONFIG.peakZones.length; p++) {
+                var zone = CONFIG.peakZones[p];
+                var zdx = vnx - zone.x, zdz = vnz - zone.z;
+                vSec += zone.strength * Math.exp(-(zdx * zdx + zdz * zdz) / (2 * zone.radius * zone.radius));
+            }
+            var vFactor = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * Math.min(1.0, vPeakInf + vSec);
+            var vHeight = vmountain * vFactor;
+            vip.setY(i, vHeight > 0 ? vHeight : 0);
+        }
+
+        var veinGeo = veinIndexed.toNonIndexed();
+        var veinPos = veinGeo.attributes.position;
+        veinGeo.boundingSphere = safeSphere;
+        veinGeo.computeBoundingSphere = function () { this.boundingSphere = safeSphere; };
+
+        var veinBase = new Float32Array(veinPos.count * 3);
+        var veinDiag = new Float32Array(veinPos.count);
+        for (var i = 0; i < veinPos.count; i++) {
+            var vx = veinPos.getX(i), vy = veinPos.getY(i), vz = veinPos.getZ(i);
+            veinBase[i * 3] = vx; veinBase[i * 3 + 1] = vy; veinBase[i * 3 + 2] = vz;
+            var vnx = (vx + halfW) / CONFIG.planeWidth;
+            var vnz = (-vz + halfD) / CONFIG.planeDepth;
+            var vdx = vnx - CONFIG.peakCenter.x, vdz2 = vnz - CONFIG.peakCenter.z;
+            var vPeakInf = Math.exp(-(vdx * vdx + vdz2 * vdz2) / (2 * CONFIG.peakRadius * CONFIG.peakRadius));
+            var vSec = 0;
+            for (var p = 0; p < CONFIG.peakZones.length; p++) {
+                var zone = CONFIG.peakZones[p];
+                var zdx = vnx - zone.x, zdz = vnz - zone.z;
+                vSec += zone.strength * Math.exp(-(zdx * zdx + zdz * zdz) / (2 * zone.radius * zone.radius));
+            }
+            veinDiag[i] = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * Math.min(1.0, vPeakInf + vSec);
+        }
+
+        var blueMat = new THREE.MeshBasicMaterial({
+            color: CONFIG.blueVeinColor,
+            wireframe: true,
+            transparent: true,
+            opacity: CONFIG.blueVeinOpacity,
+            depthWrite: false
+        });
+        scene.add(new THREE.Mesh(veinGeo, blueMat));
+
         // ---------- Animation — visible breathing ----------
 
         var clock = new THREE.Clock();
@@ -315,6 +387,18 @@
             }
             pos.needsUpdate = true;
             geo.boundingSphere = safeSphere;  // Re-assign to prevent NaN recomputation
+
+            // Animate blue vein overlay — simple positional wave, coarser mesh
+            for (var j = 0; j < veinPos.count; j++) {
+                var vby = veinBase[j * 3 + 1];
+                var vbx = veinBase[j * 3], vbz = veinBase[j * 3 + 2];
+                var vwave = Math.sin(t * CONFIG.animSpeed * 0.9 + vbx * 0.1 + vbz * 0.08)
+                          * CONFIG.animAmp * veinDiag[j];
+                var vNewY = vby + vwave;
+                veinPos.setY(j, vNewY === vNewY ? vNewY : vby);
+            }
+            veinPos.needsUpdate = true;
+            veinGeo.boundingSphere = safeSphere;
 
             renderer.render(scene, camera);
         }
