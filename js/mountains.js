@@ -33,6 +33,12 @@
         peakRadius: 0.25,                    // Gaussian spread (sigma)
         gentleFloor: 0.22,                   // 22% height in calm areas — rolling terrain across full viewport
 
+        // Secondary terrain zones — spread mountain character beyond the main peak zone
+        peakZones: [
+            { x: 0.22, z: 0.28, radius: 0.18, strength: 0.55 },  // Left side, background
+            { x: 0.52, z: 0.82, radius: 0.20, strength: 0.40 }   // Center, foreground
+        ],
+
         // Ridge definition — creates distinct peaks without violent spikes
         ridgeFreq: 0.09,                     // Frequency for ridge detail
         ridgeMix: 0.40,                      // How much ridge vs smooth (0=all smooth, 1=all ridge)
@@ -173,7 +179,13 @@
             var dz = nz - CONFIG.peakCenter.z;
             var dist2 = dx * dx + dz * dz;
             var peakInfluence = Math.exp(-dist2 / (2 * CONFIG.peakRadius * CONFIG.peakRadius));
-            var factor = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * peakInfluence;
+            var secondary = 0;
+            for (var p = 0; p < CONFIG.peakZones.length; p++) {
+                var zone = CONFIG.peakZones[p];
+                var zdx = nx - zone.x, zdz = nz - zone.z;
+                secondary += zone.strength * Math.exp(-(zdx * zdx + zdz * zdz) / (2 * zone.radius * zone.radius));
+            }
+            var factor = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * Math.min(1.0, peakInfluence + secondary);
 
             var height = mountain * factor;
             if (!(height > 0)) height = 0;
@@ -230,7 +242,13 @@
             var dz = nz - CONFIG.peakCenter.z;
             var dist2 = dx * dx + dz * dz;
             var peakInf = Math.exp(-dist2 / (2 * CONFIG.peakRadius * CONFIG.peakRadius));
-            diagFactors[i] = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * peakInf;
+            var secondary = 0;
+            for (var p = 0; p < CONFIG.peakZones.length; p++) {
+                var zone = CONFIG.peakZones[p];
+                var zdx = nx - zone.x, zdz = nz - zone.z;
+                secondary += zone.strength * Math.exp(-(zdx * zdx + zdz * zdz) / (2 * zone.radius * zone.radius));
+            }
+            diagFactors[i] = CONFIG.gentleFloor + (1.0 - CONFIG.gentleFloor) * Math.min(1.0, peakInf + secondary);
         }
 
         // Per-vertex breathing: spatially coherent phase offsets + speed variation
