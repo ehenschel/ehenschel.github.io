@@ -833,6 +833,8 @@
     text-decoration: none;
     display: block;
     transition: all var(--transition-slow);
+    position: relative;
+    z-index: 2;
 }
 
 .industry-card:hover {
