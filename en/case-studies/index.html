@@ -560,6 +560,38 @@
             z-index: 2;
         }
 
+        /* ── COMING SOON BAR ── */
+        .coming-soon-bar {
+            background: var(--gold-pale);
+            border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+            padding: var(--space-md) 0;
+        }
+
+        .coming-soon-inner {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            font-size: 0.88rem;
+        }
+
+        .coming-soon-label {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            background: rgba(201, 169, 98, 0.15);
+            padding: 0.3rem 0.7rem;
+            border-radius: var(--radius-sm);
+            white-space: nowrap;
+        }
+
+        .coming-soon-text {
+            color: var(--gray-600);
+            line-height: 1.5;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
             .featured-casestudy-card {
@@ -594,6 +626,12 @@
         }
 
         @media (max-width: 600px) {
+            .coming-soon-inner {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+
             .breadcrumb-inner {
                 flex-wrap: wrap;
                 gap: var(--space-xs);
@@ -693,6 +731,15 @@
         </div>
     </section>
 
+    <!-- COMING SOON NOTICE -->
+    <div class="coming-soon-bar">
+        <div class="container">
+            <div class="coming-soon-inner">
+                <span class="coming-soon-label">Coming Soon</span>
+                <span class="coming-soon-text">Detailed case studies with client permission are being prepared. The examples below represent the types of engagements we deliver.</span>
+            </div>
+        </div>
+    </div>
 
     <!-- FEATURED CASE STUDY -->
     <section class="casestudies-featured">
@@ -722,7 +769,7 @@
                         </div>
                     </div>
 
-                    <a href="#" class="featured-casestudy-link">Read full case study <span>&rarr;</span></a>
+                    <span class="featured-casestudy-link" style="color: var(--gray-400); cursor: default;">Full case study coming soon</span>
                 </div>
             </div>
         </div>
@@ -741,7 +788,7 @@
 
             <div class="casestudies-grid">
                 <!-- Case Study 1: Audit -->
-                <a href="#" class="casestudy-card">
+                <div class="casestudy-card">
                     <span class="casestudy-card-badge badge-audit">Audit</span>
                     <h3>Financial Restatement &amp; Controls Enhancement for KASE-Listed Company</h3>
                     <p>Comprehensive audit engagement and internal control remediation for a publicly traded manufacturing firm following significant management changes and accounting irregularities discovery.</p>
@@ -755,11 +802,11 @@
                             <div class="card-metric-label">Implementation Period</div>
                         </div>
                     </div>
-                    <span class="link">Read case study <span>&rarr;</span></span>
-                </a>
+                    <span class="link" style="color: var(--gray-400);">Coming soon</span>
+                </div>
 
                 <!-- Case Study 2: IFRS -->
-                <a href="#" class="casestudy-card">
+                <div class="casestudy-card">
                     <span class="casestudy-card-badge badge-ifrs">IFRS</span>
                     <h3>IFRS Conversion &amp; Consolidated Reporting for Regional Holding Company</h3>
                     <p>IFRS 16 implementation and consolidated financial statement transformation for a multi-subsidiary real estate and construction holding structure with operations across three countries.</p>
@@ -773,11 +820,11 @@
                             <div class="card-metric-label">Assets Reported</div>
                         </div>
                     </div>
-                    <span class="link">Read case study <span>&rarr;</span></span>
-                </a>
+                    <span class="link" style="color: var(--gray-400);">Coming soon</span>
+                </div>
 
                 <!-- Case Study 3: Legal -->
-                <a href="#" class="casestudy-card">
+                <div class="casestudy-card">
                     <span class="casestudy-card-badge badge-legal">Legal</span>
                     <h3>Cross-Border M&amp;A Transaction &amp; Regulatory Compliance</h3>
                     <p>Full-cycle legal and regulatory advisory for a significant acquisition of a financial services subsidiary, including antitrust clearance, regulatory approvals, and contract negotiation across multiple jurisdictions.</p>
@@ -791,11 +838,11 @@
                             <div class="card-metric-label">Deal Closure</div>
                         </div>
                     </div>
-                    <span class="link">Read case study <span>&rarr;</span></span>
-                </a>
+                    <span class="link" style="color: var(--gray-400);">Coming soon</span>
+                </div>
 
                 <!-- Case Study 4: Tax -->
-                <a href="#" class="casestudy-card">
+                <div class="casestudy-card">
                     <span class="casestudy-card-badge badge-tax">Tax</span>
                     <h3>Transfer Pricing Study &amp; Tax Optimization for Multinational Manufacturer</h3>
                     <p>Comprehensive transfer pricing documentation and regional tax optimization strategy for a manufacturing company with production facilities and distribution operations across four CIS countries.</p>
@@ -809,8 +856,8 @@
                             <div class="card-metric-label">Countries Covered</div>
                         </div>
                     </div>
-                    <span class="link">Read case study <span>&rarr;</span></span>
-                </a>
+                    <span class="link" style="color: var(--gray-400);">Coming soon</span>
+                </div>
             </div>
         </div>
     </section>

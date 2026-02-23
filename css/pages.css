@@ -1267,6 +1267,12 @@
     }
 }
 
+@media (max-width: 600px) {
+    .people-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* ═══════════════════════════════════════════════
    HOMEPAGE — CREDENTIALS (V8)

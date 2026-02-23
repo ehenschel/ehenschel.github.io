@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Events &amp; Seminars — MinTax Group</title>
-    <meta name="description" content="Upcoming webinars, seminars, and industry events hosted by MinTax Group. Stay informed on Kazakhstan's tax, audit, and legal developments.">
+    <title>Events & Regulatory Calendar — MinTax Group</title>
+    <meta name="description" content="Track Kazakhstan's key compliance deadlines, legislative changes, professional development events, and industry conferences. Stay ahead with MinTax Group.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Events & Seminars — MinTax Group">
-    <meta property="og:description" content="Upcoming webinars, seminars, and industry events hosted by MinTax Group.">
+    <meta property="og:title" content="Events & Regulatory Calendar — MinTax Group">
+    <meta property="og:description" content="Track Kazakhstan's key compliance deadlines, legislative changes, professional events, and industry conferences.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ehenschel.github.io/en/events/">
     <meta property="og:locale" content="en_US">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Events & Seminars — MinTax Group">
-    <meta name="twitter:description" content="Upcoming webinars, seminars, and industry events hosted by MinTax Group.">
+    <meta name="twitter:title" content="Events & Regulatory Calendar — MinTax Group">
+    <meta name="twitter:description" content="Track Kazakhstan's key compliance deadlines, legislative changes, and professional events.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,163 +34,532 @@
     <link rel="alternate" hreflang="en" href="https://ehenschel.github.io/en/events/">
 
     <style>
-        .coming-soon-hero {
+        /* ── HERO ── */
+        .events-hero {
             margin-top: var(--header-height);
-            padding: var(--space-5xl) 0;
+            padding: var(--space-5xl) 0 var(--space-4xl);
             background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);
             color: var(--white);
-            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .coming-soon-hero::before {
+        .events-hero::before {
             content: '';
             position: absolute;
-            top: -40%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(201, 169, 98, 0.08) 0%, transparent 70%);
+            top: -30%;
+            right: -8%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
             pointer-events: none;
         }
 
-        .coming-soon-hero .container { position: relative; z-index: 2; }
+        .events-hero .container { position: relative; z-index: 2; }
 
-        .coming-soon-hero h1 {
-            font-family: var(--font-display);
-            font-size: 3.2rem;
-            font-weight: 400;
-            line-height: 1.15;
+        .events-hero .breadcrumb {
             margin-bottom: var(--space-lg);
         }
 
-        .coming-soon-hero .lead {
+        .events-hero .breadcrumb a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.88rem;
+        }
+
+        .events-hero .breadcrumb a:hover { color: rgba(255, 255, 255, 0.9); }
+
+        .events-hero .breadcrumb span {
+            color: rgba(255, 255, 255, 0.4);
+            margin: 0 0.5rem;
+            font-size: 0.88rem;
+        }
+
+        .events-hero h1 {
+            font-family: var(--font-display);
+            font-size: 3.2rem;
+            font-weight: 400;
+            line-height: 1.12;
+            margin-bottom: var(--space-lg);
+        }
+
+        .events-hero .lead {
             font-size: 1.08rem;
             color: rgba(255, 255, 255, 0.76);
             line-height: 1.75;
-            max-width: 600px;
-            margin: 0 auto var(--space-2xl);
+            max-width: 640px;
         }
 
-        .coming-soon-content {
-            padding: var(--space-5xl) 0;
-            text-align: center;
+        /* ── SECTION SHARED ── */
+        .events-section {
+            padding: var(--space-4xl) 0;
         }
 
-        .coming-soon-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto var(--space-2xl);
-            background: var(--gold-pale);
-            border-radius: var(--radius-xl);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .events-section:nth-child(even) {
+            background: var(--gray-50);
         }
 
-        .coming-soon-icon svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--gold);
-            fill: none;
-            stroke-width: 1.5;
+        .events-section .section-label {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--terracotta);
+            margin-bottom: var(--space-sm);
         }
 
-        .coming-soon-content h2 {
+        .events-section h2 {
             font-family: var(--font-display);
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 400;
             color: var(--black);
             margin-bottom: var(--space-md);
+            line-height: 1.2;
         }
 
-        .coming-soon-content p {
+        .events-section .section-intro {
             font-size: 1.02rem;
             color: var(--gray-500);
             line-height: 1.75;
-            max-width: 560px;
-            margin: 0 auto var(--space-2xl);
-        }
-
-        .preview-events {
-            padding: 0 0 var(--space-5xl);
-        }
-
-        .preview-events h3 {
-            font-family: var(--font-display);
-            font-size: 1.6rem;
-            font-weight: 400;
-            color: var(--black);
-            text-align: center;
+            max-width: 600px;
             margin-bottom: var(--space-2xl);
         }
 
-        .preview-events-grid {
+        /* ── UPCOMING DEADLINES ── */
+        .deadlines-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-xl);
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--space-lg);
         }
 
-        .preview-event-card {
+        .deadline-card {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-lg);
             background: var(--white);
             border: 1px solid rgba(44, 74, 110, 0.08);
             border-radius: var(--radius-lg);
-            padding: var(--space-2xl);
-            text-align: center;
-            text-decoration: none;
+            padding: var(--space-xl);
             transition: all var(--transition-slow);
         }
 
-        .preview-event-card:hover {
-            transform: translateY(-4px);
+        .deadline-card:hover {
+            transform: translateY(-2px);
             box-shadow: var(--shadow-md);
         }
 
-        .preview-event-date {
-            display: inline-flex;
+        .deadline-badge {
+            flex-shrink: 0;
+            width: 64px;
+            display: flex;
             flex-direction: column;
             align-items: center;
             background: var(--blue-mist);
             border-radius: var(--radius-md);
-            padding: var(--space-sm) var(--space-lg);
-            margin-bottom: var(--space-md);
+            padding: 10px 8px;
+            border: 1px solid rgba(44, 74, 110, 0.06);
         }
 
-        .preview-event-date .month {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--blue-primary);
+        .deadline-badge .badge-month {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            color: var(--blue-primary);
+            line-height: 1;
+            margin-bottom: 2px;
         }
 
-        .preview-event-date .day {
+        .deadline-badge .badge-day {
             font-family: var(--font-display);
-            font-size: 1.8rem;
+            font-size: 1.7rem;
+            font-weight: 500;
             color: var(--blue-deep);
             line-height: 1;
         }
 
-        .preview-event-card h4 {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 400;
+        .deadline-content h3 {
+            font-family: var(--font-body);
+            font-size: 0.98rem;
+            font-weight: 600;
             color: var(--black);
-            margin-bottom: var(--space-xs);
+            line-height: 1.45;
+            margin-bottom: 4px;
+        }
+
+        .deadline-content p {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .deadline-card.deadline-urgent .deadline-badge {
+            background: var(--terracotta-light);
+            border-color: rgba(199, 93, 72, 0.12);
+        }
+
+        .deadline-card.deadline-urgent .deadline-badge .badge-month {
+            color: var(--terracotta);
+        }
+
+        .deadline-card.deadline-urgent .deadline-badge .badge-day {
+            color: var(--terracotta);
+        }
+
+        /* ── MINTAX EVENTS ── */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .event-card {
+            background: var(--white);
+            border: 1px solid rgba(44, 74, 110, 0.08);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            transition: all var(--transition-slow);
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .event-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .event-date-badge {
+            flex-shrink: 0;
+            width: 56px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--blue-mist);
+            border-radius: var(--radius-md);
+            padding: 8px 6px;
+        }
+
+        .event-date-badge .e-month {
+            font-family: var(--font-body);
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--blue-primary);
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .event-date-badge .e-day {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--blue-deep);
+            line-height: 1;
+        }
+
+        .event-type-badge {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 4px 10px;
+            border-radius: 100px;
             line-height: 1.3;
         }
 
-        .preview-event-card .event-type {
-            font-size: 0.85rem;
-            color: var(--gray-500);
+        .event-type-badge.type-webinar {
+            background: var(--gold-pale);
+            color: var(--gold);
         }
 
-        @media (max-width: 768px) {
-            .coming-soon-hero h1 { font-size: 2.2rem; }
-            .preview-events-grid { grid-template-columns: 1fr; max-width: 400px; }
+        .event-type-badge.type-seminar {
+            background: var(--terracotta-light);
+            color: var(--terracotta);
+        }
+
+        .event-type-badge.type-conference {
+            background: var(--blue-pale);
+            color: var(--blue-primary);
+        }
+
+        .event-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1.35;
+            margin-bottom: var(--space-sm);
+            flex-grow: 1;
+        }
+
+        .event-card .event-location {
+            font-size: 0.88rem;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .event-card .event-location svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--gray-400);
+            fill: none;
+            stroke-width: 2;
+            flex-shrink: 0;
+        }
+
+        .event-tba {
+            font-style: italic;
+            color: var(--gray-400);
+            font-size: 0.85rem;
+        }
+
+        /* ── REGULATORY CALENDAR ── */
+        .reg-calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .reg-quarter {
+            background: var(--white);
+            border: 1px solid rgba(44, 74, 110, 0.08);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .reg-quarter-header {
+            background: var(--blue-deep);
+            padding: var(--space-md) var(--space-lg);
+        }
+
+        .reg-quarter-header h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--white);
+            margin: 0;
+        }
+
+        .reg-quarter-header span {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .reg-quarter-body {
+            padding: var(--space-lg);
+        }
+
+        .reg-quarter-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .reg-quarter-body li {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.55;
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .reg-quarter-body li:last-child {
+            border-bottom: none;
+        }
+
+        .reg-quarter-body li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+        }
+
+        .reg-quarter-body li strong {
+            color: var(--black);
+            font-weight: 600;
+        }
+
+        /* ── PUBLIC HOLIDAYS ── */
+        .holidays-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 0;
+        }
+
+        .holiday-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-md) var(--space-lg);
+            border-bottom: 1px solid var(--gray-100);
+            transition: background var(--transition-fast);
+        }
+
+        .holiday-item:hover {
+            background: var(--blue-mist);
+        }
+
+        .holiday-date {
+            flex-shrink: 0;
+            width: 100px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--blue-primary);
+            white-space: nowrap;
+        }
+
+        .holiday-name {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--gray-700);
+        }
+
+        .holiday-note {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+            max-width: 600px;
+            margin-top: var(--space-xl);
+            padding: var(--space-lg);
+            background: var(--gold-pale);
+            border-radius: var(--radius-md);
+            border-left: 3px solid var(--gold);
+        }
+
+        /* ── CTA ── */
+        .events-cta {
+            padding: var(--space-4xl) 0;
+            background: linear-gradient(135deg, var(--blue-deep) 0%, var(--blue-primary) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .events-cta h2 {
+            font-family: var(--font-display);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: var(--space-md);
+        }
+
+        .events-cta p {
+            font-size: 1.02rem;
+            color: rgba(255, 255, 255, 0.72);
+            max-width: 520px;
+            margin: 0 auto var(--space-2xl);
+            line-height: 1.65;
+        }
+
+        .events-cta .cta-buttons {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .events-cta .btn-white {
+            background: var(--white);
+            color: var(--blue-deep);
+            padding: 0.85rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            border: 1px solid transparent;
+        }
+
+        .events-cta .btn-white:hover {
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-1px);
+        }
+
+        .events-cta .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 0.85rem 2rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .events-cta .btn-outline:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .reg-calendar-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .events-hero h1 { font-size: 2.6rem; }
+
+            .events-section h2 { font-size: 1.9rem; }
+        }
+
+        @media (max-width: 600px) {
+            .events-hero { padding: var(--space-4xl) 0 var(--space-2xl); }
+            .events-hero h1 { font-size: 2rem; }
+
+            .events-section { padding: var(--space-2xl) 0; }
+            .events-section h2 { font-size: 1.65rem; }
+
+            .deadlines-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reg-calendar-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .holidays-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deadline-card {
+                padding: var(--space-lg);
+                gap: var(--space-md);
+            }
+
+            .deadline-badge { width: 54px; }
+
+            .events-cta h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -232,72 +602,303 @@
 
 
     <!-- HERO -->
-    <section class="coming-soon-hero">
+    <section class="events-hero">
         <div class="container">
-            <h1>Events &amp; Seminars</h1>
-            <p class="lead">Professional development events, tax law seminars, and industry webinars from MinTax Group experts.</p>
+            <nav class="breadcrumb">
+                <a href="../index.html">Home</a>
+                <span>&rsaquo;</span>
+                Events
+            </nav>
+            <h1>Events &amp; Regulatory Calendar</h1>
+            <p class="lead">Stay ahead of Kazakhstan's evolving regulatory landscape. Track key compliance deadlines, legislative changes, professional development events, and industry conferences.</p>
         </div>
     </section>
 
 
-    <!-- COMING SOON -->
-    <section class="coming-soon-content">
+    <!-- UPCOMING DEADLINES -->
+    <section class="events-section">
         <div class="container">
-            <div class="coming-soon-icon">
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div class="section-label">Upcoming Deadlines</div>
+            <h2>Key Dates Ahead</h2>
+            <p class="section-intro">Critical compliance and filing deadlines for the coming months. Mark these on your calendar — missed deadlines carry penalties.</p>
+
+            <div class="deadlines-grid">
+                <div class="deadline-card deadline-urgent">
+                    <div class="deadline-badge">
+                        <span class="badge-month">Mar</span>
+                        <span class="badge-day">31</span>
+                    </div>
+                    <div class="deadline-content">
+                        <h3>Q1 CIT Advance Payment</h3>
+                        <p>Corporate income tax advance payment deadline for the first quarter of 2026.</p>
+                    </div>
+                </div>
+
+                <div class="deadline-card">
+                    <div class="deadline-badge">
+                        <span class="badge-month">Apr</span>
+                        <span class="badge-day">15</span>
+                    </div>
+                    <div class="deadline-content">
+                        <h3>Annual CIT Declaration</h3>
+                        <p>Submission of annual corporate income tax declaration for the 2025 fiscal year.</p>
+                    </div>
+                </div>
+
+                <div class="deadline-card">
+                    <div class="deadline-badge">
+                        <span class="badge-month">Apr</span>
+                        <span class="badge-day">30</span>
+                    </div>
+                    <div class="deadline-content">
+                        <h3>Individual Income Tax Declaration</h3>
+                        <p>Filing deadline for individual income tax declarations for the 2025 tax year.</p>
+                    </div>
+                </div>
+
+                <div class="deadline-card">
+                    <div class="deadline-badge">
+                        <span class="badge-month">May</span>
+                        <span class="badge-day">15</span>
+                    </div>
+                    <div class="deadline-content">
+                        <h3>Transfer Pricing Documentation</h3>
+                        <p>Deadline for submission of transfer pricing documentation to tax authorities.</p>
+                    </div>
+                </div>
+
+                <div class="deadline-card">
+                    <div class="deadline-badge">
+                        <span class="badge-month">Jul</span>
+                        <span class="badge-day">1</span>
+                    </div>
+                    <div class="deadline-content">
+                        <h3>New Construction Code</h3>
+                        <p>Kazakhstan's updated Construction Code takes effect, replacing legacy SNIP standards.</p>
+                    </div>
+                </div>
             </div>
-            <h2>Full Events Calendar Coming Soon</h2>
-            <p>We are preparing a comprehensive events calendar with registration functionality. In the meantime, here are our upcoming events.</p>
         </div>
     </section>
 
 
-    <!-- PREVIEW EVENTS -->
-    <section class="preview-events">
+    <!-- MINTAX EVENTS -->
+    <section class="events-section">
         <div class="container">
-            <h3>Upcoming Events</h3>
-            <div class="preview-events-grid">
-                <a href="../contact/" class="preview-event-card">
-                    <div class="preview-event-date">
-                        <span class="month">Mar</span>
-                        <span class="day">14</span>
+            <div class="section-label">Professional Development</div>
+            <h2>MinTax Events</h2>
+            <p class="section-intro">Seminars, webinars, and conferences hosted by MinTax Group experts. Practical guidance on the issues that matter most to your business.</p>
+
+            <div class="events-grid">
+                <a href="../contact/" class="event-card">
+                    <div class="event-card-header">
+                        <div class="event-date-badge">
+                            <span class="e-month">Mar</span>
+                            <span class="e-day">14</span>
+                        </div>
+                        <span class="event-type-badge type-webinar">Webinar</span>
                     </div>
-                    <h4>Tax Code 2026: Practical Implications for Business</h4>
-                    <span class="event-type">Webinar</span>
+                    <h3>Tax Code 2026: Practical Implications for Business</h3>
+                    <div class="event-location">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Online
+                    </div>
                 </a>
 
-                <a href="../contact/" class="preview-event-card">
-                    <div class="preview-event-date">
-                        <span class="month">Apr</span>
-                        <span class="day">03</span>
+                <a href="../contact/" class="event-card">
+                    <div class="event-card-header">
+                        <div class="event-date-badge">
+                            <span class="e-month">Apr</span>
+                            <span class="e-day">3</span>
+                        </div>
+                        <span class="event-type-badge type-seminar">Seminar</span>
                     </div>
-                    <h4>IFRS 18 Readiness: Financial Statement Presentation</h4>
-                    <span class="event-type">Seminar &middot; Almaty</span>
+                    <h3>IFRS 18 Readiness: Financial Statement Presentation</h3>
+                    <div class="event-location">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Almaty
+                    </div>
                 </a>
 
-                <a href="../contact/" class="preview-event-card">
-                    <div class="preview-event-date">
-                        <span class="month">Apr</span>
-                        <span class="day">22</span>
+                <a href="../contact/" class="event-card">
+                    <div class="event-card-header">
+                        <div class="event-date-badge">
+                            <span class="e-month">Apr</span>
+                            <span class="e-day">22</span>
+                        </div>
+                        <span class="event-type-badge type-conference">Conference</span>
                     </div>
-                    <h4>Annual Tax Conference: Transfer Pricing in the CIS</h4>
-                    <span class="event-type">Conference &middot; Astana</span>
+                    <h3>Annual Tax Conference: Transfer Pricing in the CIS</h3>
+                    <div class="event-location">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Astana
+                    </div>
                 </a>
+
+                <div class="event-card" style="cursor: default;">
+                    <div class="event-card-header">
+                        <div class="event-date-badge" style="background: var(--gray-100);">
+                            <span class="e-month" style="color: var(--gray-400);">May</span>
+                            <span class="e-day" style="color: var(--gray-500);">TBA</span>
+                        </div>
+                        <span class="event-type-badge type-webinar">Webinar</span>
+                    </div>
+                    <h3>VAT 16%: Cash Flow Impact and Planning Strategies</h3>
+                    <div class="event-location">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span class="event-tba">Date to be announced</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- REGULATORY CALENDAR 2026 -->
+    <section class="events-section">
+        <div class="container">
+            <div class="section-label">Regulatory Calendar</div>
+            <h2>2026 at a Glance</h2>
+            <p class="section-intro">A quarterly overview of key regulatory milestones, reporting periods, and legislative changes affecting businesses in Kazakhstan.</p>
+
+            <div class="reg-calendar-grid">
+                <div class="reg-quarter">
+                    <div class="reg-quarter-header">
+                        <h3>Q1</h3>
+                        <span>January &ndash; March</span>
+                    </div>
+                    <div class="reg-quarter-body">
+                        <ul>
+                            <li><strong>Jan 1</strong> &mdash; New Tax Code takes effect</li>
+                            <li><strong>Mar 1</strong> &mdash; Tax regime notification deadline</li>
+                            <li><strong>Mar 31</strong> &mdash; Q1 CIT advance payment</li>
+                            <li>Annual audit season begins</li>
+                            <li>Year-end financial statement preparation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reg-quarter">
+                    <div class="reg-quarter-header">
+                        <h3>Q2</h3>
+                        <span>April &ndash; June</span>
+                    </div>
+                    <div class="reg-quarter-body">
+                        <ul>
+                            <li><strong>Apr 15</strong> &mdash; CIT declaration submission</li>
+                            <li><strong>Apr 30</strong> &mdash; Individual income tax filing</li>
+                            <li><strong>May 15</strong> &mdash; Transfer pricing documentation</li>
+                            <li><strong>Jun 30</strong> &mdash; Q2 CIT advance payment</li>
+                            <li>VAT rate increase to 16% impact assessment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reg-quarter">
+                    <div class="reg-quarter-header">
+                        <h3>Q3</h3>
+                        <span>July &ndash; September</span>
+                    </div>
+                    <div class="reg-quarter-body">
+                        <ul>
+                            <li><strong>Jul 1</strong> &mdash; New Construction Code effective</li>
+                            <li><strong>Sep 30</strong> &mdash; Q3 CIT advance payment</li>
+                            <li>Half-year financial reporting</li>
+                            <li>Environmental Code compliance reviews</li>
+                            <li>Mid-year tax audit risk assessments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reg-quarter">
+                    <div class="reg-quarter-header">
+                        <h3>Q4</h3>
+                        <span>October &ndash; December</span>
+                    </div>
+                    <div class="reg-quarter-body">
+                        <ul>
+                            <li><strong>Dec 31</strong> &mdash; Q4 CIT advance payment</li>
+                            <li>Budget and tax planning for 2027</li>
+                            <li>Year-end audit preparation</li>
+                            <li>December reporting deadlines</li>
+                            <li>Transfer pricing year-end review</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PUBLIC HOLIDAYS 2026 -->
+    <section class="events-section">
+        <div class="container">
+            <div class="section-label">Public Holidays</div>
+            <h2>Kazakhstan Official Holidays 2026</h2>
+            <p class="section-intro">Official public holidays affect business operations and may shift filing deadlines. Plan your compliance calendar accordingly.</p>
+
+            <div class="holidays-grid">
+                <div class="holiday-item">
+                    <div class="holiday-date">Jan 1 &ndash; 2</div>
+                    <div class="holiday-name">New Year</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Mar 8</div>
+                    <div class="holiday-name">International Women's Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Mar 21 &ndash; 23</div>
+                    <div class="holiday-name">Nauryz</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">May 1</div>
+                    <div class="holiday-name">Unity Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">May 7</div>
+                    <div class="holiday-name">Defender's Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">May 9</div>
+                    <div class="holiday-name">Victory Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Jul 6</div>
+                    <div class="holiday-name">Capital City Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Aug 30</div>
+                    <div class="holiday-name">Constitution Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Oct 25</div>
+                    <div class="holiday-name">Republic Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Dec 1</div>
+                    <div class="holiday-name">First President's Day</div>
+                </div>
+                <div class="holiday-item">
+                    <div class="holiday-date">Dec 16 &ndash; 17</div>
+                    <div class="holiday-name">Independence Day</div>
+                </div>
+            </div>
+
+            <div class="holiday-note">
+                When a public holiday falls on a weekend, the following Monday is typically observed as a day off. Confirm official government announcements for the exact schedule of transferred holidays each year, as these affect filing and payment deadlines.
             </div>
         </div>
     </section>
 
 
     <!-- CTA -->
-    <section class="home-cta">
+    <section class="events-cta">
         <div class="container">
-            <div class="cta-box">
-                <h2>Want to attend our next event?</h2>
-                <p>Contact us to receive invitations to our upcoming seminars, webinars, and professional development events.</p>
-                <div class="cta-buttons">
-                    <a href="../contact/" class="btn btn-white">Get Notified</a>
-                    <a href="tel:+77272218888" class="btn btn-outline">+7 (727) 221-88-88</a>
-                </div>
+            <h2>Want to attend our next event?</h2>
+            <p>Contact us to receive invitations to upcoming seminars, webinars, and professional development events. Our team is also available to answer compliance questions year-round.</p>
+            <div class="cta-buttons">
+                <a href="../contact/" class="btn-white">Get Notified</a>
+                <a href="tel:+77272218888" class="btn-outline">+7 (727) 221-88-88</a>
             </div>
         </div>
     </section>
