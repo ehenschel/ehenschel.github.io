@@ -44,6 +44,13 @@
     border-radius: 14px;
 }
 
+/* ── Mobile: always solid navy (no gray-to-blue scroll transition) ── */
+@media (max-width: 900px) {
+    .header-inner {
+        background: rgba(20, 40, 66, 0.97);
+    }
+}
+
 /* ── Logo — white on dark nav ── */
 .logo {
     display: flex;
@@ -285,6 +292,24 @@
 
     body.menu-open {
         overflow: hidden;
+    }
+
+    /* When menu is open, remove backdrop-filter from header-inner
+       so the fixed-positioned nav-links can escape the stacking context
+       (backdrop-filter creates a containing block on iOS Safari) */
+    body.menu-open .header-inner {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: transparent;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    body.menu-open .mobile-toggle {
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 1001;
     }
 
     /* Hero responsive */
