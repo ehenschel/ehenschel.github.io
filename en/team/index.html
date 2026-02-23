@@ -100,6 +100,40 @@
                 grid-template-columns: 1fr;
             }
         }
+        @media (max-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-lg);
+            }
+            .team-photo {
+                width: 100px;
+                height: 100px;
+                font-size: 1.6rem;
+                margin-bottom: var(--space-sm);
+            }
+            .team-name {
+                font-size: 0.95rem;
+            }
+            .team-role {
+                font-size: 0.78rem;
+                margin-bottom: 0.15rem;
+            }
+            .team-creds {
+                font-size: 0.72rem;
+            }
+            .leadership-section,
+            .team-section {
+                padding: var(--space-2xl) 0;
+            }
+            .leadership-section h2,
+            .team-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: var(--space-md);
+            }
+            .section-intro {
+                font-size: 0.88rem;
+            }
+        }
     </style>
 </head>
 <body>
