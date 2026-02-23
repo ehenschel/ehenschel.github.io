@@ -147,7 +147,7 @@
 
         .article-alert p { margin-bottom: 0; font-size: 0.95rem; }
 
-        /* Countdown banner */
+        /* Countdown banner — sits above fixed header */
         .countdown-banner {
             background: var(--terracotta);
             color: var(--white);
@@ -157,12 +157,21 @@
             font-size: 0.9rem;
             font-weight: 600;
             letter-spacing: 0.02em;
+            position: relative;
+            z-index: 1001;
         }
 
         .countdown-banner strong {
             color: var(--white);
             font-size: 1.1rem;
         }
+
+        /* Push fixed header below the 44px announcement banner */
+        .header { top: 44px; }
+
+        /* Breadcrumb is in normal flow directly after the banner;
+           padding-top pushes its content below the header pill */
+        .article-breadcrumb { padding-top: var(--header-height); }
 
         /* Regime comparison cards */
         .regime-cards {
