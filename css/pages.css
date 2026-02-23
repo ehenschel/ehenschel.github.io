@@ -1639,7 +1639,7 @@
     .hero-tab { padding: 0 1rem; font-size: 0.7rem; }
 
     .trusted-logos {
-        overflow-x: auto;
+        overflow: hidden;
         padding-bottom: var(--space-sm);
     }
 
@@ -2448,5 +2448,498 @@
     .form-group textarea,
     .form-group select {
         font-size: 1rem; /* Prevents iOS Safari auto-zoom on focus */
+    }
+}
+
+
+/* ═══════════════════════════════════════════════
+   MOBILE OVERHAUL — Phone-first premium experience
+   Dense, swipeable, "oh my god" factor
+   ═══════════════════════════════════════════════ */
+@media (max-width: 600px) {
+
+    /* ── Global spacing — tighter vertical rhythm ── */
+    .home-services,
+    .home-industries,
+    .home-insights,
+    .home-people,
+    .home-credentials,
+    .home-news,
+    .home-cta {
+        padding: var(--space-3xl) 0;
+    }
+
+    .home-casestudy {
+        padding: 2.5rem 0;
+    }
+
+    .home-trusted {
+        padding: var(--space-xl) 0;
+    }
+
+    /* ── Section headers — compact glass panels ── */
+    .section-header {
+        margin-bottom: var(--space-xl);
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    .home-services .section-header-left,
+    .home-industries .section-header-left,
+    .home-insights .section-header-left,
+    .home-people .section-header-left,
+    .home-news .section-header-left {
+        padding: 0.75rem 1.1rem;
+        border-radius: 12px;
+    }
+
+    .home-credentials h2 {
+        font-size: 1.6rem;
+    }
+
+    .home-credentials .section-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: var(--space-xl);
+    }
+
+    /* ── Trusted-by — compact wrapping pills ── */
+    .trusted-inner {
+        gap: var(--space-sm);
+    }
+
+    .trusted-logos {
+        flex-wrap: wrap;
+        gap: 0.25rem 1rem;
+        overflow: visible;
+        flex: none;
+    }
+
+    .trusted-logo {
+        font-size: 0.7rem;
+        opacity: 0.5;
+    }
+
+    .trusted-label {
+        font-size: 0.65rem;
+    }
+
+    /* ── Services — horizontal swipe strip ── */
+    .services-grid {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+    }
+
+    .services-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .service-card {
+        min-width: 74%;
+        max-width: 74%;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    .svc-img {
+        height: 110px;
+    }
+
+    .svc-body {
+        padding: 0.85rem 1rem 1rem;
+    }
+
+    .svc-body h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .svc-body p {
+        font-size: 0.8rem;
+        margin-bottom: 0.65rem;
+        line-height: 1.55;
+    }
+
+    /* ── Industries — 2-column compact tiles ── */
+    .industries-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .industry-card-visual {
+        aspect-ratio: 3/2;
+    }
+
+    .industry-card-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .industry-card-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .industry-card-body {
+        padding: 0.65rem 0.75rem 0.85rem;
+    }
+
+    .industry-card h3 {
+        font-size: 0.88rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .industry-card p {
+        display: none;
+    }
+
+    .industry-card-link {
+        font-size: 0.7rem;
+    }
+
+    /* ── Insights — horizontal swipe strip ── */
+    .insights-grid {
+        display: flex;
+        gap: 0.75rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.5rem;
+    }
+
+    .insights-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .insight-card {
+        min-width: 74%;
+        max-width: 74%;
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    .insight-image {
+        height: 130px;
+    }
+
+    .insight-body {
+        padding: 0.85rem 1rem;
+    }
+
+    .insight-card h3 {
+        font-size: 0.98rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .insight-card p {
+        font-size: 0.8rem;
+    }
+
+    /* ── Case study — compact ── */
+    .casestudy-visual {
+        height: 180px;
+        border-radius: 12px;
+    }
+
+    .casestudy-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .casestudy-content p {
+        font-size: 0.88rem;
+    }
+
+    .casestudy-metrics {
+        gap: 0.65rem;
+    }
+
+    .casestudy-metric-number {
+        font-size: 1.5rem;
+    }
+
+    .casestudy-metric-label {
+        font-size: 0.68rem;
+    }
+
+    /* ── People — 2-column compact, square crop ── */
+    .people-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .person-photo {
+        aspect-ratio: 1 / 1;
+        border-radius: 10px;
+        margin-bottom: 0.5rem;
+    }
+
+    .person-card h3 {
+        font-size: 0.9rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .person-role {
+        font-size: 0.7rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .person-cred {
+        font-size: 0.6rem;
+    }
+
+    .person-avatar {
+        width: 56px;
+        height: 56px;
+        font-size: 1.3rem;
+    }
+
+    /* ── Credentials — 2x2 compact tiles ── */
+    .credentials-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .credential-item {
+        padding: 0.85rem 0.65rem;
+    }
+
+    .credential-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 0.4rem;
+    }
+
+    .credential-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .credential-title {
+        font-size: 0.82rem;
+    }
+
+    .credential-desc {
+        font-size: 0.7rem;
+        line-height: 1.45;
+    }
+
+    /* ── News & Events — tighter ── */
+    .news-layout {
+        gap: var(--space-2xl);
+    }
+
+    .news-column h3,
+    .events-column h3 {
+        font-size: 1.15rem;
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+    }
+
+    .news-item {
+        padding: var(--space-md) 0;
+    }
+
+    .news-item h4 {
+        font-size: 0.95rem;
+    }
+
+    .news-item p {
+        font-size: 0.8rem;
+    }
+
+    .event-item {
+        padding: var(--space-md) 0;
+        gap: var(--space-md);
+    }
+
+    .event-date-box {
+        width: 46px;
+        height: 46px;
+    }
+
+    .event-date-box .event-day {
+        font-size: 1.15rem;
+    }
+
+    .event-details h4 {
+        font-size: 0.95rem;
+    }
+
+    /* ── Authority strip — compact 2x2 ── */
+    .authority-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .auth-item {
+        padding: 0.85rem 0.5rem;
+    }
+
+    .auth-num {
+        font-size: 1.3rem;
+    }
+
+    .auth-lbl {
+        font-size: 0.55rem;
+    }
+
+    /* ── CTA — compact ── */
+    .cta-box {
+        padding: 2.25rem 1.1rem;
+        border-radius: 14px;
+    }
+
+    .cta-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-box p {
+        font-size: 0.88rem;
+        margin-bottom: var(--space-xl);
+    }
+
+    /* ── Inner pages — compact headers and grids ── */
+    .page-header {
+        padding-top: calc(var(--header-height) + var(--space-2xl));
+        padding-bottom: var(--space-2xl);
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header .lead {
+        font-size: 1rem;
+    }
+
+    /* Services hub page */
+    .services-hub-hero {
+        min-height: 32vh;
+    }
+
+    .services-hub-hero h1 {
+        font-size: 2rem;
+    }
+
+    .services-full-grid {
+        gap: var(--space-md);
+    }
+
+    .services-full-card .sfc-img {
+        height: 130px;
+    }
+
+    .services-full-card .sfc-body {
+        padding: var(--space-md) var(--space-lg) var(--space-lg);
+    }
+
+    .services-full-card .sfc-body h3 {
+        font-size: 1.15rem;
+    }
+
+    .services-full-card .sfc-body p {
+        font-size: 0.88rem;
+    }
+
+    /* Service detail */
+    .service-content-grid {
+        gap: var(--space-xl);
+    }
+
+    .service-main h2 {
+        font-size: 1.35rem;
+        margin-top: var(--space-xl);
+    }
+
+    .service-main p,
+    .service-main li {
+        font-size: 0.95rem;
+    }
+
+    .sidebar-card {
+        padding: var(--space-lg);
+    }
+
+    /* About page */
+    .values-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-sm);
+    }
+
+    .value-card {
+        padding: var(--space-lg) var(--space-md);
+    }
+
+    .value-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .value-card h3 {
+        font-size: 1rem;
+    }
+
+    .value-card p {
+        font-size: 0.82rem;
+    }
+
+    .stat-item .stat-number {
+        font-size: 2.5rem;
+    }
+
+    /* Clients page */
+    .clients-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-sm);
+    }
+
+    .client-logo {
+        padding: var(--space-md);
+        font-size: 0.78rem;
+    }
+
+    /* Contact page */
+    .contact-form-card {
+        padding: var(--space-lg);
+    }
+
+    /* Footer — compact */
+    .footer {
+        padding: var(--space-2xl) 0 var(--space-md);
+    }
+
+    .footer-grid {
+        gap: var(--space-lg);
+    }
+
+    .footer-brand p {
+        font-size: 0.82rem;
+    }
+
+    .footer-col h4 {
+        margin-bottom: var(--space-sm);
+        font-size: 0.65rem;
+    }
+
+    .footer-col li {
+        margin-bottom: 0.15rem;
+    }
+
+    .footer-col a {
+        font-size: 0.82rem;
+    }
+
+    .footer-certs {
+        font-size: 0.68rem;
+        gap: var(--space-md);
     }
 }
