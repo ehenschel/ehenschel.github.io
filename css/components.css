@@ -194,15 +194,15 @@
         /* Always flex but hidden offscreen — smooth slide, no flash */
         display: flex;
         position: fixed;
-        top: 0;
+        top: var(--header-height);  /* starts below the header pill */
         left: 16%;
         right: 0;
-        bottom: 16%;
+        bottom: 14%;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;  /* top-aligned, never clipped by header */
         gap: 0;
-        padding: 4.5rem 2rem 3rem 2.5rem;
+        padding: 2rem 2rem 2.5rem 2.5rem;
         counter-reset: nav-counter;
         z-index: 999;
 
@@ -309,7 +309,7 @@
     .nav.mobile-open .nav-right {
         display: flex;
         position: fixed;
-        bottom: calc(16% + 2rem);
+        bottom: calc(14% + 1.5rem);
         left: calc(16% + 2.5rem);
         right: 2rem;
         justify-content: space-between;
