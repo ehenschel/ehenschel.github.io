@@ -54,28 +54,39 @@
 
         if (!toggle || !nav) return;
 
-        toggle.addEventListener('click', function () {
+        function closeMenu() {
+            toggle.classList.remove('active');
+            nav.classList.remove('mobile-open');
+            body.classList.remove('menu-open');
+        }
+
+        toggle.addEventListener('click', function (e) {
+            e.stopPropagation();
             this.classList.toggle('active');
             nav.classList.toggle('mobile-open');
             body.classList.toggle('menu-open');
         });
 
+        // Close on nav link click
         if (navLinks) {
             navLinks.querySelectorAll('a').forEach(function (link) {
-                link.addEventListener('click', function () {
-                    toggle.classList.remove('active');
-                    nav.classList.remove('mobile-open');
-                    body.classList.remove('menu-open');
-                });
+                link.addEventListener('click', closeMenu);
             });
         }
 
+        // Close on Escape
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && nav.classList.contains('mobile-open')) {
-                toggle.classList.remove('active');
-                nav.classList.remove('mobile-open');
-                body.classList.remove('menu-open');
+                closeMenu();
             }
+        });
+
+        // Close on tap outside the panel (scrim tap)
+        document.addEventListener('click', function (e) {
+            if (!nav.classList.contains('mobile-open')) return;
+            if (navLinks && navLinks.contains(e.target)) return;
+            if (toggle.contains(e.target)) return;
+            closeMenu();
         });
     }
 
