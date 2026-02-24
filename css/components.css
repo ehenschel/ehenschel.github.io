@@ -172,8 +172,35 @@
 }
 
 @media (max-width: 900px) {
+    /* Definitive mobile fix: solid bar on the fixed element itself.
+       The WebGL canvas below creates iOS compositing artifacts on the child
+       .header-inner pill. Moving bg to .header (the actual fixed element)
+       eliminates the gray/frosted rendering entirely. */
     .header {
-        padding: 0.75rem 1rem 0;
+        padding: 0;
+        background: #142842;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .header.scrolled {
+        padding: 0;
+    }
+
+    .header-inner {
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        will-change: auto !important;
+        -webkit-transform: none !important;
+        transform: none !important;
+        padding: 0.75rem 1rem;
+    }
+
+    .header.scrolled .header-inner {
+        -webkit-transform: none !important;
+        transform: none !important;
+        padding: 0.65rem 1rem;
     }
 
     .mobile-toggle {

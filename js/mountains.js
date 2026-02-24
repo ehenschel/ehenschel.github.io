@@ -140,10 +140,14 @@
         var canvas = renderer.domElement;
         canvas.id = 'mountain-bg';
         canvas.setAttribute('aria-hidden', 'true');
-        // CSS mask: fade in from top, dissolve gently at bottom — no hard geometric edge
-        canvas.style.cssText = 'position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;'
-            + '-webkit-mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 62%, rgba(0,0,0,0.5) 80%, transparent 95%);'
-            + 'mask-image:linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 8%, black 18%, black 62%, rgba(0,0,0,0.5) 80%, transparent 95%);';
+        // On mobile: start canvas BELOW the header to avoid iOS Safari compositing the
+        // WebGL layer with the fixed header (causes gray/frosted rendering on the pill).
+        // On desktop: full viewport as before.
+        var isMobile = W <= 900;
+        var headerOffset = isMobile ? 72 : 0;
+        canvas.style.cssText = 'position:fixed;top:' + headerOffset + 'px;left:0;right:0;bottom:0;width:100vw;height:' + (H - headerOffset) + 'px;z-index:1;pointer-events:none;'
+            + '-webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, black 12%, black 62%, rgba(0,0,0,0.5) 80%, transparent 95%);'
+            + 'mask-image:linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, black 12%, black 62%, rgba(0,0,0,0.5) 80%, transparent 95%);';
         document.body.insertBefore(canvas, document.body.firstChild);
 
         // ---------- Build indexed geometry, displace, color ----------
