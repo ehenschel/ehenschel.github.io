@@ -28,7 +28,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: rgba(20, 40, 66, 1);
+    background: #142842;
+    isolation: isolate;
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     box-shadow: 0 4px 24px rgba(20, 40, 66, 0.15);
@@ -44,10 +45,10 @@
     transform-origin: top center;
 }
 
-/* ── Mobile: solid navy ── */
+/* ── Mobile: solid navy — explicit hex, no alpha, no compositing ambiguity ── */
 @media (max-width: 900px) {
     .header-inner {
-        background: rgba(20, 40, 66, 1);
+        background: #142842;
     }
 }
 
