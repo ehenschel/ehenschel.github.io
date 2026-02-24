@@ -11,7 +11,7 @@
     right: 0;
     z-index: 1000;
     padding: 1rem 2rem 0;
-    transition: all 0.35s ease;
+    transition: padding 0.35s ease;
     height: auto;
     background: none;
     border-bottom: none;
@@ -32,14 +32,16 @@
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 14px;
     box-shadow: 0 4px 24px rgba(20, 40, 66, 0.15);
-    transition: padding 0.4s ease, box-shadow 0.4s ease;
+    transition: padding 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
 }
 
-/* On scroll: slightly tighter, stronger shadow */
+/* On scroll: shrinks to 80% + tighter padding */
 .header.scrolled .header-inner {
     padding: 0.6rem 1.5rem;
     box-shadow: 0 4px 20px rgba(20, 40, 66, 0.3);
     border-radius: 14px;
+    transform: scale(0.8);
+    transform-origin: top center;
 }
 
 /* ── Mobile: solid navy ── */
@@ -195,25 +197,22 @@
         display: flex;
         position: fixed;
         top: var(--header-height);  /* starts below the header pill */
-        left: 16%;
+        left: 0;
         right: 0;
-        bottom: 14%;
+        bottom: 0;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;  /* top-aligned, never clipped by header */
         gap: 0;
-        padding: 2rem 2rem 2.5rem 2.5rem;
+        padding: 2rem 2.5rem 2.5rem 2.5rem;
         counter-reset: nav-counter;
         z-index: 999;
 
         /* Glass panel */
-        background: rgba(18, 34, 58, 0.91);
-        backdrop-filter: blur(40px);
-        -webkit-backdrop-filter: blur(40px);
-        border-left: 1px solid rgba(255, 255, 255, 0.10);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 20px 0 20px 20px;
-        box-shadow: -10px 0 50px rgba(0, 0, 0, 0.35);
+        background: rgba(18, 34, 58, 0.97);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 0;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
 
         /* Slide out to the right — hidden state */
         transform: translateX(110%);
@@ -230,6 +229,8 @@
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         transition: transform 0.42s cubic-bezier(0.23, 1, 0.32, 1),
                     opacity 0.32s ease,
                     visibility 0s linear 0s;
@@ -305,13 +306,13 @@
         display: none;
     }
 
-    /* When menu opens: lang-switch moves to bottom of panel */
+    /* When menu opens: lang-switch sits at bottom of panel */
     .nav.mobile-open .nav-right {
         display: flex;
         position: fixed;
-        bottom: calc(14% + 1.5rem);
-        left: calc(16% + 2.5rem);
-        right: 2rem;
+        bottom: 2.5rem;
+        left: 2.5rem;
+        right: 2.5rem;
         justify-content: space-between;
         align-items: center;
         z-index: 1001;
