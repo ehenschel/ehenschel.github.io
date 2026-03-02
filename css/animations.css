@@ -611,8 +611,13 @@ body {
 
 
 /* ========== HEADER SCROLL SHADOW ========== */
+/* Only transition properties that change on scroll — never 'all'.
+   'transition: all' caused iOS compositing artifacts (gray flash)
+   because the WebGL hero canvas forces GPU rasterization and
+   animating background/transform together triggers a stale layer. */
 .header {
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header.scrolled {
