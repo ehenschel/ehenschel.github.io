@@ -414,14 +414,33 @@
             .insights-grid { grid-template-columns: 1fr 1fr; }
         }
 
+        @media (max-width: 900px) {
+            .insights-hero { min-height: 32vh; }
+            .insights-hero .container {
+                padding-top: var(--space-xl);
+                padding-bottom: var(--space-xl);
+            }
+            .insights-filters { padding: var(--space-lg) 0; }
+            .insights-section { padding: var(--space-2xl) 0; }
+            .insights-newsletter { padding: var(--space-3xl) 0; }
+        }
+
         @media (max-width: 600px) {
             .insights-grid { grid-template-columns: 1fr; }
+            .insights-hero { min-height: auto; }
             .insights-hero h1 { font-size: 2rem; }
+            .insights-hero .container {
+                padding-top: var(--space-lg);
+                padding-bottom: var(--space-lg);
+            }
+            .insights-filters { padding: var(--space-md) 0; }
+            .insights-section { padding: var(--space-xl) 0; }
             .filter-pills { gap: var(--space-sm); }
             .filter-pill { font-size: 0.8rem; padding: 0.45rem 1rem; }
             .newsletter-form { flex-direction: column; }
             .newsletter-form button { width: 100%; }
             .insights-newsletter h2 { font-size: 1.8rem; }
+            .insights-newsletter { padding: var(--space-2xl) 0; }
         }
     </style>
 </head>

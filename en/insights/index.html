@@ -465,6 +465,20 @@
             box-shadow: var(--shadow-md);
         }
 
+        /* ── Article image photos ── */
+        .article-image img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 1100px) {
             .articles-grid {
@@ -476,15 +490,33 @@
             }
         }
 
+        @media (max-width: 900px) {
+            .insights-hero { min-height: 32vh; }
+            .insights-hero .container {
+                padding-top: var(--space-xl);
+                padding-bottom: var(--space-xl);
+            }
+            .insights-filters { padding: var(--space-lg) 0; }
+            .insights-section { padding: var(--space-2xl) 0; }
+            .insights-newsletter { padding: var(--space-3xl) 0; }
+        }
+
         @media (max-width: 600px) {
             .articles-grid {
                 grid-template-columns: 1fr;
                 gap: var(--space-xl);
             }
 
+            .insights-hero { min-height: auto; }
             .insights-hero h1 {
                 font-size: 1.95rem;
             }
+            .insights-hero .container {
+                padding-top: var(--space-lg);
+                padding-bottom: var(--space-lg);
+            }
+            .insights-filters { padding: var(--space-md) 0; }
+            .insights-section { padding: var(--space-xl) 0; }
 
             .filter-pills {
                 padding: var(--space-md) 0 var(--space-sm) 0;
@@ -507,6 +539,7 @@
             .insights-newsletter h2 {
                 font-size: 1.8rem;
             }
+            .insights-newsletter { padding: var(--space-2xl) 0; }
         }
     </style>
 </head>
@@ -611,6 +644,7 @@
                 <!-- NEW Article 2: VAT 16% Impact -->
                 <a href="vat-16-percent-sme-impact.html" class="article-card" data-category="tax">
                     <div class="article-image" style="background: linear-gradient(135deg, #1A3350 0%, #2C4A6E 50%, #C9A962 150%);">
+                        <img src="https://images.unsplash.com/photo-1565688527174-775059ac429c?w=800&q=80" alt="Tax consultation" loading="lazy"/>
                         <span class="article-badge">Tax & Compliance</span>
                     </div>
                     <div class="article-body">
@@ -624,6 +658,7 @@
                 <!-- NEW Article 3: Comprehensive Tax Code Analysis (FLAGSHIP) -->
                 <a href="new-tax-code-2026.html" class="article-card" data-category="tax">
                     <div class="article-image" style="background: linear-gradient(135deg, #0F2030 0%, #1A3350 40%, #2C4A6E 100%);">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80" alt="Business documents" loading="lazy"/>
                         <span class="article-badge">Featured Analysis</span>
                     </div>
                     <div class="article-body">
@@ -637,6 +672,7 @@
                 <!-- Article 4 (previously 2) -->
                 <a href="ifrs-18-presentation-disclosure.html" class="article-card" data-category="ifrs audit">
                     <div class="article-image" style="background: linear-gradient(135deg, #2C4A6E 0%, #5A7FA3 100%);">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Financial data analysis" loading="lazy"/>
                         <span class="article-badge">Audit & Assurance</span>
                     </div>
                     <div class="article-body">
@@ -650,6 +686,7 @@
                 <!-- Article 5 (previously 3) -->
                 <a href="labor-code-amendments-2026.html" class="article-card" data-category="legal">
                     <div class="article-image" style="background: linear-gradient(135deg, #1A3350 0%, #3D5D85 100%);">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80" alt="Legal library" loading="lazy"/>
                         <span class="article-badge">Legal</span>
                     </div>
                     <div class="article-body">
@@ -663,6 +700,7 @@
                 <!-- Article 6 (previously 4) -->
                 <a href="transfer-pricing-cis-documentation.html" class="article-card" data-category="tax">
                     <div class="article-image" style="background: linear-gradient(135deg, #2C4A6E 0%, #5A7FA3 100%);">
+                        <img src="https://images.unsplash.com/photo-1468779036391-52341f60b55d?w=800&q=80" alt="Professional documents" loading="lazy"/>
                         <span class="article-badge">Tax & Compliance</span>
                     </div>
                     <div class="article-body">
@@ -676,6 +714,7 @@
                 <!-- Article 7 (previously 5) -->
                 <a href="mining-audit-environmental-liabilities.html" class="article-card" data-category="audit industry">
                     <div class="article-image" style="background: linear-gradient(135deg, #1A3350 0%, #3D5D85 100%);">
+                        <img src="https://images.unsplash.com/photo-1511978702894-1ab5932da2b6?w=800&q=80" alt="Mining industry" loading="lazy"/>
                         <span class="article-badge">Industry Focus</span>
                     </div>
                     <div class="article-body">
@@ -689,6 +728,7 @@
                 <!-- Article 8 (previously 6) -->
                 <a href="aifc-tax-incentives-corporate-benefits.html" class="article-card" data-category="tax legal">
                     <div class="article-image" style="background: linear-gradient(135deg, #2C4A6E 0%, #5A7FA3 100%);">
+                        <img src="https://images.unsplash.com/photo-1564613655536-8033f6237184?w=800&q=80" alt="Financial district" loading="lazy"/>
                         <span class="article-badge">Legal</span>
                     </div>
                     <div class="article-body">
@@ -702,6 +742,7 @@
                 <!-- Article 9: Digital Taxation -->
                 <a href="#" class="article-card" data-category="tax">
                     <div class="article-image" style="background: linear-gradient(135deg, #1A3350 0%, #2C4A6E 60%, #C9A962 150%);">
+                        <img src="https://images.unsplash.com/photo-1603482360836-ffc37c5a86b7?w=800&q=80" alt="Modern business" loading="lazy"/>
                         <span class="article-badge">Tax &amp; Compliance</span>
                     </div>
                     <div class="article-body">
@@ -715,6 +756,7 @@
                 <!-- Article 10: ESG & Sustainability Reporting -->
                 <a href="#" class="article-card" data-category="audit industry">
                     <div class="article-image" style="background: linear-gradient(135deg, #0F2030 0%, #1A3350 50%, #3D5D85 100%);">
+                        <img src="https://images.unsplash.com/photo-1554224311-beee415c15cb?w=800&q=80" alt="Sustainability reporting" loading="lazy"/>
                         <span class="article-badge">Industry Focus</span>
                     </div>
                     <div class="article-body">

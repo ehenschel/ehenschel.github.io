@@ -225,47 +225,49 @@
     }
 
     .nav-links {
-        /* Always flex but hidden offscreen — smooth slide, no flash */
+        /* Glass tablet dropdown — floats below header as rounded panel */
         display: flex;
         position: fixed;
-        top: var(--header-height);  /* starts below the header pill */
-        left: 0;
-        right: 0;
-        bottom: 0;
+        top: calc(var(--header-height) + 0.35rem);
+        left: 0.75rem;
+        right: 0.75rem;
+        bottom: 0.75rem;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: flex-start;  /* top-aligned, never clipped by header */
+        justify-content: flex-start;
         gap: 0;
-        padding: 2rem 2.5rem 2.5rem 2.5rem;
+        padding: 2rem 2rem 5rem;
         counter-reset: nav-counter;
         z-index: 999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
 
-        /* Solid panel — no alpha, no backdrop-filter: avoids iOS stacking-context bugs */
-        background: #12223A;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 0;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+        /* Glass panel — semi-transparent navy with blur */
+        background: rgba(18, 34, 58, 0.88);
+        -webkit-backdrop-filter: blur(20px) saturate(150%);
+        backdrop-filter: blur(20px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
-        /* Slide out to the right — hidden state */
-        transform: translateX(110%);
+        /* Drop-down hidden state — starts above viewport */
+        transform: translateY(-120%);
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
-        transition: transform 0.42s cubic-bezier(0.23, 1, 0.32, 1),
-                    opacity 0.32s ease,
-                    visibility 0s linear 0.42s;
+        transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                    opacity 0.35s ease,
+                    visibility 0s linear 0.45s;
     }
 
     .nav.mobile-open .nav-links {
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
         visibility: visible;
         pointer-events: auto;
-        /* backdrop-filter removed: it creates a new stacking context on iOS
-           that causes menu items to overlap/bleed through page content.
-           The background is already fully opaque so blur adds nothing. */
-        transition: transform 0.42s cubic-bezier(0.23, 1, 0.32, 1),
-                    opacity 0.32s ease,
+        transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+                    opacity 0.35s ease,
                     visibility 0s linear 0s;
     }
 
@@ -339,13 +341,13 @@
         display: none;
     }
 
-    /* When menu opens: lang-switch sits at bottom of panel */
+    /* When menu opens: lang-switch sits at bottom of tablet panel */
     .nav.mobile-open .nav-right {
         display: flex;
         position: fixed;
-        bottom: 2.5rem;
-        left: 2.5rem;
-        right: 2.5rem;
+        bottom: calc(0.75rem + 2rem);
+        left: calc(0.75rem + 2rem);
+        right: calc(0.75rem + 2rem);
         justify-content: space-between;
         align-items: center;
         z-index: 1001;
