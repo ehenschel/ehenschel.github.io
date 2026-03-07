@@ -421,17 +421,7 @@ body {
 }
 
 .person-photo::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 50%, rgba(26, 51, 80, 0.7) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    border-radius: inherit;
-}
-
-.person-card:hover .person-photo::after {
-    opacity: 1;
+    display: none;
 }
 
 .person-photo img {

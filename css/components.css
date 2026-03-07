@@ -225,33 +225,32 @@
     }
 
     .nav-links {
-        /* Glass tablet dropdown — floats below header as rounded panel */
+        /* Full-screen menu panel */
         display: flex;
         position: fixed;
-        top: calc(var(--header-height) + 0.35rem);
-        left: 0.75rem;
-        right: 0.75rem;
-        bottom: 0.75rem;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        min-height: 100vh;
+        min-height: 100dvh;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
         gap: 0;
-        padding: 2rem 2rem 5rem;
+        padding: calc(var(--header-height) + 2rem) 2rem 5rem;
         counter-reset: nav-counter;
         z-index: 999;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
 
-        /* Glass panel — semi-transparent navy with blur */
-        background: rgba(18, 34, 58, 0.88);
-        -webkit-backdrop-filter: blur(20px) saturate(150%);
-        backdrop-filter: blur(20px) saturate(150%);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 20px;
-        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        /* Solid navy — fully opaque */
+        background: #142842;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
 
-        /* Drop-down hidden state — starts above viewport */
+        /* Hidden state */
         transform: translateY(-120%);
         opacity: 0;
         visibility: hidden;
@@ -291,17 +290,15 @@
     }
 
     .nav.mobile-open .nav-links li {
-        animation: menuSlideIn 0.45s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    .nav.mobile-open .nav-links li:nth-child(1) { animation-delay: 0.04s; }
-    .nav.mobile-open .nav-links li:nth-child(2) { animation-delay: 0.10s; }
-    .nav.mobile-open .nav-links li:nth-child(3) { animation-delay: 0.16s; }
-    .nav.mobile-open .nav-links li:nth-child(4) { animation-delay: 0.22s; }
-    .nav.mobile-open .nav-links li:nth-child(5) { animation-delay: 0.28s; }
-
-    @keyframes menuSlideIn {
-        to { opacity: 1; transform: translateX(0); }
-    }
+    .nav.mobile-open .nav-links li:nth-child(1) { transition-delay: 0.04s; }
+    .nav.mobile-open .nav-links li:nth-child(2) { transition-delay: 0.10s; }
+    .nav.mobile-open .nav-links li:nth-child(3) { transition-delay: 0.16s; }
+    .nav.mobile-open .nav-links li:nth-child(4) { transition-delay: 0.22s; }
+    .nav.mobile-open .nav-links li:nth-child(5) { transition-delay: 0.28s; }
 
     .nav-links a {
         font-size: 2.1rem;
@@ -341,13 +338,13 @@
         display: none;
     }
 
-    /* When menu opens: lang-switch sits at bottom of tablet panel */
+    /* When menu opens: lang-switch sits at bottom of panel */
     .nav.mobile-open .nav-right {
         display: flex;
         position: fixed;
-        bottom: calc(0.75rem + 2rem);
-        left: calc(0.75rem + 2rem);
-        right: calc(0.75rem + 2rem);
+        bottom: 2rem;
+        left: 2rem;
+        right: 2rem;
         justify-content: space-between;
         align-items: center;
         z-index: 1001;
@@ -359,12 +356,12 @@
         overflow: hidden;
     }
 
-    /* Scrim behind the glass panel — dims the left strip and bottom strip */
+    /* Opaque scrim covers entire viewport behind menu */
     body.menu-open::before {
         content: '';
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.3);
+        background: #142842;
         z-index: 997;
     }
 
