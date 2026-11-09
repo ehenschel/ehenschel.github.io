@@ -11,7 +11,7 @@
     <meta property="og:title" content="Срок 1 марта: выбор налогового режима в соответствии с новым Кодексом">
     <meta property="og:description" content="Каждый предприниматель обязан уведомить налоговый орган о выбранном режиме до 1 марта 2026 года. Пропуск срока влечёт автоматическую ликвидацию.">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://ehenschel.github.io/insights/srok-1-marta-nalogovyy-rezhim.html">
+    <meta property="og:url" content="https://mintax.kz/insights/srok-1-marta-nalogovyy-rezhim.html">
     <meta property="article:published_time" content="2026-02-18">
     <meta property="article:section" content="Налоги и соответствие требованиям">
 
@@ -168,6 +168,12 @@
 
         /* Push fixed header below the 44px announcement banner */
         .header { top: 44px; }
+
+        /* Narrow screens: hold the banner to one 44px line so it never covers the header */
+        @media (max-width: 1024px) {
+            .countdown-banner { height: 44px; line-height: 44px; padding: 0 var(--space-md); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; box-sizing: border-box; font-size: 0.8rem; }
+            .countdown-banner strong { font-size: 0.9rem; }
+        }
 
         /* Breadcrumb is in normal flow directly after the banner;
            padding-top pushes its content below the header pill */
@@ -445,7 +451,7 @@
                 <div class="footer-col">
                     <h4>Услуги</h4>
                     <ul>
-                        <li><a href="../services/audit.html">Аудит и заверение</a></li>
+                        <li><a href="../services/audit.html">Аудит и заверка</a></li>
                         <li><a href="../services/tax.html">Налоговый консалтинг</a></li>
                         <li><a href="../services/legal.html">Юридические услуги</a></li>
                         <li><a href="../services/ifrs.html">Отчётность по МСФО</a></li>
@@ -465,8 +471,8 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <ul>
-                        <li>+7 (727) 221-88-88</li>
-                        <li>info@mintax.kz</li>
+                        <li><a href="tel:+77272218888">+7 (727) 221-88-88</a></li>
+                        <li><a href="mailto:info@mintax.kz">info@mintax.kz</a></li>
                         <li>ул. Кармысова, 62Б, Алматы</li>
                     </ul>
                 </div>

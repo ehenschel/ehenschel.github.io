@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ehenschel.github.io/sitemap.xml
+Sitemap: https://mintax.kz/sitemap.xml
 
 # Legacy files — excluded from indexing
 Disallow: /about.html
